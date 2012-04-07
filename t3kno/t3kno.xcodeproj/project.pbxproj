@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD3D9FA41530F33A0025B9A3 /* logoWithText.png in Resources */ = {isa = PBXBuildFile; fileRef = BD3D9FA31530F33A0025B9A3 /* logoWithText.png */; };
+		BD3D9FA61530F4010025B9A3 /* logoWithText_sm.png in Resources */ = {isa = PBXBuildFile; fileRef = BD3D9FA51530F4010025B9A3 /* logoWithText_sm.png */; };
 		BD4F0EA41530D75E00573F67 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD4F0EA31530D75E00573F67 /* UIKit.framework */; };
 		BD4F0EA61530D75E00573F67 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD4F0EA51530D75E00573F67 /* Foundation.framework */; };
 		BD4F0EA81530D75E00573F67 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD4F0EA71530D75E00573F67 /* CoreGraphics.framework */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BD3D9FA31530F33A0025B9A3 /* logoWithText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoWithText.png; sourceTree = "<group>"; };
+		BD3D9FA51530F4010025B9A3 /* logoWithText_sm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoWithText_sm.png; sourceTree = "<group>"; };
 		BD4F0E9F1530D75E00573F67 /* t3kno.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = t3kno.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD4F0EA31530D75E00573F67 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BD4F0EA51530D75E00573F67 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -84,6 +88,8 @@
 				BD4F0EB51530D75F00573F67 /* CBHViewController.h */,
 				BD4F0EB61530D75F00573F67 /* CBHViewController.m */,
 				BD4F0EB81530D75F00573F67 /* CBHViewController_iPhone.xib */,
+				BD3D9FA51530F4010025B9A3 /* logoWithText_sm.png */,
+				BD3D9FA31530F33A0025B9A3 /* logoWithText.png */,
 				BD4F0EBB1530D75F00573F67 /* CBHViewController_iPad.xib */,
 				BD4F0EAA1530D75E00573F67 /* Supporting Files */,
 			);
@@ -154,6 +160,8 @@
 				BD4F0EAE1530D75E00573F67 /* InfoPlist.strings in Resources */,
 				BD4F0EBA1530D75F00573F67 /* CBHViewController_iPhone.xib in Resources */,
 				BD4F0EBD1530D75F00573F67 /* CBHViewController_iPad.xib in Resources */,
+				BD3D9FA41530F33A0025B9A3 /* logoWithText.png in Resources */,
+				BD3D9FA61530F4010025B9A3 /* logoWithText_sm.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +294,7 @@
 				BD4F0EC21530D75F00573F67 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
