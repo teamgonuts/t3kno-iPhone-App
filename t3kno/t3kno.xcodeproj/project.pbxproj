@@ -18,6 +18,7 @@
 		BD4F0EB71530D75F00573F67 /* CBHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4F0EB61530D75F00573F67 /* CBHViewController.m */; };
 		BD4F0EBA1530D75F00573F67 /* CBHViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD4F0EB81530D75F00573F67 /* CBHViewController_iPhone.xib */; };
 		BD4F0EBD1530D75F00573F67 /* CBHViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD4F0EBB1530D75F00573F67 /* CBHViewController_iPad.xib */; };
+		BDE668861531028D0013CBFA /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE668851531028D0013CBFA /* Song.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,8 @@
 		BD4F0EB61530D75F00573F67 /* CBHViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBHViewController.m; sourceTree = "<group>"; };
 		BD4F0EB91530D75F00573F67 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CBHViewController_iPhone.xib; sourceTree = "<group>"; };
 		BD4F0EBC1530D75F00573F67 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CBHViewController_iPad.xib; sourceTree = "<group>"; };
+		BDE668841531028D0013CBFA /* Song.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Song.h; sourceTree = "<group>"; };
+		BDE668851531028D0013CBFA /* Song.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Song.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +95,8 @@
 				BD3D9FA31530F33A0025B9A3 /* logoWithText.png */,
 				BD4F0EBB1530D75F00573F67 /* CBHViewController_iPad.xib */,
 				BD4F0EAA1530D75E00573F67 /* Supporting Files */,
+				BDE668841531028D0013CBFA /* Song.h */,
+				BDE668851531028D0013CBFA /* Song.m */,
 			);
 			path = t3kno;
 			sourceTree = "<group>";
@@ -175,6 +180,7 @@
 				BD4F0EB01530D75E00573F67 /* main.m in Sources */,
 				BD4F0EB41530D75F00573F67 /* CBHAppDelegate.m in Sources */,
 				BD4F0EB71530D75F00573F67 /* CBHViewController.m in Sources */,
+				BDE668861531028D0013CBFA /* Song.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
