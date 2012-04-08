@@ -20,6 +20,10 @@
 		BD4F0EBD1530D75F00573F67 /* CBHViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD4F0EBB1530D75F00573F67 /* CBHViewController_iPad.xib */; };
 		BDE668861531028D0013CBFA /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE668851531028D0013CBFA /* Song.m */; };
 		BDE66891153146030013CBFA /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE66890153146030013CBFA /* ASIFormDataRequest.m */; };
+		BDE66893153147420013CBFA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDE66892153147420013CBFA /* CFNetwork.framework */; };
+		BDE66895153147530013CBFA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDE66894153147530013CBFA /* SystemConfiguration.framework */; };
+		BDE66897153147680013CBFA /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDE66896153147680013CBFA /* MobileCoreServices.framework */; };
+		BDE66899153147820013CBFA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BDE66898153147820013CBFA /* libz.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +47,10 @@
 		BDE668851531028D0013CBFA /* Song.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Song.m; sourceTree = "<group>"; };
 		BDE6688F153146030013CBFA /* ASIFormDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIFormDataRequest.h; path = "../../../ASI HTTP Request Wrapper/Classes/ASIFormDataRequest.h"; sourceTree = "<group>"; };
 		BDE66890153146030013CBFA /* ASIFormDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASIFormDataRequest.m; path = "../../../ASI HTTP Request Wrapper/Classes/ASIFormDataRequest.m"; sourceTree = "<group>"; };
+		BDE66892153147420013CBFA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		BDE66894153147530013CBFA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		BDE66896153147680013CBFA /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		BDE66898153147820013CBFA /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +58,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDE66899153147820013CBFA /* libz.dylib in Frameworks */,
+				BDE66897153147680013CBFA /* MobileCoreServices.framework in Frameworks */,
+				BDE66895153147530013CBFA /* SystemConfiguration.framework in Frameworks */,
+				BDE66893153147420013CBFA /* CFNetwork.framework in Frameworks */,
 				BD4F0EA41530D75E00573F67 /* UIKit.framework in Frameworks */,
 				BD4F0EA61530D75E00573F67 /* Foundation.framework in Frameworks */,
 				BD4F0EA81530D75E00573F67 /* CoreGraphics.framework in Frameworks */,
@@ -62,6 +74,10 @@
 		BD4F0E941530D75E00573F67 = {
 			isa = PBXGroup;
 			children = (
+				BDE66898153147820013CBFA /* libz.dylib */,
+				BDE66896153147680013CBFA /* MobileCoreServices.framework */,
+				BDE66894153147530013CBFA /* SystemConfiguration.framework */,
+				BDE66892153147420013CBFA /* CFNetwork.framework */,
 				BD4F0EA91530D75E00573F67 /* t3kno */,
 				BD4F0EA21530D75E00573F67 /* Frameworks */,
 				BD4F0EA01530D75E00573F67 /* Products */,
