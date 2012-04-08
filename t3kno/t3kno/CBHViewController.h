@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface CBHViewController : UIViewController
+- (IBAction)loadTableView:(id)sender;
 
 @end

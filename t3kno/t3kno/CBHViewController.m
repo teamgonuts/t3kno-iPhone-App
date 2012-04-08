@@ -61,4 +61,26 @@
     }
 }
 
+- (IBAction)loadTableView:(id)sender {
+    bool debug = true;
+    if (debug){
+      NSLog(@"loadTableView called!");  
+    }
+    
+    NSString *genrefilter = @"all"; 
+    NSString *timefilter = @"new";
+    
+    NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://t3k.no/app/request_songs.php"]];
+    [request setHTTPMethod:@"POST"];
+    
+    NSString *post =[[NSString alloc] initWithFormat:@"genrefilter=%@timefilter=%@submit", genrefilter, timefilter];
+    [request setHTTPBody:[post dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    NSURLResponse *response;
+    NSError *err;
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&err];
+    
+    NSLog([[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
+
+}
 @end

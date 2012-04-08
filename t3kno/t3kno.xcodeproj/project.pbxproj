@@ -19,11 +19,12 @@
 		BD4F0EBA1530D75F00573F67 /* CBHViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD4F0EB81530D75F00573F67 /* CBHViewController_iPhone.xib */; };
 		BD4F0EBD1530D75F00573F67 /* CBHViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD4F0EBB1530D75F00573F67 /* CBHViewController_iPad.xib */; };
 		BDE668861531028D0013CBFA /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE668851531028D0013CBFA /* Song.m */; };
-		BDE66891153146030013CBFA /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE66890153146030013CBFA /* ASIFormDataRequest.m */; };
 		BDE66893153147420013CBFA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDE66892153147420013CBFA /* CFNetwork.framework */; };
 		BDE66895153147530013CBFA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDE66894153147530013CBFA /* SystemConfiguration.framework */; };
 		BDE66897153147680013CBFA /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDE66896153147680013CBFA /* MobileCoreServices.framework */; };
 		BDE66899153147820013CBFA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BDE66898153147820013CBFA /* libz.dylib */; };
+		BDE668A015314D670013CBFA /* logo_57.png in Resources */ = {isa = PBXBuildFile; fileRef = BDE6689E15314D670013CBFA /* logo_57.png */; };
+		BDE668A115314D670013CBFA /* logo_114.png in Resources */ = {isa = PBXBuildFile; fileRef = BDE6689F15314D670013CBFA /* logo_114.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,12 +46,12 @@
 		BD4F0EBC1530D75F00573F67 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CBHViewController_iPad.xib; sourceTree = "<group>"; };
 		BDE668841531028D0013CBFA /* Song.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Song.h; sourceTree = "<group>"; };
 		BDE668851531028D0013CBFA /* Song.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Song.m; sourceTree = "<group>"; };
-		BDE6688F153146030013CBFA /* ASIFormDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIFormDataRequest.h; path = "../../../ASI HTTP Request Wrapper/Classes/ASIFormDataRequest.h"; sourceTree = "<group>"; };
-		BDE66890153146030013CBFA /* ASIFormDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASIFormDataRequest.m; path = "../../../ASI HTTP Request Wrapper/Classes/ASIFormDataRequest.m"; sourceTree = "<group>"; };
 		BDE66892153147420013CBFA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		BDE66894153147530013CBFA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		BDE66896153147680013CBFA /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		BDE66898153147820013CBFA /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		BDE6689E15314D670013CBFA /* logo_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_57.png; sourceTree = "<group>"; };
+		BDE6689F15314D670013CBFA /* logo_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_114.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +106,8 @@
 		BD4F0EA91530D75E00573F67 /* t3kno */ = {
 			isa = PBXGroup;
 			children = (
+				BDE6689E15314D670013CBFA /* logo_57.png */,
+				BDE6689F15314D670013CBFA /* logo_114.png */,
 				BD4F0EB21530D75F00573F67 /* CBHAppDelegate.h */,
 				BD4F0EB31530D75F00573F67 /* CBHAppDelegate.m */,
 				BD4F0EB51530D75F00573F67 /* CBHViewController.h */,
@@ -116,8 +119,6 @@
 				BD4F0EAA1530D75E00573F67 /* Supporting Files */,
 				BDE668841531028D0013CBFA /* Song.h */,
 				BDE668851531028D0013CBFA /* Song.m */,
-				BDE6688F153146030013CBFA /* ASIFormDataRequest.h */,
-				BDE66890153146030013CBFA /* ASIFormDataRequest.m */,
 			);
 			path = t3kno;
 			sourceTree = "<group>";
@@ -188,6 +189,8 @@
 				BD4F0EBD1530D75F00573F67 /* CBHViewController_iPad.xib in Resources */,
 				BD3D9FA41530F33A0025B9A3 /* logoWithText.png in Resources */,
 				BD3D9FA61530F4010025B9A3 /* logoWithText_sm.png in Resources */,
+				BDE668A015314D670013CBFA /* logo_57.png in Resources */,
+				BDE668A115314D670013CBFA /* logo_114.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,7 +205,6 @@
 				BD4F0EB41530D75F00573F67 /* CBHAppDelegate.m in Sources */,
 				BD4F0EB71530D75F00573F67 /* CBHViewController.m in Sources */,
 				BDE668861531028D0013CBFA /* Song.m in Sources */,
-				BDE66891153146030013CBFA /* ASIFormDataRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
