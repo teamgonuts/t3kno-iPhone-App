@@ -25,6 +25,8 @@
 		BDE66899153147820013CBFA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BDE66898153147820013CBFA /* libz.dylib */; };
 		BDE668A015314D670013CBFA /* logo_57.png in Resources */ = {isa = PBXBuildFile; fileRef = BDE6689E15314D670013CBFA /* logo_57.png */; };
 		BDE668A115314D670013CBFA /* logo_114.png in Resources */ = {isa = PBXBuildFile; fileRef = BDE6689F15314D670013CBFA /* logo_114.png */; };
+		BDE668A515324D070013CBFA /* SongCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDE668A415324D070013CBFA /* SongCell.xib */; };
+		BDE668A815324FF20013CBFA /* SongCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE668A715324FF20013CBFA /* SongCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,9 @@
 		BDE66898153147820013CBFA /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BDE6689E15314D670013CBFA /* logo_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_57.png; sourceTree = "<group>"; };
 		BDE6689F15314D670013CBFA /* logo_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_114.png; sourceTree = "<group>"; };
+		BDE668A415324D070013CBFA /* SongCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SongCell.xib; sourceTree = "<group>"; };
+		BDE668A615324FF20013CBFA /* SongCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongCell.h; sourceTree = "<group>"; };
+		BDE668A715324FF20013CBFA /* SongCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +124,9 @@
 				BD4F0EAA1530D75E00573F67 /* Supporting Files */,
 				BDE668841531028D0013CBFA /* Song.h */,
 				BDE668851531028D0013CBFA /* Song.m */,
+				BDE668A415324D070013CBFA /* SongCell.xib */,
+				BDE668A615324FF20013CBFA /* SongCell.h */,
+				BDE668A715324FF20013CBFA /* SongCell.m */,
 			);
 			path = t3kno;
 			sourceTree = "<group>";
@@ -191,6 +199,7 @@
 				BD3D9FA61530F4010025B9A3 /* logoWithText_sm.png in Resources */,
 				BDE668A015314D670013CBFA /* logo_57.png in Resources */,
 				BDE668A115314D670013CBFA /* logo_114.png in Resources */,
+				BDE668A515324D070013CBFA /* SongCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,6 +214,7 @@
 				BD4F0EB41530D75F00573F67 /* CBHAppDelegate.m in Sources */,
 				BD4F0EB71530D75F00573F67 /* CBHViewController.m in Sources */,
 				BDE668861531028D0013CBFA /* Song.m in Sources */,
+				BDE668A815324FF20013CBFA /* SongCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

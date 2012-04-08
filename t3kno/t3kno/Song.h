@@ -8,6 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Song : NSObject
+@interface Song : NSObject{
+    @public
+        NSString *ytcode;
+        NSString *title;
+        NSString *artist;
+        NSString *genre;
+        NSString *score;
+}
+
+- (Song *) initWithTitle: (NSString *) title_i
+               andArtist: artist_i
+                andGenre: genre_i
+                andScore: score_i;
+
 
 @end

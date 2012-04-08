@@ -8,10 +8,15 @@
 
 #import "Song.h"
 
-@implementation Song{
-    NSString *ytcode;
-    NSString *title;
-    NSString *artist;
+@implementation Song
+- (Song *) initWithTitle:(NSString *)title_i 
+               andArtist:(id)artist_i
+                andGenre:(id)genre_i 
+                andScore:(id)score_i{
+    title = title_i;
+    artist = artist_i;
+    genre = genre_i;
+    score = score_i;
+    return (self);
 }
-
 @end
