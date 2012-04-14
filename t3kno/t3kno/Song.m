@@ -19,4 +19,14 @@
     score = score_i;
     return (self);
 }
+
+- (Song *) initWithDictionary:(NSDictionary *)songDictionary{
+    title = [songDictionary objectForKey:@"title"];
+    artist = [songDictionary objectForKey:@"artist"];
+    genre = [songDictionary objectForKey:@"genre"];
+    score = [songDictionary objectForKey:@"score"];
+    ytcode = [songDictionary objectForKey:@"ytcode"];
+    
+    return (self);
+}
 @end

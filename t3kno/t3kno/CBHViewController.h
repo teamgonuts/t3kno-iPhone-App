@@ -14,8 +14,9 @@
 - (IBAction)openTopOfOptions:(id)sender;
 @property (retain, nonatomic) IBOutlet UILabel *tableTitle;
 @property (retain, nonatomic) IBOutlet UIToolbar *topOfToolbar;
+@property (retain, nonatomic) IBOutlet UITableView *tableView;
 
-@property (strong, nonatomic) NSArray *songs;
+@property (retain, nonatomic) NSMutableArray *songs;
 @property (strong, nonatomic) NSData *receivedData;
 
 

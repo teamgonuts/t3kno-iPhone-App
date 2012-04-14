@@ -22,5 +22,7 @@
                 andGenre: genre_i
                 andScore: score_i;
 
+- (Song *) initWithDictionary: (NSDictionary *) songDictionary;
+
 
 @end
