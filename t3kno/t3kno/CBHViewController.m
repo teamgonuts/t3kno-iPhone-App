@@ -15,6 +15,7 @@
 @synthesize tableTitle;
 @synthesize topOfToolbar;
 @synthesize songs;
+@synthesize receivedData;
 
 - (void)didReceiveMemoryWarning
 {
@@ -118,20 +119,89 @@
     
     NSString *genrefilter = @"all"; 
     NSString *timefilter = @"new";
+    NSString *urlString = [[NSString alloc] 
+                          initWithFormat:@"http://t3k.no/app/request_songs.php?genrefilter=%@&timefilter=%@",
+                          genrefilter, timefilter];
     
-    NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://t3k.no/app/request_songs.php"]];
-    [request setHTTPMethod:@"POST"];
+    NSURL *urlToRequest = [NSURL URLWithString:urlString];
     
-    NSString *post =[[NSString alloc] initWithFormat:@"genrefilter=%@timefilter=%@submit", genrefilter, timefilter];
-    [request setHTTPBody:[post dataUsingEncoding:NSUTF8StringEncoding]];
+    // Create the request.
+    NSURLRequest *theRequest=[NSURLRequest requestWithURL:urlToRequest
+                                              cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                          timeoutInterval:60.0];
+    // create the connection with the request
+    // and start loading the data
+    NSURLConnection *theConnection=[[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    if (theConnection) {
+        // Create the NSMutableData to hold the received data.
+        // receivedData is an instance variable declared elsewhere.
+        receivedData = [[NSMutableData data] retain];
+    } else {
+        // Inform the user that the connection failed.
+        NSLog(@"Connection to t3k.no/app/request_songs.php has failed");
+    }
     
-    NSURLResponse *response;
-    NSError *err;
-    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&err];
-    
-    NSLog([[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
+    NSLog([[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding]);
 
 }
+
+/*=========================**
+    NSURLConnection Delegate
+ *=========================*/
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    BOOL debug = true;
+    if (debug){
+      NSLog(@"didReceiveResponse called!");  
+    }
+
+    // This method is called when the server has determined that it
+    // has enough information to create the NSURLResponse.
+    
+    // It can be called multiple times, for example in the case of a
+    // redirect, so each time we reset the data.
+    
+    // receivedData is an instance variable declared elsewhere.
+    [receivedData setLength:0];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    // Append the new data to receivedData.
+    // receivedData is an instance variable declared elsewhere.
+    [receivedData appendData:data];
+}
+
+- (void)connection:(NSURLConnection *)connection
+  didFailWithError:(NSError *)error
+{
+    // release the connection, and the data object
+    [connection release];
+    // receivedData is declared as a method instance elsewhere
+    [receivedData release];
+    
+    // inform the user
+    NSLog(@"Connection failed! Error - %@ %@",
+          [error localizedDescription],
+          [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    // do something with the data
+    // receivedData is declared as a method instance elsewhere
+    NSLog(@"Succeeded! Received %d bytes of data",[receivedData length]);
+    
+    // release the connection, and the data object
+    [connection release];
+    [receivedData release];
+}
+
+
+/*=========================**
+       Filter Controls
+ *=========================*/
 
 - (IBAction)openGenreOptions:(id)sender {
 }

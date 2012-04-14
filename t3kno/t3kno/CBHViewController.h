@@ -16,5 +16,7 @@
 @property (retain, nonatomic) IBOutlet UIToolbar *topOfToolbar;
 
 @property (strong, nonatomic) NSArray *songs;
+@property (strong, nonatomic) NSData *receivedData;
+
 
 @end
