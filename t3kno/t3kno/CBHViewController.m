@@ -37,7 +37,7 @@
 
     
     
-        
+    [tableView reloadData];    
     
     
 }
@@ -189,6 +189,7 @@
         NSLog(@"songs.length:%u, song, %@",[songs count], songs);
     }
     
+    [tableView reloadData];
     
    }
 
