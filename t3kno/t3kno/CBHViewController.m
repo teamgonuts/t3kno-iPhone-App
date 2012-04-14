@@ -36,9 +36,7 @@
     [self loadTableView:nil];
 
     
-    
-    [tableView reloadData];    
-    
+        
     
 }
 
@@ -118,8 +116,6 @@
         NSLog([[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding]);
     }
     
-    //load the table view
-    [tableView reloadData];
 
 }
 
