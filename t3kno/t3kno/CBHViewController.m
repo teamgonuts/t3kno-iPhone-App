@@ -309,6 +309,7 @@
     //toggles the genrePicker hidden or visible
     if (searchBar.hidden == false){
         //hide searchBar
+        [searchBar resignFirstResponder]; //close keyboard
         searchBar.hidden = true;
         genrePicker.hidden = true;
         timePicker.hidden = true;
@@ -326,6 +327,7 @@
         tableView.hidden = false;
     }
 }
+
 
 #pragma mark -
 #pragma mark Picker Data Source Methods

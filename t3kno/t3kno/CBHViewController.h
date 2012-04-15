@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface CBHViewController : UIViewController 
-    <UIPickerViewDelegate, UIPickerViewDataSource>
+    <UIPickerViewDelegate, UIPickerViewDataSource, UISearchBarDelegate>
+
 - (IBAction)loadTableView:(id)sender;
 - (IBAction)openGenreOptions:(id)sender;
 - (IBAction)openTimePicker:(id)sender;
