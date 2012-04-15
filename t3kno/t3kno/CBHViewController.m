@@ -42,7 +42,7 @@
                        @"Dubstep", @"Electro", @"Hardstyle", @"House", @"Trance", nil];
     genrePickerData = genres;
     //top Of ___ and Fresh List
-    NSArray *times = [[NSArray alloc] initWithObjects:@"Fresh List", @"Top of the Day",
+    NSArray *times = [[NSArray alloc] initWithObjects:@"Freshest", @"Top of the Day",
                       @"Top of the Week", @"Top of the Month", @"Top of the Year",
                       @"Top of the Century", nil];
     timePickerData = times;
@@ -226,6 +226,28 @@
         NSLog(@"  Time: %@", timeFilter);
     }
     
+    NSString *genre = genreFilter;
+    NSString *time = timeFilter;
+    
+    if ([genre isEqualToString:@"all"]){
+        genre = @"Tracks";
+    }
+    
+    //the fresh List is selected
+    if ([genre isEqualToString:@"Tracks"] && 
+        [time isEqualToString:@"Freshest"]){
+        tableTitle.text = @"The Fresh List";
+    }
+    //the freshest + genre
+    else if ([time isEqualToString:@"Freshest"]){
+        tableTitle.text = [[NSString alloc] initWithFormat:@"The Freshest %@", genre];
+    }
+    //top top [genre] of the [time]
+    else{
+        tableTitle.text = [[NSString alloc] initWithFormat:@"Top %@ of the %@",
+                           genre, time];
+    }
+    
 }
 
 - (IBAction)openGenreOptions:(id)sender {
@@ -328,12 +350,37 @@ numberOfRowsInComponent:(NSInteger)component{
        didSelectRow:(NSInteger)row 
         inComponent:(NSInteger)component{
     if (pickerView == genrePicker){
-        [self openGenreOptions:nil]; //closes genrePicker
-        genreFilter = [genrePickerData objectAtIndex:row];
+        NSString *genreString = [genrePickerData objectAtIndex:row];
+        
+        //Translating Picker View Text to database-friendly values
+        if ([genreString isEqualToString:@"Drum & Bass"]){
+            genreFilter = @"DnB";
+        }
+        else {//value is good for database
+            genreFilter = genreString;
+        }
     }
     else{ //pickerView == timePicker
-        [self openTimePicker:nil];
-        timeFilter = [timePickerData objectAtIndex:row];
+        NSString *timeString = [timePickerData objectAtIndex:row];
+        //Translating Picker View Text to database-friendly values
+        if ([timeString isEqualToString:@"Freshest"]){
+            timeFilter = @"new";
+        }
+        else if ([timeString isEqualToString:@"Top of the Day"]){
+            timeFilter = @"Day";
+        }
+        else if ([timeString isEqualToString:@"Top of the Week"]){
+            timeFilter = @"Week";
+        }
+        else if ([timeString isEqualToString:@"Top of the Month"]){
+            timeFilter = @"Month";
+        }
+        else if ([timeString isEqualToString:@"Top of the Year"]){
+            timeFilter = @"Year";
+        }
+        else if ([timeString isEqualToString:@"Top of the Century"]){
+            timeFilter = @"Century";
+        }
     }
     [self refreshTitle];
 }
