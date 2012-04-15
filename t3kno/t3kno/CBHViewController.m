@@ -348,6 +348,26 @@
     }
 }
 
+#pragma -
+#pragma mark Search Bar Delegate Methods
+-(void) searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    bool debug = true;
+    
+    NSString *searchTerm = [searchBar text];
+    
+    if (debug){
+        NSLog(@"Searched: %@", searchTerm);
+    }
+    
+    tableTitle.text = [[NSString alloc] initWithFormat:@"Searching: %@" , searchTerm];
+    
+    [searchBar resignFirstResponder];
+}
+
+- (void) searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    searchBar.text  = @"";
+    [self openSearchBar:nil];
+}
 
 #pragma mark -
 #pragma mark Picker Data Source Methods
