@@ -110,7 +110,7 @@
 }
 
 - (IBAction)loadTableView:(id)sender {
-    bool debug = false;
+    bool debug = true;
     if (debug){
       NSLog(@"loadTableView called!");  
     }
@@ -239,7 +239,7 @@
         tableTitle.text = @"The Fresh List";
     }
     //the freshest + genre
-    else if ([time isEqualToString:@"Freshest"]){
+    else if ([time isEqualToString:@"new"]){
         tableTitle.text = [[NSString alloc] initWithFormat:@"The Freshest %@", genre];
     }
     //top top [genre] of the [time]
@@ -274,7 +274,7 @@
 
 - (IBAction)openTimePicker:(id)sender {
     //toggles the genrePicker hidden or visible
-    if (timePicker.hidden == false){
+    if (timePicker.hidden == false){ //confirm selection
         //hide other views
         timePicker.hidden = true;
         genrePicker.hidden = true;
@@ -283,7 +283,7 @@
         //show the tableView
         tableView.hidden = false;
     }
-    else{
+    else{ //show selection
         //hide the other views
         tableView.hidden   = true;
         genrePicker.hidden = true;
@@ -355,6 +355,9 @@ numberOfRowsInComponent:(NSInteger)component{
         //Translating Picker View Text to database-friendly values
         if ([genreString isEqualToString:@"Drum & Bass"]){
             genreFilter = @"DnB";
+        }
+        else if ([genreString isEqualToString:@"All"]){
+            genreFilter = @"all";
         }
         else {//value is good for database
             genreFilter = genreString;
