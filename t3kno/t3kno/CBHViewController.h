@@ -12,12 +12,16 @@
     <UIPickerViewDelegate, UIPickerViewDataSource>
 - (IBAction)loadTableView:(id)sender;
 - (IBAction)openGenreOptions:(id)sender;
-- (IBAction)openTopOfOptions:(id)sender;
+- (IBAction)openTimePicker:(id)sender;
 @property (retain, nonatomic) IBOutlet UILabel *tableTitle;
-@property (retain, nonatomic) IBOutlet UIToolbar *topOfToolbar;
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIPickerView *genrePicker;
 @property (strong, nonatomic) NSArray *genrePickerData;
+@property (retain, nonatomic) IBOutlet UIPickerView *timePicker;
+@property (strong, nonatomic) NSArray * timePickerData;
+
+@property (retain, nonatomic) IBOutlet UISearchBar *searchBar;
+- (IBAction)openSearchBar:(id)sender;
 
 @property (retain, nonatomic) NSMutableArray *songs;
 @property (strong, nonatomic) NSData *receivedData;

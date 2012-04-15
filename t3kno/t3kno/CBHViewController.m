@@ -14,10 +14,12 @@
 @implementation CBHViewController
 
 @synthesize tableTitle;
-@synthesize topOfToolbar;
 @synthesize tableView;
 @synthesize genrePicker;
 @synthesize genrePickerData;
+@synthesize timePicker;
+@synthesize timePickerData;
+@synthesize searchBar;
 @synthesize songs;
 @synthesize receivedData;
 @synthesize genreFilter;
@@ -39,6 +41,11 @@
     NSArray *genres = [[NSArray alloc] initWithObjects:@"All", @"Drum & Base", 
                        @"Dubstep", @"Electro", @"Hardstyle", @"House", @"Trance", nil];
     genrePickerData = genres;
+    //top Of ___ and Fresh List
+    NSArray *times = [[NSArray alloc] initWithObjects:@"Fresh List", @"Top of the Day",
+                      @"Top of the Week", @"Top of the Month", @"Top of the Year",
+                      @"Top of the Century", nil];
+    timePickerData = times;
     
     //default filter = the fresh list
     genreFilter = @"all";
@@ -58,6 +65,8 @@
     [self setSongs:nil];
     [self setTableView:nil];
     [self setGenrePicker:nil];
+    [self setTimePicker:nil];
+    [self setSearchBar:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -69,7 +78,10 @@
 {
     [super viewWillAppear:animated];
     
+    //hiding pickers/search bar
     genrePicker.hidden = true;
+    timePicker.hidden  = true;
+    searchBar.hidden = true;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -225,11 +237,39 @@
     }
 }
 
-- (IBAction)openTopOfOptions:(id)sender {
-    if (topOfToolbar.hidden == false){
-        topOfToolbar.hidden = true;
-    }else{
-        topOfToolbar.hidden = false;
+- (IBAction)openTimePicker:(id)sender {
+    //toggles the genrePicker hidden or visible
+    if (timePicker.hidden == false){
+        //hide genrePicker
+        timePicker.hidden = true;
+        
+        //show the tableView
+        tableView.hidden = false;
+    }
+    else{
+        //hide the other views
+        tableView.hidden   = true;
+        
+        //show the genrePicker
+        timePicker.hidden = false;
+    }
+}
+
+- (IBAction)openSearchBar:(id)sender {
+    //toggles the genrePicker hidden or visible
+    if (searchBar.hidden == false){
+        //hide searchBar
+        searchBar.hidden = true;
+        
+        //show the tableView
+        //tableView.hidden = false;
+    }
+    else{
+        //hide the other views
+        //tableView.hidden   = true;
+        
+        //show the searchBar
+        searchBar.hidden = false;
     }
 }
 
@@ -241,14 +281,26 @@
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView 
 numberOfRowsInComponent:(NSInteger)component{
-    return [genrePickerData count];
+    if (pickerView == genrePicker){
+        return [genrePickerData count];
+    }
+    else{ //pickerView == timePicker
+        return [timePickerData count];
+    }
+    
 }
 
 #pragma mark Picker Delegate Methods
 - (NSString *)pickerView:(UIPickerView *)pickerView 
              titleForRow:(NSInteger)row 
             forComponent:(NSInteger)component{
-    return [genrePickerData objectAtIndex:row];
+    if (pickerView == genrePicker){
+        return [genrePickerData objectAtIndex:row];
+    }
+    else { //pickerView == timePicker
+        return [timePickerData objectAtIndex:row];
+    }
+    
 }
 
 #pragma mark -
@@ -288,9 +340,11 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 }
 - (void)dealloc {
     [tableTitle release];
-    [topOfToolbar release];
     [tableView release];
     [genrePicker release];
+    [timePicker release];
+    [searchBar release];
     [super dealloc];
 }
+
 @end
