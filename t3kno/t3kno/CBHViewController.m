@@ -361,6 +361,32 @@
     
     tableTitle.text = [[NSString alloc] initWithFormat:@"Searching: %@" , searchTerm];
     
+    NSString *urlString = [[NSString alloc] 
+                           initWithFormat:@"http://t3k.no/app/search.php?searchTerm=%@&",
+                           searchTerm];
+    
+    NSURL *urlToRequest = [NSURL URLWithString:urlString];
+    
+    // Create the request.
+    NSURLRequest *theRequest=[NSURLRequest requestWithURL:urlToRequest
+                                              cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                          timeoutInterval:60.0];
+    // create the connection with the request
+    // and start loading the data
+    NSURLConnection *theConnection=[[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    if (theConnection) {
+        // Create the NSMutableData to hold the received data.
+        // receivedData is an instance variable declared elsewhere.
+        receivedData = [[NSMutableData data] retain];
+    } else {
+        // Inform the user that the connection failed.
+        NSLog(@"Connection to t3k.no/app/search.php has failed");
+    }
+    
+    if (debug){
+        NSLog([[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding]);
+    }
+    
     [searchBar resignFirstResponder];
 }
 
@@ -497,11 +523,17 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 
 - (void)tableView: (UITableView *)songTableView 
 didSelectRowAtIndexPath: (NSIndexPath *)indexPath {
-    UITableViewCell *cell = [songTableView cellForRowAtIndexPath:indexPath];
-    UIImageView *clickedBackgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tablecellbg_click.png"]];
-    [cell setSelectedBackgroundView:clickedBackgroundView];
-    [cell setSelected:YES];
+    //SongCell *cell = [songTableView cellForRowAtIndexPath:indexPath];
+    //UIImageView *clickedBackgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tablecellbg_click.png"]];
+    //[cell setSelectedBackgroundView:clickedBackgroundView];
+    //[cell setSelected:YES];
+    //cell.artistLabel.textColor = [UIColor blackColor];
     //cell.bgImage.image = [UIImage imageNamed:@"tablecellbg_click.png"];
+    //cell.titleLabel.textColor = [UIColor blackColor];
+    
+    //cell.scoreLabel.textColor = [UIColor blackColor];
+    //cell.genreLabel.textColor = [UIColor blackColor];
+    
     
     
     
