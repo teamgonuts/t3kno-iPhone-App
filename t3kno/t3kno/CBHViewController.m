@@ -12,6 +12,7 @@
 #import "SBJson.h"
 
 @implementation CBHViewController
+@synthesize playButton;
 
 @synthesize tableTitle;
 @synthesize tableView;
@@ -69,6 +70,7 @@
     [self setTimePicker:nil];
     [self setSearchBar:nil];
     [self setTimeButton:nil];
+    [self setPlayButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -222,7 +224,25 @@
 
 
 /*=========================**
-       Filter Controls
+       Bottom Bar
+ *=========================*/
+- (IBAction)playButtonPressed:(id)sender {
+    if (playButton.image == [UIImage imageNamed:@"play-button.png"]){
+        //Play Clicked
+        
+        //Change Icon to Pause button
+        playButton.image = [UIImage imageNamed:@"pause-button.png"];
+    } else {
+        //Pause Button Clicked
+        
+        //Change icon to play button
+        playButton.image = [UIImage imageNamed:@"play-button.png"];
+        
+    }
+}
+
+/*=========================**
+ Filter Controls
  *=========================*/
 - (NSString *) refreshTitle{
     bool debug = true;
@@ -447,6 +467,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     [timePicker release];
     [searchBar release];
     [timeButton release];
+    [playButton release];
     [super dealloc];
 }
 

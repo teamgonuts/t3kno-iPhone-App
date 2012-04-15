@@ -30,6 +30,10 @@
 @property (strong, nonatomic) NSString *genreFilter; 
 @property (strong, nonatomic) NSString *timeFilter; 
 
+//bottom bar
+@property (retain, nonatomic) IBOutlet UIBarButtonItem *playButton;
+- (IBAction)playButtonPressed:(id)sender;
+
 - (NSString *) refreshTitle;
 
 @end
