@@ -110,7 +110,7 @@
 }
 
 - (IBAction)loadTableView:(id)sender {
-    bool debug = true;
+    bool debug = false;
     if (debug){
       NSLog(@"loadTableView called!");  
     }
@@ -150,7 +150,7 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
-    BOOL debug = true;
+    BOOL debug = false;
     if (debug){
       NSLog(@"didReceiveResponse called!");  
     }
@@ -218,12 +218,23 @@
 /*=========================**
        Filter Controls
  *=========================*/
+- (NSString *) refreshTitle{
+    bool debug = true;
+    if (debug){
+        NSLog(@"refreshTitle()!");
+        NSLog(@"  Genre: %@", genreFilter);
+        NSLog(@"  Time: %@", timeFilter);
+    }
+    
+}
 
 - (IBAction)openGenreOptions:(id)sender {
     //toggles the genrePicker hidden or visible
     if (genrePicker.hidden == false){
         //hide genrePicker
         genrePicker.hidden = true;
+        timePicker.hidden = true;
+        searchBar.hidden = true;
         
         //show the tableView
         tableView.hidden = false;
@@ -231,6 +242,8 @@
     else{
         //hide the other views
         tableView.hidden   = true;
+        searchBar.hidden = true;
+        timePicker.hidden = true;
         
         //show the genrePicker
         genrePicker.hidden = false;
@@ -240,8 +253,10 @@
 - (IBAction)openTimePicker:(id)sender {
     //toggles the genrePicker hidden or visible
     if (timePicker.hidden == false){
-        //hide genrePicker
+        //hide other views
         timePicker.hidden = true;
+        genrePicker.hidden = true;
+        searchBar.hidden = true;
         
         //show the tableView
         tableView.hidden = false;
@@ -249,6 +264,8 @@
     else{
         //hide the other views
         tableView.hidden   = true;
+        genrePicker.hidden = true;
+        searchBar.hidden = true;
         
         //show the genrePicker
         timePicker.hidden = false;
@@ -260,16 +277,20 @@
     if (searchBar.hidden == false){
         //hide searchBar
         searchBar.hidden = true;
+        genrePicker.hidden = true;
+        timePicker.hidden = true;
         
         //show the tableView
-        //tableView.hidden = false;
+        tableView.hidden = false;
     }
     else{
         //hide the other views
-        //tableView.hidden   = true;
+        genrePicker.hidden   = true;
+        timePicker.hidden = true;
         
-        //show the searchBar
+        //show the searchBar and tableView
         searchBar.hidden = false;
+        tableView.hidden = false;
     }
 }
 
@@ -303,6 +324,20 @@ numberOfRowsInComponent:(NSInteger)component{
     
 }
 
+- (void) pickerView:(UIPickerView *)pickerView 
+       didSelectRow:(NSInteger)row 
+        inComponent:(NSInteger)component{
+    if (pickerView == genrePicker){
+        [self openGenreOptions:nil]; //closes genrePicker
+        genreFilter = [genrePickerData objectAtIndex:row];
+    }
+    else{ //pickerView == timePicker
+        [self openTimePicker:nil];
+        timeFilter = [timePickerData objectAtIndex:row];
+    }
+    [self refreshTitle];
+}
+
 #pragma mark -
 #pragma mark Table View Data Source Methods
 - (NSInteger)tableView:(UITableView *)tableView
@@ -325,7 +360,6 @@ numberOfRowsInComponent:(NSInteger)component{
     
     NSUInteger row = [indexPath row];
     Song *temp = [songs objectAtIndex:row];
-    NSLog(@"%@", temp->title);
     cell.titleLabel.text = temp->title;
     cell.artistLabel.text = temp->artist;
     cell.genreLabel.text = temp->genre;

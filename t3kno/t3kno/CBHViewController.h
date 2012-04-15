@@ -28,5 +28,6 @@
 @property (strong, nonatomic) NSString *genreFilter; 
 @property (strong, nonatomic) NSString *timeFilter; 
 
+- (NSString *) refreshTitle;
 
 @end
