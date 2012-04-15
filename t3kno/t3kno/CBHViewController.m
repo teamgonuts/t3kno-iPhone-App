@@ -19,6 +19,7 @@
 @synthesize genrePickerData;
 @synthesize timePicker;
 @synthesize timePickerData;
+@synthesize timeButton;
 @synthesize searchBar;
 @synthesize songs;
 @synthesize receivedData;
@@ -38,7 +39,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     //genres
-    NSArray *genres = [[NSArray alloc] initWithObjects:@"All", @"Drum & Base", 
+    NSArray *genres = [[NSArray alloc] initWithObjects:@"All", @"Drum & Bass", 
                        @"Dubstep", @"Electro", @"Hardstyle", @"House", @"Trance", nil];
     genrePickerData = genres;
     //top Of ___ and Fresh List
@@ -67,6 +68,7 @@
     [self setGenrePicker:nil];
     [self setTimePicker:nil];
     [self setSearchBar:nil];
+    [self setTimeButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -112,7 +114,10 @@
 - (IBAction)loadTableView:(id)sender {
     bool debug = true;
     if (debug){
-      NSLog(@"loadTableView called!");  
+        
+        NSLog(@"loadTableView called!");  
+        NSLog(@"  Genre: %@", genreFilter);
+        NSLog(@"  Time: %@", timeFilter);
     }
     
     NSString *urlString = [[NSString alloc] 
@@ -188,7 +193,7 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    BOOL debug = false;
+    BOOL debug = true;
     // do something with the data
     // receivedData is declared as a method instance elsewhere
     if(debug){
@@ -201,10 +206,11 @@
     [receivedData release];
     
     NSArray *songsArray = [jsonString JSONValue];
-    
+    NSMutableArray *temp = [[NSMutableArray alloc] init];
     for(NSDictionary *songDictionary in songsArray){
-        [songs addObject:[[Song alloc] initWithDictionary:songDictionary]];
+        [temp addObject:[[Song alloc] initWithDictionary:songDictionary]];
     }
+    songs = temp;
     
     if(debug){
         NSLog(@"songs.length:%u, song, %@",[songs count], songs);
@@ -231,6 +237,9 @@
     
     if ([genre isEqualToString:@"all"]){
         genre = @"Tracks";
+    }
+    else if ([genre isEqualToString:@"DnB"]){
+        genre = @"Drum & Bass";
     }
     
     //the fresh List is selected
@@ -259,6 +268,7 @@
         searchBar.hidden = true;
         
         //show the tableView
+        [self loadTableView:nil];
         tableView.hidden = false;
     }
     else{
@@ -281,6 +291,7 @@
         searchBar.hidden = true;
         
         //show the tableView
+        [self loadTableView:nil];
         tableView.hidden = false;
     }
     else{ //show selection
@@ -368,21 +379,26 @@ numberOfRowsInComponent:(NSInteger)component{
         //Translating Picker View Text to database-friendly values
         if ([timeString isEqualToString:@"Freshest"]){
             timeFilter = @"new";
+            timeButton.title = @"Fresh";
+            
         }
-        else if ([timeString isEqualToString:@"Top of the Day"]){
-            timeFilter = @"Day";
-        }
-        else if ([timeString isEqualToString:@"Top of the Week"]){
-            timeFilter = @"Week";
-        }
-        else if ([timeString isEqualToString:@"Top of the Month"]){
-            timeFilter = @"Month";
-        }
-        else if ([timeString isEqualToString:@"Top of the Year"]){
-            timeFilter = @"Year";
-        }
-        else if ([timeString isEqualToString:@"Top of the Century"]){
-            timeFilter = @"Century";
+        else {
+            timeButton.title = @"Top Of";
+            if ([timeString isEqualToString:@"Top of the Day"]){
+                timeFilter = @"Day";
+            }
+            else if ([timeString isEqualToString:@"Top of the Week"]){
+                timeFilter = @"Week";
+            }
+            else if ([timeString isEqualToString:@"Top of the Month"]){
+                timeFilter = @"Month";
+            }
+            else if ([timeString isEqualToString:@"Top of the Year"]){
+                timeFilter = @"Year";
+            }
+            else if ([timeString isEqualToString:@"Top of the Century"]){
+                timeFilter = @"Century";
+            }
         }
     }
     [self refreshTitle];
@@ -428,6 +444,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     [genrePicker release];
     [timePicker release];
     [searchBar release];
+    [timeButton release];
     [super dealloc];
 }
 

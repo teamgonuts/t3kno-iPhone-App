@@ -19,6 +19,7 @@
 @property (strong, nonatomic) NSArray *genrePickerData;
 @property (retain, nonatomic) IBOutlet UIPickerView *timePicker;
 @property (strong, nonatomic) NSArray * timePickerData;
+@property (retain, nonatomic) IBOutlet UIBarButtonItem *timeButton;
 
 @property (retain, nonatomic) IBOutlet UISearchBar *searchBar;
 - (IBAction)openSearchBar:(id)sender;
