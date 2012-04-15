@@ -12,6 +12,7 @@
 @property (retain, nonatomic) IBOutlet UILabel *titleLabel;
 
 @property (retain, nonatomic) IBOutlet UILabel *artistLabel;
+@property (retain, nonatomic) IBOutlet UIImageView *bgImage;
 
 @property (retain, nonatomic) IBOutlet UILabel *genreLabel;
 @property (retain, nonatomic) IBOutlet UILabel *scoreLabel;

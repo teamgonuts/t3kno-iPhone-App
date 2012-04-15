@@ -415,6 +415,8 @@ numberOfRowsInComponent:(NSInteger)component{
         else {//value is good for database
             genreFilter = genreString;
         }
+        
+        [self openGenreOptions:nil];
     }
     else{ //pickerView == timePicker
         NSString *timeString = [timePickerData objectAtIndex:row];
@@ -442,6 +444,8 @@ numberOfRowsInComponent:(NSInteger)component{
                 timeFilter = @"Century";
             }
         }
+        
+        [self openTimePicker:nil];
     }
     [self refreshTitle];
 }
@@ -489,6 +493,18 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     [timeButton release];
     [playButton release];
     [super dealloc];
+}
+
+- (void)tableView: (UITableView *)songTableView 
+didSelectRowAtIndexPath: (NSIndexPath *)indexPath {
+    UITableViewCell *cell = [songTableView cellForRowAtIndexPath:indexPath];
+    UIImageView *clickedBackgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tablecellbg_click.png"]];
+    [cell setSelectedBackgroundView:clickedBackgroundView];
+    [cell setSelected:YES];
+    //cell.bgImage.image = [UIImage imageNamed:@"tablecellbg_click.png"];
+    
+    
+    
 }
 
 @end

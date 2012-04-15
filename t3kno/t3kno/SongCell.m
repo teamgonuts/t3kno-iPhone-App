@@ -11,6 +11,7 @@
 @implementation SongCell
 @synthesize titleLabel;
 @synthesize artistLabel;
+@synthesize bgImage;
 @synthesize genreLabel;
 @synthesize scoreLabel;
 
@@ -35,6 +36,7 @@
     [artistLabel release];
     [genreLabel release];
     [scoreLabel release];
+    [bgImage release];
     [super dealloc];
 }
 @end
