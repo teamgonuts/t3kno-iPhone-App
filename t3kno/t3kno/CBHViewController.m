@@ -16,8 +16,12 @@
 @synthesize tableTitle;
 @synthesize topOfToolbar;
 @synthesize tableView;
+@synthesize genrePicker;
+@synthesize genrePickerData;
 @synthesize songs;
 @synthesize receivedData;
+@synthesize genreFilter;
+@synthesize timeFilter;
 
 - (void)didReceiveMemoryWarning
 {
@@ -31,7 +35,15 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    topOfToolbar.hidden = true;
+    //genres
+    NSArray *genres = [[NSArray alloc] initWithObjects:@"All", @"Drum & Base", 
+                       @"Dubstep", @"Electro", @"Hardstyle", @"House", @"Trance", nil];
+    genrePickerData = genres;
+    
+    //default filter = the fresh list
+    genreFilter = @"all";
+    timeFilter = @"new";
+    
     songs = [[NSMutableArray alloc] init];
     [self loadTableView:nil];
 
@@ -43,18 +55,21 @@
 - (void)viewDidUnload
 {
     [self setTableTitle:nil];
-    [self setTopOfToolbar:nil];
     [self setSongs:nil];
     [self setTableView:nil];
+    [self setGenrePicker:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
     
+    self.genrePickerData = nil;    
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    genrePicker.hidden = true;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -88,11 +103,9 @@
       NSLog(@"loadTableView called!");  
     }
     
-    NSString *genrefilter = @"all"; 
-    NSString *timefilter = @"new";
     NSString *urlString = [[NSString alloc] 
                           initWithFormat:@"http://t3k.no/app/request_songs.php?genrefilter=%@&timefilter=%@",
-                          genrefilter, timefilter];
+                          genreFilter, timeFilter];
     
     NSURL *urlToRequest = [NSURL URLWithString:urlString];
     
@@ -195,6 +208,21 @@
  *=========================*/
 
 - (IBAction)openGenreOptions:(id)sender {
+    //toggles the genrePicker hidden or visible
+    if (genrePicker.hidden == false){
+        //hide genrePicker
+        genrePicker.hidden = true;
+        
+        //show the tableView
+        tableView.hidden = false;
+    }
+    else{
+        //hide the other views
+        tableView.hidden   = true;
+        
+        //show the genrePicker
+        genrePicker.hidden = false;
+    }
 }
 
 - (IBAction)openTopOfOptions:(id)sender {
@@ -206,27 +234,46 @@
 }
 
 #pragma mark -
+#pragma mark Picker Data Source Methods
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView 
+numberOfRowsInComponent:(NSInteger)component{
+    return [genrePickerData count];
+}
+
+#pragma mark Picker Delegate Methods
+- (NSString *)pickerView:(UIPickerView *)pickerView 
+             titleForRow:(NSInteger)row 
+            forComponent:(NSInteger)component{
+    return [genrePickerData objectAtIndex:row];
+}
+
+#pragma mark -
 #pragma mark Table View Data Source Methods
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section{
     return [self.songs count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView
+- (UITableViewCell *)tableView:(UITableView *)songTableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     static NSString *SongCellIdentifier = @"SongCellIdentifier";
     static BOOL nibsRegistered = NO;
     if(!nibsRegistered){
         UINib *nib = [UINib nibWithNibName:@"SongCell" bundle:nil];
-        [tableView registerNib:nib forCellReuseIdentifier:SongCellIdentifier];
+        [songTableView registerNib:nib forCellReuseIdentifier:SongCellIdentifier];
         nibsRegistered = YES;
     }
     
-    SongCell *cell = [tableView dequeueReusableCellWithIdentifier:SongCellIdentifier];
+    SongCell *cell = [songTableView dequeueReusableCellWithIdentifier:SongCellIdentifier];
     
     NSUInteger row = [indexPath row];
     Song *temp = [songs objectAtIndex:row];
+    NSLog(@"%@", temp->title);
     cell.titleLabel.text = temp->title;
     cell.artistLabel.text = temp->artist;
     cell.genreLabel.text = temp->genre;
@@ -243,6 +290,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableTitle release];
     [topOfToolbar release];
     [tableView release];
+    [genrePicker release];
     [super dealloc];
 }
 @end

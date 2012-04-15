@@ -24,5 +24,6 @@
 
 - (Song *) initWithDictionary: (NSDictionary *) songDictionary;
 
+- (NSString *) cleanString: (NSString *)dirtyString;
 
 @end

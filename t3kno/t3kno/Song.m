@@ -21,12 +21,24 @@
 }
 
 - (Song *) initWithDictionary:(NSDictionary *)songDictionary{
-    title = [songDictionary objectForKey:@"title"];
-    artist = [songDictionary objectForKey:@"artist"];
-    genre = [songDictionary objectForKey:@"genre"];
-    score = [songDictionary objectForKey:@"score"];
-    ytcode = [songDictionary objectForKey:@"ytcode"];
+    title = [self cleanString:[songDictionary objectForKey:@"title"]];
+    artist = [self cleanString:[songDictionary objectForKey:@"artist"]];
+    genre = [self cleanString:[songDictionary objectForKey:@"genre"]];
+    score = [self cleanString:[songDictionary objectForKey:@"score"]];
+    ytcode = [self cleanString:[songDictionary objectForKey:@"ytcode"]];
     
     return (self);
+}
+
+//cleans the string to be displayed in the table view
+- (NSString *) cleanString:(NSString *)dirtyString{
+    NSString *tempString = dirtyString;
+    
+    //remove escapes from SQL
+    //tempString = [tempString stringByReplacingOccurrencesOfString:@"\\" withString:@""];
+    
+
+    
+    return tempString;
 }
 @end
