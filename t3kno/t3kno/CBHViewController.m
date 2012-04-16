@@ -10,6 +10,7 @@
 #import "Song.h"
 #import "SongCell.h"
 #import "SBJson.h"
+#import "YoutubeView.h"
 
 @implementation CBHViewController
 @synthesize playButton;
@@ -55,6 +56,8 @@
     
     songs = [[NSMutableArray alloc] init];
     [self loadTableView:nil];
+    //Song *firstSong = [songs objectAtIndex:0];
+    [self playSong:@"ts8TOyf090I"];
 
     
         
@@ -113,8 +116,26 @@
     }
 }
 
+- (void) playSong:(NSString *)ytcode{
+    BOOL debug = true;
+    if(debug){
+        NSLog(@"playSong()!");
+    }
+    YoutubeView *youTubeView = [[YoutubeView alloc] 
+                                initWithStringAsURL:@"http://www.youtube.com/watch?v=gczw0WRmHQU" 
+                                frame:CGRectMake(0, 280, 320, 136)];
+    
+    [[self view] addSubview:youTubeView];
+    
+    //opens window in safari
+    //[[UIApplication sharedApplication] 
+     //openURL:[NSURL URLWithString:@"http://www.youtube.com/watch?v=gczw0WRmHQU"]];
+    if(debug){
+        NSLog(@"playSong() ended!");
+    }
+}
 - (IBAction)loadTableView:(id)sender {
-    bool debug = true;
+    bool debug = false;
     if (debug){
         
         NSLog(@"loadTableView called!");  
@@ -196,7 +217,7 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    BOOL debug = true;
+    BOOL debug = false;
     // do something with the data
     // receivedData is declared as a method instance elsewhere
     if(debug){
@@ -246,7 +267,7 @@
  Filter Controls
  *=========================*/
 - (NSString *) refreshTitle{
-    bool debug = true;
+    bool debug = false;
     if (debug){
         NSLog(@"refreshTitle()!");
         NSLog(@"  Genre: %@", genreFilter);
@@ -357,7 +378,7 @@
 #pragma -
 #pragma mark Search Bar Delegate Methods
 -(void) searchBarSearchButtonClicked:(UISearchBar *)searchBar{
-    bool debug = true;
+    bool debug = false;
     
     NSString *searchTerm = [searchBar text];
     

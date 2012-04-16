@@ -35,5 +35,6 @@
 - (IBAction)playButtonPressed:(id)sender;
 
 - (NSString *) refreshTitle;
+- (void) playSong:(NSString *)ytcode;
 
 @end

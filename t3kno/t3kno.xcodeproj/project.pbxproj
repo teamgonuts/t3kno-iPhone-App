@@ -30,6 +30,7 @@
 		BDC55A2F153B555500F79B92 /* previous_track.png in Resources */ = {isa = PBXBuildFile; fileRef = BDC55A2E153B555500F79B92 /* previous_track.png */; };
 		BDC55A31153B73D600F79B92 /* tablecellbg.png in Resources */ = {isa = PBXBuildFile; fileRef = BDC55A30153B73D600F79B92 /* tablecellbg.png */; };
 		BDC55A33153B8BF400F79B92 /* tablecellbg_click.png in Resources */ = {isa = PBXBuildFile; fileRef = BDC55A32153B8BF400F79B92 /* tablecellbg_click.png */; };
+		BDC55A36153CA26B00F79B92 /* YoutubeView.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC55A35153CA26B00F79B92 /* YoutubeView.m */; };
 		BDE668861531028D0013CBFA /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE668851531028D0013CBFA /* Song.m */; };
 		BDE66893153147420013CBFA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDE66892153147420013CBFA /* CFNetwork.framework */; };
 		BDE66895153147530013CBFA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDE66894153147530013CBFA /* SystemConfiguration.framework */; };
@@ -82,6 +83,8 @@
 		BDC55A2E153B555500F79B92 /* previous_track.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = previous_track.png; path = ../../previous_track.png; sourceTree = "<group>"; };
 		BDC55A30153B73D600F79B92 /* tablecellbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tablecellbg.png; path = ../../tablecellbg.png; sourceTree = "<group>"; };
 		BDC55A32153B8BF400F79B92 /* tablecellbg_click.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tablecellbg_click.png; path = ../../tablecellbg_click.png; sourceTree = "<group>"; };
+		BDC55A34153CA26B00F79B92 /* YoutubeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YoutubeView.h; sourceTree = "<group>"; };
+		BDC55A35153CA26B00F79B92 /* YoutubeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YoutubeView.m; sourceTree = "<group>"; };
 		BDE668841531028D0013CBFA /* Song.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Song.h; sourceTree = "<group>"; };
 		BDE668851531028D0013CBFA /* Song.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Song.m; sourceTree = "<group>"; };
 		BDE66892153147420013CBFA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -179,6 +182,8 @@
 				BD4F0EB31530D75F00573F67 /* CBHAppDelegate.m */,
 				BD4F0EB51530D75F00573F67 /* CBHViewController.h */,
 				BD4F0EB61530D75F00573F67 /* CBHViewController.m */,
+				BDC55A34153CA26B00F79B92 /* YoutubeView.h */,
+				BDC55A35153CA26B00F79B92 /* YoutubeView.m */,
 				BDC55A32153B8BF400F79B92 /* tablecellbg_click.png */,
 				BDE668A9153A035C0013CBFA /* Classes */,
 				BD4F0EB81530D75F00573F67 /* CBHViewController_iPhone.xib */,
@@ -346,6 +351,7 @@
 				BDE668CC153A035C0013CBFA /* SBJsonTokeniser.m in Sources */,
 				BDE668CD153A035C0013CBFA /* SBJsonUTF8Stream.m in Sources */,
 				BDE668CE153A035C0013CBFA /* SBJsonWriter.m in Sources */,
+				BDC55A36153CA26B00F79B92 /* YoutubeView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
