@@ -148,7 +148,8 @@
         NSLog([[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding]);
     }
     
-
+    [searchBar setHidden:true];
+    [self refreshTitle];
 }
 
 /*=========================**
@@ -264,7 +265,7 @@
     
     //the fresh List is selected
     if ([genre isEqualToString:@"Tracks"] && 
-        [time isEqualToString:@"Freshest"]){
+        [time isEqualToString:@"new"]){
         tableTitle.text = @"The Fresh List";
     }
     //the freshest + genre
@@ -279,7 +280,7 @@
     
 }
 
-- (IBAction)openGenreOptions:(id)sender {
+- (IBAction)openGenreOptions:(id)sender{
     //toggles the genrePicker hidden or visible
     if (genrePicker.hidden == false){
         //hide genrePicker
@@ -298,7 +299,12 @@
         timePicker.hidden = true;
         
         //show the genrePicker
-        genrePicker.hidden = false;
+        //genrePicker.hidden = false;
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:0.5];
+        [UIView setAnimationCurve: UIViewAnimationCurveEaseInOut ];
+        [UIView commitAnimations];
+        genrePicker.hidden = NO;
     }
 }
 
@@ -387,6 +393,7 @@
         NSLog([[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding]);
     }
     
+    [searchBar setHidden:true];
     [searchBar resignFirstResponder];
 }
 
