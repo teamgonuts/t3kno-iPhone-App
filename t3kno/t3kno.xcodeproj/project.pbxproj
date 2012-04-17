@@ -16,10 +16,9 @@
 		BD4F0EB01530D75E00573F67 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4F0EAF1530D75E00573F67 /* main.m */; };
 		BD4F0EB41530D75F00573F67 /* CBHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4F0EB31530D75F00573F67 /* CBHAppDelegate.m */; };
 		BD4F0EB71530D75F00573F67 /* CBHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4F0EB61530D75F00573F67 /* CBHViewController.m */; };
-		BD4F0EBA1530D75F00573F67 /* CBHViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD4F0EB81530D75F00573F67 /* CBHViewController_iPhone.xib */; };
 		BD4F0EBD1530D75F00573F67 /* CBHViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD4F0EBB1530D75F00573F67 /* CBHViewController_iPad.xib */; };
-		BD79C6F5153DEF4D006A9C60 /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD79C6F4153DEF4D006A9C60 /* MainView.xib */; };
 		BD79C6F8153DF045006A9C60 /* logoWithText_lg.png in Resources */ = {isa = PBXBuildFile; fileRef = BD79C6F7153DF045006A9C60 /* logoWithText_lg.png */; };
+		BD79C70B153E102C006A9C60 /* CBHViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD79C709153E102C006A9C60 /* CBHViewController_iPhone.xib */; };
 		BDC55A1D153A723100F79B92 /* genreFilters.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDC55A1C153A723100F79B92 /* genreFilters.xib */; };
 		BDC55A1F153A762000F79B92 /* magnifying_glass_icon in Resources */ = {isa = PBXBuildFile; fileRef = BDC55A1E153A762000F79B92 /* magnifying_glass_icon */; };
 		BDC55A21153A767500F79B92 /* magnifying_glass_18x18 in Resources */ = {isa = PBXBuildFile; fileRef = BDC55A20153A767500F79B92 /* magnifying_glass_18x18 */; };
@@ -71,10 +70,9 @@
 		BD4F0EB31530D75F00573F67 /* CBHAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBHAppDelegate.m; sourceTree = "<group>"; };
 		BD4F0EB51530D75F00573F67 /* CBHViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBHViewController.h; sourceTree = "<group>"; };
 		BD4F0EB61530D75F00573F67 /* CBHViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBHViewController.m; sourceTree = "<group>"; };
-		BD4F0EB91530D75F00573F67 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CBHViewController_iPhone.xib; sourceTree = "<group>"; };
 		BD4F0EBC1530D75F00573F67 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CBHViewController_iPad.xib; sourceTree = "<group>"; };
-		BD79C6F4153DEF4D006A9C60 /* MainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainView.xib; sourceTree = "<group>"; };
 		BD79C6F7153DF045006A9C60 /* logoWithText_lg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoWithText_lg.png; sourceTree = "<group>"; };
+		BD79C70A153E102C006A9C60 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CBHViewController_iPhone.xib; sourceTree = "<group>"; };
 		BDC55A1C153A723100F79B92 /* genreFilters.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = genreFilters.xib; sourceTree = "<group>"; };
 		BDC55A1E153A762000F79B92 /* magnifying_glass_icon */ = {isa = PBXFileReference; lastKnownFileType = file; path = magnifying_glass_icon; sourceTree = SOURCE_ROOT; };
 		BDC55A20153A767500F79B92 /* magnifying_glass_18x18 */ = {isa = PBXFileReference; lastKnownFileType = file; name = magnifying_glass_18x18; path = ../../magnifying_glass_18x18; sourceTree = "<group>"; };
@@ -180,6 +178,7 @@
 		BD4F0EA91530D75E00573F67 /* t3kno */ = {
 			isa = PBXGroup;
 			children = (
+				BD79C709153E102C006A9C60 /* CBHViewController_iPhone.xib */,
 				BDE6689E15314D670013CBFA /* logo_57.png */,
 				BDE6689F15314D670013CBFA /* logo_114.png */,
 				BD4F0EB21530D75F00573F67 /* CBHAppDelegate.h */,
@@ -190,8 +189,6 @@
 				BDC55A35153CA26B00F79B92 /* YoutubeView.m */,
 				BDC55A32153B8BF400F79B92 /* tablecellbg_click.png */,
 				BDE668A9153A035C0013CBFA /* Classes */,
-				BD4F0EB81530D75F00573F67 /* CBHViewController_iPhone.xib */,
-				BD79C6F4153DEF4D006A9C60 /* MainView.xib */,
 				BD79C6F7153DF045006A9C60 /* logoWithText_lg.png */,
 				BDC55A2E153B555500F79B92 /* previous_track.png */,
 				BDC55A2C153B53FE00F79B92 /* next_track.png */,
@@ -311,7 +308,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD4F0EAE1530D75E00573F67 /* InfoPlist.strings in Resources */,
-				BD4F0EBA1530D75F00573F67 /* CBHViewController_iPhone.xib in Resources */,
 				BD4F0EBD1530D75F00573F67 /* CBHViewController_iPad.xib in Resources */,
 				BD3D9FA41530F33A0025B9A3 /* logoWithText.png in Resources */,
 				BD3D9FA61530F4010025B9A3 /* logoWithText_sm.png in Resources */,
@@ -330,8 +326,8 @@
 				BDC55A2F153B555500F79B92 /* previous_track.png in Resources */,
 				BDC55A31153B73D600F79B92 /* tablecellbg.png in Resources */,
 				BDC55A33153B8BF400F79B92 /* tablecellbg_click.png in Resources */,
-				BD79C6F5153DEF4D006A9C60 /* MainView.xib in Resources */,
 				BD79C6F8153DF045006A9C60 /* logoWithText_lg.png in Resources */,
+				BD79C70B153E102C006A9C60 /* CBHViewController_iPhone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,20 +370,20 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		BD4F0EB81530D75F00573F67 /* CBHViewController_iPhone.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BD4F0EB91530D75F00573F67 /* en */,
-			);
-			name = CBHViewController_iPhone.xib;
-			sourceTree = "<group>";
-		};
 		BD4F0EBB1530D75F00573F67 /* CBHViewController_iPad.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				BD4F0EBC1530D75F00573F67 /* en */,
 			);
 			name = CBHViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+		BD79C709153E102C006A9C60 /* CBHViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BD79C70A153E102C006A9C60 /* en */,
+			);
+			name = CBHViewController_iPhone.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

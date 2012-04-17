@@ -13,6 +13,9 @@
 #import "YoutubeView.h"
 
 @implementation CBHViewController
+@synthesize scrollView;
+@synthesize filterView;
+@synthesize pageControl;
 @synthesize playButton;
 
 @synthesize tableTitle;
@@ -57,6 +60,40 @@
     songs = [[NSMutableArray alloc] init];
     [self loadTableView:nil];
     //Song *firstSong = [songs objectAtIndex:0];
+    
+    
+    //right frame
+    if (filterView == nil){
+        UIView *temp = [[UIView alloc] init];
+        filterView = temp;
+    }
+    CGRect frame;
+    frame.origin.x = self.scrollView.frame.size.width; //set it to the right of the screen
+    frame.origin.y = 0;
+    frame.size = self.scrollView.frame.size;
+    [filterView setFrame:frame];
+    [self.scrollView addSubview:filterView];
+    [filterView release];
+    
+
+    /*
+    CGRect frame;
+    frame.origin.x = self.scrollView.frame.size.width * 2; //set it to the right of the screen
+    frame.origin.y = 0;
+    frame.size = self.scrollView.frame.size;
+    
+    UIView *subview = [[UIView alloc] initWithFrame:frame];
+    [subview setFrame:<#(CGRect)#>
+    subview.backgroundColor = [UIColor blueColor];
+    [self.scrollView addSubview:subview];
+    [subview release];
+     */     
+    
+    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * 2, self.scrollView.frame.size.height);
+    
+    pageControlBeingUsed = NO;
+    
+    
 
     
         
@@ -73,6 +110,10 @@
     [self setSearchBar:nil];
     [self setTimeButton:nil];
     [self setPlayButton:nil];
+    [self setScrollView:nil];
+    [self setPageControl:nil];
+    [self setSwipeGesture:nil];
+    [self filterView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -88,6 +129,9 @@
     genrePicker.hidden = true;
     timePicker.hidden  = true;
     searchBar.hidden = true;
+    
+
+
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -171,6 +215,56 @@
     [searchBar setHidden:true];
     [self refreshTitle];
 }
+
+/*================================**
+    PageControl/ScrollView Delegate
+ *================================*/
+- (void)scrollViewDidScroll:(UIScrollView *)sender {
+    // Update the page when more than 50% of the previous/next page is visible
+    bool debug = true;
+    if(debug){
+        NSLog(@"scrollViewDidScroll called!");
+    }
+    
+    if (!pageControlBeingUsed) {
+		// Switch the indicator when more than 50% of the previous/next page is visible
+		CGFloat pageWidth = self.scrollView.frame.size.width;
+		int page = floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+		self.pageControl.currentPage = page;
+	}
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+	pageControlBeingUsed = NO;
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+	pageControlBeingUsed = NO;
+}
+
+
+-(IBAction)changePage:(id)sender{
+    // update the scroll view to the appropriate page
+    bool debug = true;
+    if(debug){
+        NSLog(@"changePage called!");
+    }
+    
+    // Update the scroll view to the appropriate page
+	CGRect frame;
+	frame.origin.x = self.scrollView.frame.size.width * self.pageControl.currentPage;
+	frame.origin.y = 0;
+	frame.size = self.scrollView.frame.size;
+	[self.scrollView scrollRectToVisible:frame animated:YES];
+	
+	// Keep track of when scrolls happen in response to the page control
+	// value changing. If we don't do this, a noticeable "flashing" occurs
+	// as the the scroll delegate will temporarily switch back the page
+	// number.
+	pageControlBeingUsed = YES;
+    
+}
+
 
 /*=========================**
     NSURLConnection Delegate
@@ -545,6 +639,9 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     [searchBar release];
     [timeButton release];
     [playButton release];
+    [scrollView release];
+    [pageControl release];
+    [filterView release];
     [super dealloc];
     
 }
@@ -567,4 +664,6 @@ didSelectRowAtIndexPath: (NSIndexPath *)indexPath {
     
 }
 
+- (IBAction)showSearchBar:(id)sender {
+}
 @end
