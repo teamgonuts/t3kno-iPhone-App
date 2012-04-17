@@ -57,6 +57,8 @@
         UIView *temp = [[UIView alloc] init];
         filterView = temp;
     }
+    
+    
     CGRect frame;
     frame.origin.x = self.scrollView.frame.size.width; //set it to the right of the screen
     frame.origin.y = 0;
@@ -434,29 +436,29 @@
 #pragma mark -
 #pragma mark Table View Data Source Methods
 
-- (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView_in{
-    bool debug = true;
+- (NSInteger) numberOfSectionsInTableView:(UITableView *)songTableView{
+    bool debug = false;
     if (debug) NSLog(@"numberOfSectionsInTable Called!");
-    if (tableView_in == filterView){
-        if (debug) NSLog(@"  TableView: filter");
-        return [filterKeys count];
-    }
-    else {//tableView
-        if (debug) NSLog(@"  TableView: rankings");
+    if (songTableView == tableView){//tableView
+        if (debug) NSLog(@"--TableView: rankings");
         return 1;
+    }else{
+        if (debug) NSLog(@"--TableView: filter");
+        return [filterKeys count];
     }
 }
 
 - (NSInteger)tableView:(UITableView *)songTableView
  numberOfRowsInSection:(NSInteger)section{
-    bool debug = true;
+    bool debug = false;
     if (debug) NSLog(@"numberOfRowsInSection Called!");
     if(songTableView == tableView)
     {
-        if (debug) NSLog(@"  TableView: rankings");
+        if (debug) NSLog(@"--TableView: rankings");
         return [self.songs count];
     }else{ //its the filter tableView
-        if (debug) NSLog(@"  TableView: filter");
+        if (debug) NSLog(@"--TableView: filter");
+        if (debug) NSLog(@"--section: %d", section);
         NSString *key = [filterKeys objectAtIndex:section];
         NSArray *filterSection = [filterValues objectForKey:key];
         return [filterSection count];
@@ -511,21 +513,20 @@
     }
 }
 
-- (NSString *)tableView:(UITableView *)tableView_in
+- (NSString *)tableView:(UITableView *)songTableView
 titleForHeaderInSection:(NSInteger)section{
-    if(tableView_in == filterView){
+    if (songTableView == tableView)
+        return @"The Fresh List";
+    else
         return [filterKeys objectAtIndex:section];
-    }
-    else{
-        return @"poop";
-    }
 }
+
 - (CGFloat)tableView:(UITableView *)tableView_in
 heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (tableView_in == tableView){
         return 44.0; //same as SongCell.xib
     }else
-        return 22;
+        return 30;
 }
 - (void)dealloc {
     [tableTitle release];
