@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Genres</key>
+	<array>
+		<string>Drum &amp; Bass</string>
+		<string>Dubstep</string>
+		<string>Electro</string>
+		<string>Hardstyle</string>
+		<string>House</string>
+		<string>Trance</string>
+	</array>
+	<key>Sort By</key>
+	<array>
+		<string>Score</string>
+		<string>Upload Date</string>
+	</array>
+	<key>From the Last</key>
+	<array>
+		<string>Day</string>
+		<string>Week</string>
+		<string>Month</string>
+		<string>Year</string>
+		<string>Century</string>
+	</array>
+</dict>
+</plist>

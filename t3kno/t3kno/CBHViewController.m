@@ -18,13 +18,13 @@
 @synthesize pageControl;
 @synthesize tableTitle;
 @synthesize tableView;
-@synthesize genreData;
-@synthesize filterData;
 @synthesize searchBar;
 @synthesize songs;
 @synthesize receivedData;
 @synthesize genreFilter;
 @synthesize timeFilter;
+@synthesize filterKeys;
+@synthesize filterValues;
 
 - (void)didReceiveMemoryWarning
 {
@@ -37,25 +37,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    //genres
-    NSArray *genres = [[NSArray alloc] initWithObjects:@"All", @"Drum & Bass", 
-                       @"Dubstep", @"Electro", @"Hardstyle", @"House", @"Trance", nil];
-    genreData = genres;
-    //top Of ___ and Fresh List
-    NSArray *times = [[NSArray alloc] initWithObjects:@"Freshest", @"Top of the Day",
-                      @"Top of the Week", @"Top of the Month", @"Top of the Year",
-                      @"Top of the Century", nil];
-    filterData = times;
+	// loading up the filter table
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"filter" ofType:@"plist"];
+    NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:path];
+    self.filterValues = dict;
+    
+    NSArray *array = [filterValues allKeys];
+    self.filterKeys = array;
     
     //default filter = the fresh list
     genreFilter = @"all";
     timeFilter = @"new";
     
     songs = [[NSMutableArray alloc] init];
-    [self loadTableView:nil];
-    //Song *firstSong = [songs objectAtIndex:0];
-    
+    [self loadTableView:nil];    
     
     //right frame
     if (filterView == nil){
@@ -101,14 +96,15 @@
     [self setSongs:nil];
     [self setTableView:nil];
     [self setSearchBar:nil];
-    [self setTimeButton:nil];
-    [self setPlayButton:nil];
     [self setScrollView:nil];
     [self setPageControl:nil];
-    [self filterView:nil];
+    [self setFilterView:nil];
+
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    self.filterKeys = nil;
+    self.filterValues = nil;
     
 }
 
@@ -149,7 +145,7 @@
 }
 
 - (void) playSong:(NSString *)ytcode{
-    BOOL debug = true;
+    BOOL debug = false;
     if(debug){
         NSLog(@"playSong()!");
     }
@@ -210,7 +206,7 @@
  *================================*/
 - (void)scrollViewDidScroll:(UIScrollView *)sender {
     // Update the page when more than 50% of the previous/next page is visible
-    bool debug = true;
+    bool debug = false;
     if(debug){
         NSLog(@"scrollViewDidScroll called!");
     }
@@ -234,7 +230,7 @@
 
 -(IBAction)changePage:(id)sender{
     // update the scroll view to the appropriate page
-    bool debug = true;
+    bool debug = false;
     if(debug){
         NSLog(@"changePage called!");
     }
@@ -437,37 +433,99 @@
 
 #pragma mark -
 #pragma mark Table View Data Source Methods
-- (NSInteger)tableView:(UITableView *)tableView
+
+- (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView_in{
+    bool debug = true;
+    if (debug) NSLog(@"numberOfSectionsInTable Called!");
+    if (tableView_in == filterView){
+        if (debug) NSLog(@"  TableView: filter");
+        return [filterKeys count];
+    }
+    else {//tableView
+        if (debug) NSLog(@"  TableView: rankings");
+        return 1;
+    }
+}
+
+- (NSInteger)tableView:(UITableView *)songTableView
  numberOfRowsInSection:(NSInteger)section{
-    return [self.songs count];
+    bool debug = true;
+    if (debug) NSLog(@"numberOfRowsInSection Called!");
+    if(songTableView == tableView)
+    {
+        if (debug) NSLog(@"  TableView: rankings");
+        return [self.songs count];
+    }else{ //its the filter tableView
+        if (debug) NSLog(@"  TableView: filter");
+        NSString *key = [filterKeys objectAtIndex:section];
+        NSArray *filterSection = [filterValues objectForKey:key];
+        return [filterSection count];
+    }
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)songTableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    bool debug = true;
+    if (songTableView == tableView){
+        NSLog(@"loading tableView cell");
+        static NSString *SongCellIdentifier = @"SongCellIdentifier";
+        static BOOL nibsRegistered = NO;
+        if(!nibsRegistered){
+            UINib *nib = [UINib nibWithNibName:@"SongCell" bundle:nil];
+            [songTableView registerNib:nib forCellReuseIdentifier:SongCellIdentifier];
+            nibsRegistered = YES;
+        }
     
-    static NSString *SongCellIdentifier = @"SongCellIdentifier";
-    static BOOL nibsRegistered = NO;
-    if(!nibsRegistered){
-        UINib *nib = [UINib nibWithNibName:@"SongCell" bundle:nil];
-        [songTableView registerNib:nib forCellReuseIdentifier:SongCellIdentifier];
-        nibsRegistered = YES;
+        SongCell *cell = [songTableView dequeueReusableCellWithIdentifier:SongCellIdentifier];
+    
+        NSUInteger row = [indexPath row];
+        Song *temp = [songs objectAtIndex:row];
+        cell.titleLabel.text = temp->title;
+        cell.artistLabel.text = temp->artist;
+        cell.genreLabel.text = temp->genre;
+        cell.scoreLabel.text = temp->score;
+    
+        return cell;
+    } else{ //tableView is FilterView
+        if(debug) NSLog(@"loading filterView cell");
+        NSUInteger section = [indexPath section];
+        NSUInteger row = [indexPath row];
+        
+        NSString *key = [filterKeys objectAtIndex:section];
+        if(debug) NSLog(@"key: %@", key);
+        NSArray *filterSection = [filterValues objectForKey:key];
+        if(debug) NSLog(@"section: %@" , filterSection);
+        
+        static NSString *SectionsTableIdentifier = @"SectionsTableIdentifier";
+        UITableViewCell *cell = [songTableView 
+                                 dequeueReusableCellWithIdentifier:SectionsTableIdentifier];
+        if (cell == nil){
+            cell = [[UITableViewCell alloc]
+                    initWithStyle:UITableViewCellStyleDefault 
+                    reuseIdentifier:SectionsTableIdentifier];
+        }
+        
+        cell.textLabel.text = [filterSection objectAtIndex:row];
+        return cell;
     }
-    
-    SongCell *cell = [songTableView dequeueReusableCellWithIdentifier:SongCellIdentifier];
-    
-    NSUInteger row = [indexPath row];
-    Song *temp = [songs objectAtIndex:row];
-    cell.titleLabel.text = temp->title;
-    cell.artistLabel.text = temp->artist;
-    cell.genreLabel.text = temp->genre;
-    cell.scoreLabel.text = temp->score;
-    
-    return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView
+- (NSString *)tableView:(UITableView *)tableView_in
+titleForHeaderInSection:(NSInteger)section{
+    if(tableView_in == filterView){
+        return [filterKeys objectAtIndex:section];
+    }
+    else{
+        return @"poop";
+    }
+}
+- (CGFloat)tableView:(UITableView *)tableView_in
 heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 44.0; //same number as SongCell.xib
+    if (tableView_in == tableView){
+        return 44.0; //same as SongCell.xib
+    }else
+        return 22;
 }
 - (void)dealloc {
     [tableTitle release];

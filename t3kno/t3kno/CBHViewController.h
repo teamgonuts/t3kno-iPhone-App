@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface CBHViewController : UIViewController 
-<UIPickerViewDelegate, UIPickerViewDataSource, UISearchBarDelegate>{
+<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>{
     bool pageControlBeingUsed;
 }
 
@@ -18,16 +18,15 @@
 @property (retain, nonatomic) IBOutlet UILabel *tableTitle;
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
 @property (retain, nonatomic) IBOutlet UIScrollView *scrollView;
-
 @property (retain, nonatomic) NSMutableArray *songs;
 @property (strong, nonatomic) NSData *receivedData;
-@property (strong, nonatomic) NSArray *genreData;
-@property (strong, nonatomic) NSArray *filterData;
 
 //filterview
 @property (retain, nonatomic) IBOutlet UIView *filterView;
 @property (strong, nonatomic) NSString *genreFilter; 
 @property (strong, nonatomic) NSString *timeFilter;
+@property (strong, nonatomic) NSDictionary *filterValues;
+@property (strong, nonatomic) NSArray *filterKeys;
 
 //page control
 @property (retain, nonatomic) IBOutlet UIPageControl *pageControl;
@@ -40,9 +39,5 @@
 //need to do
 @property (retain, nonatomic) IBOutlet UISearchBar *searchBar;
 - (IBAction)openSearchBar:(id)sender;
-
-
-
-
 
 @end
