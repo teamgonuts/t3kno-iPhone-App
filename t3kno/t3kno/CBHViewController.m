@@ -57,7 +57,6 @@
     songs = [[NSMutableArray alloc] init];
     [self loadTableView:nil];
     //Song *firstSong = [songs objectAtIndex:0];
-    [self playSong:@"ts8TOyf090I"];
 
     
         
