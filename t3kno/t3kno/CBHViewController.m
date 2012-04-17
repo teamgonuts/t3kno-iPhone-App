@@ -547,6 +547,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     [timeButton release];
     [playButton release];
     [super dealloc];
+    
 }
 
 - (void)tableView: (UITableView *)songTableView 

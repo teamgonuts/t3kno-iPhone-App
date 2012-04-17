@@ -25,7 +25,7 @@
         
         // Populate HTML with the URL and requested frame size
         NSString *html = [NSString stringWithFormat:youTubeVideoHTML, urlString, frame.size.width, frame.size.height];
-        
+        //NSString *html = @"http://google.com";
         // Load the html into the webview
         [self loadHTMLString:html baseURL:nil];
     }
