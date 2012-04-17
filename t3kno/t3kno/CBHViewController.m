@@ -16,13 +16,10 @@
 @synthesize scrollView;
 @synthesize filterView;
 @synthesize pageControl;
-@synthesize playButton;
-
 @synthesize tableTitle;
 @synthesize tableView;
 @synthesize genreData;
 @synthesize filterData;
-@synthesize timeButton;
 @synthesize searchBar;
 @synthesize songs;
 @synthesize receivedData;
@@ -330,26 +327,9 @@
    }
 
 
-/*=========================**
-       Bottom Bar
- *=========================*/
-- (IBAction)playButtonPressed:(id)sender {
-    if (playButton.image == [UIImage imageNamed:@"play-button.png"]){
-        //Play Clicked
-        
-        //Change Icon to Pause button
-        playButton.image = [UIImage imageNamed:@"pause-button.png"];
-    } else {
-        //Pause Button Clicked
-        
-        //Change icon to play button
-        playButton.image = [UIImage imageNamed:@"play-button.png"];
-        
-    }
-}
 
 /*=========================**
- Filter Controls
+        Filter Controls
  *=========================*/
 - (NSString *) refreshTitle{
     bool debug = false;
@@ -493,8 +473,6 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableTitle release];
     [tableView release];
     [searchBar release];
-    [timeButton release];
-    [playButton release];
     [scrollView release];
     [pageControl release];
     [filterView release];

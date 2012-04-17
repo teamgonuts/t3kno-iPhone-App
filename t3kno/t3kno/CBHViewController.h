@@ -13,35 +13,21 @@
     bool pageControlBeingUsed;
 }
 
+//rankings View
 - (IBAction)loadTableView:(id)sender;
-- (IBAction)openGenreOptions:(id)sender;
-- (IBAction)openTimePicker:(id)sender;
 @property (retain, nonatomic) IBOutlet UILabel *tableTitle;
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSArray *genreData;
-@property (retain, nonatomic) IBOutlet UIPickerView *timePicker;
-@property (strong, nonatomic) NSArray *filterData;
-@property (retain, nonatomic) IBOutlet UIBarButtonItem *timeButton;
-- (IBAction)showSearchBar:(id)sender;
-
-@property (retain, nonatomic) IBOutlet UISearchBar *searchBar;
-- (IBAction)openSearchBar:(id)sender;
+@property (retain, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (retain, nonatomic) NSMutableArray *songs;
 @property (strong, nonatomic) NSData *receivedData;
-@property (strong, nonatomic) NSString *genreFilter; 
-@property (strong, nonatomic) NSString *timeFilter;
-//scroll view 
-@property (retain, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (strong, nonatomic) NSArray *genreData;
+@property (strong, nonatomic) NSArray *filterData;
 
 //filterview
 @property (retain, nonatomic) IBOutlet UIView *filterView;
-
-
-
-//bottom bar
-@property (retain, nonatomic) IBOutlet UIBarButtonItem *playButton;
-- (IBAction)playButtonPressed:(id)sender;
+@property (strong, nonatomic) NSString *genreFilter; 
+@property (strong, nonatomic) NSString *timeFilter;
 
 //page control
 @property (retain, nonatomic) IBOutlet UIPageControl *pageControl;
@@ -50,5 +36,13 @@
 - (NSString *) refreshTitle;
 - (void) playSong:(NSString *)ytcode;
 - (IBAction)changePage:(id)sender;
+
+//need to do
+@property (retain, nonatomic) IBOutlet UISearchBar *searchBar;
+- (IBAction)openSearchBar:(id)sender;
+
+
+
+
 
 @end
