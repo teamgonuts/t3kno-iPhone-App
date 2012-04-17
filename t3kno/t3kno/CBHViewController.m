@@ -20,10 +20,8 @@
 
 @synthesize tableTitle;
 @synthesize tableView;
-@synthesize genrePicker;
-@synthesize genrePickerData;
-@synthesize timePicker;
-@synthesize timePickerData;
+@synthesize genreData;
+@synthesize filterData;
 @synthesize timeButton;
 @synthesize searchBar;
 @synthesize songs;
@@ -46,12 +44,12 @@
     //genres
     NSArray *genres = [[NSArray alloc] initWithObjects:@"All", @"Drum & Bass", 
                        @"Dubstep", @"Electro", @"Hardstyle", @"House", @"Trance", nil];
-    genrePickerData = genres;
+    genreData = genres;
     //top Of ___ and Fresh List
     NSArray *times = [[NSArray alloc] initWithObjects:@"Freshest", @"Top of the Day",
                       @"Top of the Week", @"Top of the Month", @"Top of the Year",
                       @"Top of the Century", nil];
-    timePickerData = times;
+    filterData = times;
     
     //default filter = the fresh list
     genreFilter = @"all";
@@ -105,20 +103,16 @@
     [self setTableTitle:nil];
     [self setSongs:nil];
     [self setTableView:nil];
-    [self setGenrePicker:nil];
-    [self setTimePicker:nil];
     [self setSearchBar:nil];
     [self setTimeButton:nil];
     [self setPlayButton:nil];
     [self setScrollView:nil];
     [self setPageControl:nil];
-    [self setSwipeGesture:nil];
     [self filterView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
     
-    self.genrePickerData = nil;    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -126,8 +120,6 @@
     [super viewWillAppear:animated];
     
     //hiding pickers/search bar
-    genrePicker.hidden = true;
-    timePicker.hidden  = true;
     searchBar.hidden = true;
     
 
@@ -394,56 +386,6 @@
     
 }
 
-- (IBAction)openGenreOptions:(id)sender{
-    //toggles the genrePicker hidden or visible
-    if (genrePicker.hidden == false){
-        //hide genrePicker
-        genrePicker.hidden = true;
-        timePicker.hidden = true;
-        searchBar.hidden = true;
-        
-        //show the tableView
-        [self loadTableView:nil];
-        tableView.hidden = false;
-    }
-    else{
-        //hide the other views
-        tableView.hidden   = true;
-        searchBar.hidden = true;
-        timePicker.hidden = true;
-        
-        //show the genrePicker
-        //genrePicker.hidden = false;
-        [UIView beginAnimations:nil context:NULL];
-        [UIView setAnimationDuration:0.5];
-        [UIView setAnimationCurve: UIViewAnimationCurveEaseInOut ];
-        [UIView commitAnimations];
-        genrePicker.hidden = NO;
-    }
-}
-
-- (IBAction)openTimePicker:(id)sender {
-    //toggles the genrePicker hidden or visible
-    if (timePicker.hidden == false){ //confirm selection
-        //hide other views
-        timePicker.hidden = true;
-        genrePicker.hidden = true;
-        searchBar.hidden = true;
-        
-        //show the tableView
-        [self loadTableView:nil];
-        tableView.hidden = false;
-    }
-    else{ //show selection
-        //hide the other views
-        tableView.hidden   = true;
-        genrePicker.hidden = true;
-        searchBar.hidden = true;
-        
-        //show the genrePicker
-        timePicker.hidden = false;
-    }
-}
 
 - (IBAction)openSearchBar:(id)sender {
     //toggles the genrePicker hidden or visible
@@ -451,16 +393,12 @@
         //hide searchBar
         [searchBar resignFirstResponder]; //close keyboard
         searchBar.hidden = true;
-        genrePicker.hidden = true;
-        timePicker.hidden = true;
         
         //show the tableView
         tableView.hidden = false;
     }
     else{
         //hide the other views
-        genrePicker.hidden   = true;
-        timePicker.hidden = true;
         
         //show the searchBar and tableView
         searchBar.hidden = false;
@@ -516,86 +454,6 @@
     [self openSearchBar:nil];
 }
 
-#pragma mark -
-#pragma mark Picker Data Source Methods
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
-    return 1;
-}
-
-- (NSInteger)pickerView:(UIPickerView *)pickerView 
-numberOfRowsInComponent:(NSInteger)component{
-    if (pickerView == genrePicker){
-        return [genrePickerData count];
-    }
-    else{ //pickerView == timePicker
-        return [timePickerData count];
-    }
-    
-}
-
-#pragma mark Picker Delegate Methods
-- (NSString *)pickerView:(UIPickerView *)pickerView 
-             titleForRow:(NSInteger)row 
-            forComponent:(NSInteger)component{
-    if (pickerView == genrePicker){
-        return [genrePickerData objectAtIndex:row];
-    }
-    else { //pickerView == timePicker
-        return [timePickerData objectAtIndex:row];
-    }
-    
-}
-
-- (void) pickerView:(UIPickerView *)pickerView 
-       didSelectRow:(NSInteger)row 
-        inComponent:(NSInteger)component{
-    if (pickerView == genrePicker){
-        NSString *genreString = [genrePickerData objectAtIndex:row];
-        
-        //Translating Picker View Text to database-friendly values
-        if ([genreString isEqualToString:@"Drum & Bass"]){
-            genreFilter = @"DnB";
-        }
-        else if ([genreString isEqualToString:@"All"]){
-            genreFilter = @"all";
-        }
-        else {//value is good for database
-            genreFilter = genreString;
-        }
-        
-        [self openGenreOptions:nil];
-    }
-    else{ //pickerView == timePicker
-        NSString *timeString = [timePickerData objectAtIndex:row];
-        //Translating Picker View Text to database-friendly values
-        if ([timeString isEqualToString:@"Freshest"]){
-            timeFilter = @"new";
-            timeButton.title = @"Fresh";
-            
-        }
-        else {
-            timeButton.title = @"Top Of";
-            if ([timeString isEqualToString:@"Top of the Day"]){
-                timeFilter = @"Day";
-            }
-            else if ([timeString isEqualToString:@"Top of the Week"]){
-                timeFilter = @"Week";
-            }
-            else if ([timeString isEqualToString:@"Top of the Month"]){
-                timeFilter = @"Month";
-            }
-            else if ([timeString isEqualToString:@"Top of the Year"]){
-                timeFilter = @"Year";
-            }
-            else if ([timeString isEqualToString:@"Top of the Century"]){
-                timeFilter = @"Century";
-            }
-        }
-        
-        [self openTimePicker:nil];
-    }
-    [self refreshTitle];
-}
 
 #pragma mark -
 #pragma mark Table View Data Source Methods
@@ -634,8 +492,6 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 - (void)dealloc {
     [tableTitle release];
     [tableView release];
-    [genrePicker release];
-    [timePicker release];
     [searchBar release];
     [timeButton release];
     [playButton release];

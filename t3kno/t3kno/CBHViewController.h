@@ -18,10 +18,9 @@
 - (IBAction)openTimePicker:(id)sender;
 @property (retain, nonatomic) IBOutlet UILabel *tableTitle;
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) IBOutlet UIPickerView *genrePicker;
-@property (strong, nonatomic) NSArray *genrePickerData;
+@property (strong, nonatomic) NSArray *genreData;
 @property (retain, nonatomic) IBOutlet UIPickerView *timePicker;
-@property (strong, nonatomic) NSArray * timePickerData;
+@property (strong, nonatomic) NSArray *filterData;
 @property (retain, nonatomic) IBOutlet UIBarButtonItem *timeButton;
 - (IBAction)showSearchBar:(id)sender;
 
@@ -34,6 +33,8 @@
 @property (strong, nonatomic) NSString *timeFilter;
 //scroll view 
 @property (retain, nonatomic) IBOutlet UIScrollView *scrollView;
+
+//filterview
 @property (retain, nonatomic) IBOutlet UIView *filterView;
 
 
