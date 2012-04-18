@@ -53,7 +53,6 @@
     timeFilter = @"new";
     
     songs = [[NSMutableArray alloc] init];
-    [self loadTableView:nil];    
     
     //right frame
     if (filterView == nil){
@@ -127,7 +126,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+    [self loadTableView:nil];    
+
     //hiding pickers/search bar
     searchBar.hidden = true;
     
@@ -233,7 +233,7 @@
     }
     
     [searchBar setHidden:true];
-    [self refreshTitle];
+    //[self refreshTitle];
 }
 
 /*================================**
@@ -408,11 +408,12 @@
 #pragma -
 #pragma mark Search Bar Delegate Methods
 
+
 - (IBAction)seachButtonIconPressed:(id)sender {
     bool debug = true;
     if (debug) NSLog(@"SearchButtonPressed");
     //toggles the genrePicker hidden or visible
-    if (searchBar.hidden == false){
+    if (searchBar.hidden == false){ //hide the searchBar
         //hide searchBar
         [searchBar resignFirstResponder]; //close keyboard
         searchBar.hidden = true;
@@ -421,20 +422,28 @@
         tableView.hidden = false;
         logoImageView.hidden = false;
     }
-    else{
-        //hide the other views
+    else{//show the search bar
+        //hide the logo
         logoImageView.hidden = true;
+        
+        //scroll to the rankings
+        CGRect frame;
+        frame.origin.x = 0;
+        frame.origin.y = 0;
+        frame.size = self.scrollView.frame.size;
+        [self.scrollView scrollRectToVisible:frame animated:YES];
         
         //show the searchBar and tableView
         searchBar.hidden = false;
         tableView.hidden = false;
+        
     }
 }
 
--(void) searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+-(void) searchBarSearchButtonClicked:(UISearchBar *)aSearchBar{
     bool debug = false;
     
-    NSString *searchTerm = [searchBar text];
+    NSString *searchTerm = [aSearchBar text];
     
     if (debug){
         NSLog(@"Searched: %@", searchTerm);
@@ -605,7 +614,10 @@ didSelectRowAtIndexPath: (NSIndexPath *)indexPath {
     
     //[cell setSelectedBackgroundView:clickedBackgroundView];
     //[cell setSelected:YES];
+    NSIndexPath *insertAT = [[NSIndexPath alloc] initWithIndex:(indexPath.row+1)];
     
+    NSArray *rowArray = [[NSArray alloc] initWithObjects:insertAT, nil];
+    [tableView insertRowsAtIndexPaths:rowArray withRowAnimation:UITableViewRowAnimationTop];
         
     if(songTableView == tableView){
         SongCell *cell = [songTableView cellForRowAtIndexPath:indexPath];

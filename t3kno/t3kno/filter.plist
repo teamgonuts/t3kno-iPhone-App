@@ -11,13 +11,10 @@
 		<string>House</string>
 		<string>Trance</string>
 	</array>
-	<key>Sort By</key>
+	<key>Filters</key>
 	<array>
-		<string>Score</string>
-		<string>Upload Date</string>
-	</array>
-	<key>Songs from the Last</key>
-	<array>
+		<string>The Freshest</string>
+		<string>Top of the</string>
 		<string>Day</string>
 		<string>Week</string>
 		<string>Month</string>

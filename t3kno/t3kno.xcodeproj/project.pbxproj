@@ -21,6 +21,7 @@
 		BD79C70B153E102C006A9C60 /* CBHViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD79C709153E102C006A9C60 /* CBHViewController_iPhone.xib */; };
 		BD79C70D153E1E85006A9C60 /* filter.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD79C70C153E1E85006A9C60 /* filter.plist */; };
 		BD79C71F153F4083006A9C60 /* magnifying_glass.png in Resources */ = {isa = PBXBuildFile; fileRef = BD79C71E153F4083006A9C60 /* magnifying_glass.png */; };
+		BD79C721153F4F92006A9C60 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = BD79C720153F4F92006A9C60 /* TODO */; };
 		BDC55A1D153A723100F79B92 /* genreFilters.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDC55A1C153A723100F79B92 /* genreFilters.xib */; };
 		BDC55A1F153A762000F79B92 /* magnifying_glass_icon in Resources */ = {isa = PBXBuildFile; fileRef = BDC55A1E153A762000F79B92 /* magnifying_glass_icon */; };
 		BDC55A21153A767500F79B92 /* magnifying_glass_18x18 in Resources */ = {isa = PBXBuildFile; fileRef = BDC55A20153A767500F79B92 /* magnifying_glass_18x18 */; };
@@ -77,6 +78,7 @@
 		BD79C70A153E102C006A9C60 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CBHViewController_iPhone.xib; sourceTree = "<group>"; };
 		BD79C70C153E1E85006A9C60 /* filter.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = filter.plist; sourceTree = "<group>"; };
 		BD79C71E153F4083006A9C60 /* magnifying_glass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = magnifying_glass.png; path = "../../t3kno-iPhone-App/magnifying_glass.png"; sourceTree = "<group>"; };
+		BD79C720153F4F92006A9C60 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 		BDC55A1C153A723100F79B92 /* genreFilters.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = genreFilters.xib; sourceTree = "<group>"; };
 		BDC55A1E153A762000F79B92 /* magnifying_glass_icon */ = {isa = PBXFileReference; lastKnownFileType = file; path = magnifying_glass_icon; sourceTree = SOURCE_ROOT; };
 		BDC55A20153A767500F79B92 /* magnifying_glass_18x18 */ = {isa = PBXFileReference; lastKnownFileType = file; name = magnifying_glass_18x18; path = "../../t3kno-iPhone-App/magnifying_glass_18x18"; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 		BD4F0EA91530D75E00573F67 /* t3kno */ = {
 			isa = PBXGroup;
 			children = (
+				BD79C720153F4F92006A9C60 /* TODO */,
 				BD79C70C153E1E85006A9C60 /* filter.plist */,
 				BD4F0EB21530D75F00573F67 /* CBHAppDelegate.h */,
 				BD4F0EB31530D75F00573F67 /* CBHAppDelegate.m */,
@@ -353,6 +356,7 @@
 				BD79C70B153E102C006A9C60 /* CBHViewController_iPhone.xib in Resources */,
 				BD79C70D153E1E85006A9C60 /* filter.plist in Resources */,
 				BD79C71F153F4083006A9C60 /* magnifying_glass.png in Resources */,
+				BD79C721153F4F92006A9C60 /* TODO in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
