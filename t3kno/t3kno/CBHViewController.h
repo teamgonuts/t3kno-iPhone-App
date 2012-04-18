@@ -13,6 +13,9 @@
     bool pageControlBeingUsed;
 }
 
+//universal
+@property (retain, nonatomic) IBOutlet UIImageView *logoImageView;
+
 //rankings View
 - (IBAction)loadTableView:(id)sender;
 @property (retain, nonatomic) IBOutlet UILabel *tableTitle;
@@ -20,6 +23,10 @@
 @property (retain, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (retain, nonatomic) NSMutableArray *songs;
 @property (strong, nonatomic) NSData *receivedData;
+- (IBAction)seachButtonIconPressed:(id)sender;
+@property (retain, nonatomic) IBOutlet UISearchBar *searchBar;
+
+
 
 //filterview
 @property (retain, nonatomic) IBOutlet UIView *filterView;
@@ -38,7 +45,5 @@
 - (IBAction)changePage:(id)sender;
 
 //need to do
-@property (retain, nonatomic) IBOutlet UISearchBar *searchBar;
-- (IBAction)openSearchBar:(id)sender;
 
 @end

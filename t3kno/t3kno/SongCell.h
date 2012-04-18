@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SongCell : UITableViewCell
+@interface SongCell : UITableViewCell{
+    @public
+    bool expanded;
+}
 @property (retain, nonatomic) IBOutlet UILabel *titleLabel;
 
 @property (retain, nonatomic) IBOutlet UILabel *artistLabel;

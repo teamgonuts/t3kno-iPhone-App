@@ -13,6 +13,7 @@
 #import "YoutubeView.h"
 
 @implementation CBHViewController
+@synthesize logoImageView;
 @synthesize scrollView;
 @synthesize filterView;
 @synthesize filterTableView;
@@ -111,6 +112,8 @@
     [self setFilterView:nil];
 
     [self setFilterTableView:nil];
+    [self setSearchButton:nil];
+    [self setLogoImageView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -163,6 +166,7 @@
     [pageControl release];
     [filterView release];
     [filterTableView release];
+    [logoImageView release];
     [super dealloc];
     
 }
@@ -396,7 +400,14 @@
 }
 
 
-- (IBAction)openSearchBar:(id)sender {
+
+
+#pragma -
+#pragma mark Search Bar Delegate Methods
+
+- (IBAction)seachButtonIconPressed:(id)sender {
+    bool debug = true;
+    if (debug) NSLog(@"SearchButtonPressed");
     //toggles the genrePicker hidden or visible
     if (searchBar.hidden == false){
         //hide searchBar
@@ -405,9 +416,11 @@
         
         //show the tableView
         tableView.hidden = false;
+        logoImageView.hidden = false;
     }
     else{
         //hide the other views
+        logoImageView.hidden = true;
         
         //show the searchBar and tableView
         searchBar.hidden = false;
@@ -415,8 +428,6 @@
     }
 }
 
-#pragma -
-#pragma mark Search Bar Delegate Methods
 -(void) searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     bool debug = false;
     
@@ -460,7 +471,7 @@
 
 - (void) searchBarCancelButtonClicked:(UISearchBar *)searchBar{
     searchBar.text  = @"";
-    [self openSearchBar:nil];
+    [self seachButtonIconPressed:nil];
 }
 
 
@@ -492,6 +503,7 @@
     {
         if (debug) NSLog(@"--TableView: rankings");
         return [self.songs count];
+        
     }else if(songTableView == filterTableView){ //its the filter tableView
         if (debug) NSLog(@"--TableView: filter");
         if (debug) NSLog(@"--section: %d", section);
@@ -587,21 +599,34 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 
 - (void)tableView: (UITableView *)songTableView 
 didSelectRowAtIndexPath: (NSIndexPath *)indexPath {
-    //SongCell *cell = [songTableView cellForRowAtIndexPath:indexPath];
-    //UIImageView *clickedBackgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tablecellbg_click.png"]];
+    
     //[cell setSelectedBackgroundView:clickedBackgroundView];
     //[cell setSelected:YES];
-    //cell.artistLabel.textColor = [UIColor blackColor];
-    //cell.bgImage.image = [UIImage imageNamed:@"tablecellbg_click.png"];
-    //cell.titleLabel.textColor = [UIColor blackColor];
     
-    //cell.scoreLabel.textColor = [UIColor blackColor];
-    //cell.genreLabel.textColor = [UIColor blackColor];
-    
+        
     if(songTableView == tableView){
+        SongCell *cell = [songTableView cellForRowAtIndexPath:indexPath];
+        if (cell->expanded == NO){
+            //change cell image
+            cell.bgImage.image = [UIImage imageNamed:@"tablecellbg_click.png"];
+            cell->expanded = YES;
+            
+            //add new cell below
+            
+        }else { //cell is already open, so close it
+            //change cell image
+            cell.bgImage.image = [UIImage imageNamed:@"tablecellbg.png"];
+            cell->expanded = NO;
+            
+            //remove expaned cell below
+        }
+        
+        /*
         NSIndexPath *indexP = [NSIndexPath indexPathForRow:2 inSection:0];
         [tableView insertRowsAtIndexPaths:[[NSArray alloc] initWithObjects:indexP, nil] 
                          withRowAnimation:UITableViewRowAnimationRight];
+         */
+        
     }
     
     
@@ -609,6 +634,5 @@ didSelectRowAtIndexPath: (NSIndexPath *)indexPath {
     
 }
 
-- (IBAction)showSearchBar:(id)sender {
-}
+
 @end
