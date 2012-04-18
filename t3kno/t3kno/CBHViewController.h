@@ -11,7 +11,7 @@
 @interface CBHViewController : UIViewController 
 <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>{
     bool pageControlBeingUsed;
-    int no_of_rows;
+    int expandedRow;
 }
 
 //universal
@@ -23,6 +23,7 @@
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
 @property (retain, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (retain, nonatomic) NSMutableArray *songs;
+@property (retain, nonatomic) NSMutableArray *tableViewCells;
 @property (strong, nonatomic) NSData *receivedData;
 - (IBAction)seachButtonIconPressed:(id)sender;
 @property (retain, nonatomic) IBOutlet UISearchBar *searchBar;

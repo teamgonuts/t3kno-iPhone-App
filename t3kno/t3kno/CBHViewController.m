@@ -28,6 +28,7 @@
 @synthesize timeFilter;
 @synthesize filterKeys;
 @synthesize filterValues;
+@synthesize tableViewCells;
 
 - (void)didReceiveMemoryWarning
 {
@@ -53,6 +54,7 @@
     timeFilter = @"new";
     songs = [[NSMutableArray alloc] init];
     pageControlBeingUsed = NO;
+    expandedRow = -1; //default = there is no expanded row
 
     
     //creating the scrollview & frame
@@ -97,6 +99,7 @@
     // e.g. self.myOutlet = nil;
     self.filterKeys = nil;
     self.filterValues = nil;
+    self.tableViewCells = nil;
     
 }
 
@@ -331,6 +334,25 @@
     }
     songs = temp;
     
+    static NSString *SongCellIdentifier = @"SongCellIdentifier";
+    static BOOL nibsRegistered = NO;
+    if(!nibsRegistered){
+        UINib *nib = [UINib nibWithNibName:@"SongCell" bundle:nil];
+        [tableView registerNib:nib forCellReuseIdentifier:SongCellIdentifier];
+        nibsRegistered = YES;
+    }
+    
+    NSMutableArray *cellArray = [[NSMutableArray alloc] init];
+    for (Song *song in songs) {
+        SongCell *cell = (SongCell *)[tableView dequeueReusableCellWithIdentifier:SongCellIdentifier];
+        cell.scoreLabel.text = song->score;
+        cell.genreLabel.text = song->genre;
+        cell.titleLabel.text = song->title;
+        cell.artistLabel.text = song->artist;
+        [cellArray addObject:cell];
+    }
+    tableViewCells = cellArray;
+    
     if(debug){
         NSLog(@"songs.length:%u, song, %@",[songs count], songs);
     }
@@ -491,7 +513,10 @@
     if(songTableView == tableView)
     {
         if (debug) NSLog(@"--TableView: rankings");
-        return ([self.songs count]+no_of_rows);
+        if (expandedRow == -1) 
+            return [self.songs count];
+        else //one row is expanded, so there is +1
+            return ([self.songs count]+1);
         
     }else if(songTableView == filterTableView){ //its the filter tableView
         if (debug) NSLog(@"--TableView: filter");
@@ -513,27 +538,19 @@
     //NSLog(@"modifying cell %d",indexPath.row);
     bool debug = false;
     if (songTableView == tableView){
-        if (debug) NSLog(@"loading tableView cell");
-        static NSString *SongCellIdentifier = @"SongCellIdentifier";
-        static BOOL nibsRegistered = NO;
-        if(!nibsRegistered){
-            UINib *nib = [UINib nibWithNibName:@"SongCell" bundle:nil];
-            [songTableView registerNib:nib forCellReuseIdentifier:SongCellIdentifier];
-            nibsRegistered = YES;
-        }
-    
-        SongCell *cell = [songTableView dequeueReusableCellWithIdentifier:SongCellIdentifier];
-    
+        if (debug) NSLog(@"--tableView: tableView");
+ 
         NSUInteger row = [indexPath row];
-        Song *temp = [songs objectAtIndex:row];
-        cell.titleLabel.text = temp->title;
-        cell.artistLabel.text = temp->artist;
-        cell.genreLabel.text = temp->genre;
-        cell.scoreLabel.text = temp->score;
-    
+        if (row == expandedRow){ //the expanded row, return the custom cell
+            UITableViewCell *temp = [[UITableViewCell alloc] 
+                                     initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"test"];
+            return temp;
+        }
+        UITableViewCell *cell = [tableViewCells objectAtIndex:row];
         return cell;
-    } else if (songTableView == filterTableView){ //tableView is FilterView
-        if(debug) NSLog(@"loading filterView cell");
+    } 
+    else if (songTableView == filterTableView){ //tableView is FilterView
+        if(debug) NSLog(@"--tableView: filterTableView");
         NSUInteger section = [indexPath section];
         NSUInteger row = [indexPath row];
         
@@ -589,13 +606,8 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 
 - (void)tableView: (UITableView *)songTableView 
 didSelectRowAtIndexPath: (NSIndexPath *)indexPath {
-    
-    //[cell setSelectedBackgroundView:clickedBackgroundView];
-    //[cell setSelected:YES];
-    
-    //NSIndexPath *insertAT = [[NSIndexPath alloc] initWithIndex:(indexPath.row+1)];
-        
-        
+    bool debug = true;
+    //todo: if the user selects expanded cell, doesn't do anything
     if(songTableView == tableView){
         SongCell *cell = (SongCell *)[songTableView cellForRowAtIndexPath:indexPath];
         if (cell->expanded == NO){
@@ -604,25 +616,31 @@ didSelectRowAtIndexPath: (NSIndexPath *)indexPath {
             cell->expanded = YES;
                         
             //add new cell below
-            NSIndexPath *insertAt = [NSIndexPath indexPathForRow:1 inSection:0];
+            
+            NSInteger atRow = [indexPath row] + 1;
+            NSIndexPath *insertAt = [NSIndexPath indexPathForRow:atRow inSection:0];
             NSArray *rowArray = [[NSArray alloc] initWithObjects:insertAt, nil];
-
-            //[tableView insertRowsAtIndexPaths:rowArray withRowAnimation:UITableViewRowAnimationTop];
-
+            
+            if (debug) NSLog(@"Expanded row: %d", atRow);
+            expandedRow = atRow;
+            
+            [tableView insertRowsAtIndexPaths:rowArray withRowAnimation:UITableViewRowAnimationTop];
             
         }else { //cell is already open, so close it
             //change cell image
             cell.bgImage.image = [UIImage imageNamed:@"tablecellbg.png"];
             cell->expanded = NO;
             
+            NSIndexPath *removeAt = [NSIndexPath indexPathForRow:expandedRow inSection:0];
+            NSArray *rowArray = [[NSArray alloc] initWithObjects:removeAt, nil];
+            if(debug) NSLog(@"--about to delete row: %d", expandedRow);
+
+            expandedRow = -1;
+            [tableView deleteRowsAtIndexPaths:rowArray withRowAnimation:UITableViewRowAnimationTop];
+            
             //remove expaned cell below
         }
-        
     }
-    
-    
-    
-    
 }
 
 
