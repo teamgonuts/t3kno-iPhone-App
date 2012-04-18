@@ -40,26 +40,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
 	// loading up the filter table
     NSString *path = [[NSBundle mainBundle] pathForResource:@"filter" ofType:@"plist"];
     NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:path];
     self.filterValues = dict;
-    
     NSArray *array = [filterValues allKeys];
     self.filterKeys = array;
     
     //default filter = the fresh list
     genreFilter = @"all";
     timeFilter = @"new";
-    
     songs = [[NSMutableArray alloc] init];
+    pageControlBeingUsed = NO;
+
     
-    //right frame
+    //creating the scrollview & frame
     if (filterView == nil){
         UIView *temp = [[UIView alloc] init];
         filterView = temp;
     }
-    
     
     CGRect frame;
     frame.origin.x = self.scrollView.frame.size.width; //set it to the right of the screen
@@ -69,33 +69,10 @@
     [self.scrollView addSubview:filterView];
     [filterView release];
     
-
-    /*
-    CGRect frame;
-    frame.origin.x = self.scrollView.frame.size.width * 2; //set it to the right of the screen
-    frame.origin.y = 0;
-    frame.size = self.scrollView.frame.size;
-    
-    UIView *subview = [[UIView alloc] initWithFrame:frame];
-    [subview setFrame:<#(CGRect)#>
-    subview.backgroundColor = [UIColor blueColor];
-    [self.scrollView addSubview:subview];
-    [subview release];
-     */     
     
     self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * 2, self.scrollView.frame.size.height);
     
-    pageControlBeingUsed = NO;
-    
-
-    /* PUTS IN FAKE HEADER"
-    UILabel *lbl = [[[UILabel alloc] initWithFrame:CGRectMake(0, 61, scrollView.frame.size.width, 30)] autorelease];
-    lbl.textAlignment = UITextAlignmentCenter;
-    lbl.font = [UIFont systemFontOfSize:12];
-    lbl.text = @"Header";
-    tableView.tableHeaderView = lbl;
-     */
-    
+    //testing
     filterTableView.allowsMultipleSelection = true;
         
     
@@ -410,7 +387,7 @@
 
 
 - (IBAction)seachButtonIconPressed:(id)sender {
-    bool debug = true;
+    bool debug = false;
     if (debug) NSLog(@"SearchButtonPressed");
     //toggles the genrePicker hidden or visible
     if (searchBar.hidden == false){ //hide the searchBar
@@ -492,7 +469,7 @@
 
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)songTableView{
-    bool debug = true;
+    bool debug = false;
     if (debug) NSLog(@"numberOfSectionsInTable Called!");
     if (songTableView == tableView){//tableView
         if (debug) NSLog(@"--TableView: rankings");
@@ -514,7 +491,7 @@
     if(songTableView == tableView)
     {
         if (debug) NSLog(@"--TableView: rankings");
-        return [self.songs count];
+        return ([self.songs count]+no_of_rows);
         
     }else if(songTableView == filterTableView){ //its the filter tableView
         if (debug) NSLog(@"--TableView: filter");
@@ -533,9 +510,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)songTableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    //NSLog(@"modifying cell %d",indexPath.row);
     bool debug = false;
     if (songTableView == tableView){
-        NSLog(@"loading tableView cell");
+        if (debug) NSLog(@"loading tableView cell");
         static NSString *SongCellIdentifier = @"SongCellIdentifier";
         static BOOL nibsRegistered = NO;
         if(!nibsRegistered){
@@ -615,45 +593,30 @@ didSelectRowAtIndexPath: (NSIndexPath *)indexPath {
     //[cell setSelectedBackgroundView:clickedBackgroundView];
     //[cell setSelected:YES];
     
-    //kunal code
     //NSIndexPath *insertAT = [[NSIndexPath alloc] initWithIndex:(indexPath.row+1)];
-    //NSArray *rowArray = [[NSArray alloc] initWithObjects:insertAT, nil];
-    //[tableView insertRowsAtIndexPaths:rowArray withRowAnimation:UITableViewRowAnimationTop];
+        
         
     if(songTableView == tableView){
-        SongCell *cell = [songTableView cellForRowAtIndexPath:indexPath];
+        SongCell *cell = (SongCell *)[songTableView cellForRowAtIndexPath:indexPath];
         if (cell->expanded == NO){
             //change cell image
             cell.bgImage.image = [UIImage imageNamed:@"tablecellbg_click.png"];
             cell->expanded = YES;
-            
-            //create the expanded frame
-            CGRect frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y,
-                                       cell.frame.size.width, cell.frame.size.height+44);
-            
-            [cell setFrame:frame];
-            
                         
             //add new cell below
+            NSIndexPath *insertAt = [NSIndexPath indexPathForRow:1 inSection:0];
+            NSArray *rowArray = [[NSArray alloc] initWithObjects:insertAt, nil];
+
+            //[tableView insertRowsAtIndexPaths:rowArray withRowAnimation:UITableViewRowAnimationTop];
+
             
         }else { //cell is already open, so close it
             //change cell image
             cell.bgImage.image = [UIImage imageNamed:@"tablecellbg.png"];
             cell->expanded = NO;
             
-            CGRect frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y,
-                                      cell.frame.size.width, cell.frame.size.height-44);
-            
-            [cell setFrame:frame];
-            
             //remove expaned cell below
         }
-        
-        /*
-        NSIndexPath *indexP = [NSIndexPath indexPathForRow:2 inSection:0];
-        [tableView insertRowsAtIndexPaths:[[NSArray alloc] initWithObjects:indexP, nil] 
-                         withRowAnimation:UITableViewRowAnimationRight];
-         */
         
     }
     

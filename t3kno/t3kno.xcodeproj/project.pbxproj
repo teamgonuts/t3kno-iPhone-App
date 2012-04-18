@@ -22,6 +22,9 @@
 		BD79C70D153E1E85006A9C60 /* filter.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD79C70C153E1E85006A9C60 /* filter.plist */; };
 		BD79C71F153F4083006A9C60 /* magnifying_glass.png in Resources */ = {isa = PBXBuildFile; fileRef = BD79C71E153F4083006A9C60 /* magnifying_glass.png */; };
 		BD79C721153F4F92006A9C60 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = BD79C720153F4F92006A9C60 /* TODO */; };
+		BD79C72F153F5EE3006A9C60 /* logo-57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = BD79C72C153F5EE3006A9C60 /* logo-57x57.png */; };
+		BD79C730153F5EE3006A9C60 /* logo-114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = BD79C72D153F5EE3006A9C60 /* logo-114x114.png */; };
+		BD79C731153F5EE3006A9C60 /* logo-512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = BD79C72E153F5EE3006A9C60 /* logo-512x512.png */; };
 		BDC55A1D153A723100F79B92 /* genreFilters.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDC55A1C153A723100F79B92 /* genreFilters.xib */; };
 		BDC55A1F153A762000F79B92 /* magnifying_glass_icon in Resources */ = {isa = PBXBuildFile; fileRef = BDC55A1E153A762000F79B92 /* magnifying_glass_icon */; };
 		BDC55A21153A767500F79B92 /* magnifying_glass_18x18 in Resources */ = {isa = PBXBuildFile; fileRef = BDC55A20153A767500F79B92 /* magnifying_glass_18x18 */; };
@@ -40,8 +43,6 @@
 		BDE66895153147530013CBFA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDE66894153147530013CBFA /* SystemConfiguration.framework */; };
 		BDE66897153147680013CBFA /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDE66896153147680013CBFA /* MobileCoreServices.framework */; };
 		BDE66899153147820013CBFA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BDE66898153147820013CBFA /* libz.dylib */; };
-		BDE668A015314D670013CBFA /* logo_57.png in Resources */ = {isa = PBXBuildFile; fileRef = BDE6689E15314D670013CBFA /* logo_57.png */; };
-		BDE668A115314D670013CBFA /* logo_114.png in Resources */ = {isa = PBXBuildFile; fileRef = BDE6689F15314D670013CBFA /* logo_114.png */; };
 		BDE668A515324D070013CBFA /* SongCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDE668A415324D070013CBFA /* SongCell.xib */; };
 		BDE668A815324FF20013CBFA /* SongCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE668A715324FF20013CBFA /* SongCell.m */; };
 		BDE668C3153A035C0013CBFA /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE668AB153A035C0013CBFA /* NSObject+SBJson.m */; };
@@ -79,6 +80,9 @@
 		BD79C70C153E1E85006A9C60 /* filter.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = filter.plist; sourceTree = "<group>"; };
 		BD79C71E153F4083006A9C60 /* magnifying_glass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = magnifying_glass.png; path = "../../t3kno-iPhone-App/magnifying_glass.png"; sourceTree = "<group>"; };
 		BD79C720153F4F92006A9C60 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
+		BD79C72C153F5EE3006A9C60 /* logo-57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo-57x57.png"; path = "../../t3kno-iPhone-App/logo-57x57.png"; sourceTree = "<group>"; };
+		BD79C72D153F5EE3006A9C60 /* logo-114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo-114x114.png"; path = "../../t3kno-iPhone-App/logo-114x114.png"; sourceTree = "<group>"; };
+		BD79C72E153F5EE3006A9C60 /* logo-512x512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo-512x512.png"; path = "../../t3kno-iPhone-App/logo-512x512.png"; sourceTree = "<group>"; };
 		BDC55A1C153A723100F79B92 /* genreFilters.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = genreFilters.xib; sourceTree = "<group>"; };
 		BDC55A1E153A762000F79B92 /* magnifying_glass_icon */ = {isa = PBXFileReference; lastKnownFileType = file; path = magnifying_glass_icon; sourceTree = SOURCE_ROOT; };
 		BDC55A20153A767500F79B92 /* magnifying_glass_18x18 */ = {isa = PBXFileReference; lastKnownFileType = file; name = magnifying_glass_18x18; path = "../../t3kno-iPhone-App/magnifying_glass_18x18"; sourceTree = "<group>"; };
@@ -99,8 +103,6 @@
 		BDE66894153147530013CBFA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		BDE66896153147680013CBFA /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		BDE66898153147820013CBFA /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		BDE6689E15314D670013CBFA /* logo_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo_57.png; path = "../../t3kno-iPhone-App/t3kno/t3kno/logo_57.png"; sourceTree = "<group>"; };
-		BDE6689F15314D670013CBFA /* logo_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo_114.png; path = "../../t3kno-iPhone-App/t3kno/t3kno/logo_114.png"; sourceTree = "<group>"; };
 		BDE668A415324D070013CBFA /* SongCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SongCell.xib; sourceTree = "<group>"; };
 		BDE668A615324FF20013CBFA /* SongCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongCell.h; sourceTree = "<group>"; };
 		BDE668A715324FF20013CBFA /* SongCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongCell.m; sourceTree = "<group>"; };
@@ -217,6 +219,9 @@
 		BD79C717153F0B93006A9C60 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				BD79C72C153F5EE3006A9C60 /* logo-57x57.png */,
+				BD79C72D153F5EE3006A9C60 /* logo-114x114.png */,
+				BD79C72E153F5EE3006A9C60 /* logo-512x512.png */,
 				BD79C71E153F4083006A9C60 /* magnifying_glass.png */,
 				BDC55A30153B73D600F79B92 /* tablecellbg.png */,
 				BD79C6F7153DF045006A9C60 /* logoWithText_lg.png */,
@@ -231,8 +236,6 @@
 				BDC55A1E153A762000F79B92 /* magnifying_glass_icon */,
 				BD3D9FA51530F4010025B9A3 /* logoWithText_sm.png */,
 				BD3D9FA31530F33A0025B9A3 /* logoWithText.png */,
-				BDE6689E15314D670013CBFA /* logo_57.png */,
-				BDE6689F15314D670013CBFA /* logo_114.png */,
 				BDC55A32153B8BF400F79B92 /* tablecellbg_click.png */,
 			);
 			name = Images;
@@ -337,8 +340,6 @@
 				BD4F0EBD1530D75F00573F67 /* CBHViewController_iPad.xib in Resources */,
 				BD3D9FA41530F33A0025B9A3 /* logoWithText.png in Resources */,
 				BD3D9FA61530F4010025B9A3 /* logoWithText_sm.png in Resources */,
-				BDE668A015314D670013CBFA /* logo_57.png in Resources */,
-				BDE668A115314D670013CBFA /* logo_114.png in Resources */,
 				BDE668A515324D070013CBFA /* SongCell.xib in Resources */,
 				BDC55A1D153A723100F79B92 /* genreFilters.xib in Resources */,
 				BDC55A1F153A762000F79B92 /* magnifying_glass_icon in Resources */,
@@ -357,6 +358,9 @@
 				BD79C70D153E1E85006A9C60 /* filter.plist in Resources */,
 				BD79C71F153F4083006A9C60 /* magnifying_glass.png in Resources */,
 				BD79C721153F4F92006A9C60 /* TODO in Resources */,
+				BD79C72F153F5EE3006A9C60 /* logo-57x57.png in Resources */,
+				BD79C730153F5EE3006A9C60 /* logo-114x114.png in Resources */,
+				BD79C731153F5EE3006A9C60 /* logo-512x512.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,6 +11,7 @@
 @interface CBHViewController : UIViewController 
 <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>{
     bool pageControlBeingUsed;
+    int no_of_rows;
 }
 
 //universal

@@ -10,8 +10,8 @@
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFiles</key>
 	<array>
-		<string>logo_114.png</string>
-		<string>logo_57.png</string>
+		<string>logo-114x114.png</string>
+		<string>logo-57x57.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
 	<string>calvin.hawkes</string>
