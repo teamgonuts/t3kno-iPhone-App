@@ -23,6 +23,7 @@
 
 //filterview
 @property (retain, nonatomic) IBOutlet UIView *filterView;
+@property (retain, nonatomic) IBOutlet UITableView *filterTableView;
 @property (strong, nonatomic) NSString *genreFilter; 
 @property (strong, nonatomic) NSString *timeFilter;
 @property (strong, nonatomic) NSDictionary *filterValues;

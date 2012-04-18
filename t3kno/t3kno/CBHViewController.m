@@ -15,6 +15,7 @@
 @implementation CBHViewController
 @synthesize scrollView;
 @synthesize filterView;
+@synthesize filterTableView;
 @synthesize pageControl;
 @synthesize tableTitle;
 @synthesize tableView;
@@ -93,6 +94,8 @@
     lbl.text = @"Header";
     tableView.tableHeaderView = lbl;
      */
+    
+    filterTableView.allowsMultipleSelection = true;
         
     
 }
@@ -107,6 +110,7 @@
     [self setPageControl:nil];
     [self setFilterView:nil];
 
+    [self setFilterTableView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -151,6 +155,20 @@
     }
 }
 
+- (void)dealloc {
+    [tableTitle release];
+    [tableView release];
+    [searchBar release];
+    [scrollView release];
+    [pageControl release];
+    [filterView release];
+    [filterTableView release];
+    [super dealloc];
+    
+}
+
+#pragma mark -
+#pragma mark Load Embedded Player
 - (void) playSong:(NSString *)ytcode{
     BOOL debug = false;
     if(debug){
@@ -169,6 +187,9 @@
         NSLog(@"playSong() ended!");
     }
 }
+
+#pragma mark -
+#pragma mark Rankings View
 - (IBAction)loadTableView:(id)sender {
     bool debug = false;
     if (debug){
@@ -211,6 +232,9 @@
 /*================================**
     PageControl/ScrollView Delegate
  *================================*/
+#pragma mark -
+#pragma mark Page Control and ScrollView Delegate
+
 - (void)scrollViewDidScroll:(UIScrollView *)sender {
     // Update the page when more than 50% of the previous/next page is visible
     bool debug = false;
@@ -261,6 +285,8 @@
 /*=========================**
     NSURLConnection Delegate
  *=========================*/
+# pragma mark -
+# pragma mark NSURLConnection Delegate Methods
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
@@ -443,14 +469,18 @@
 
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)songTableView{
-    bool debug = false;
+    bool debug = true;
     if (debug) NSLog(@"numberOfSectionsInTable Called!");
     if (songTableView == tableView){//tableView
         if (debug) NSLog(@"--TableView: rankings");
         return 1;
-    }else{
+    }else if (songTableView == filterTableView){
         if (debug) NSLog(@"--TableView: filter");
         return [filterKeys count];
+    }
+    else{
+        if (debug) NSLog(@"--Unknown tableview");
+        return -1;
     }
 }
 
@@ -462,19 +492,24 @@
     {
         if (debug) NSLog(@"--TableView: rankings");
         return [self.songs count];
-    }else{ //its the filter tableView
+    }else if(songTableView == filterTableView){ //its the filter tableView
         if (debug) NSLog(@"--TableView: filter");
         if (debug) NSLog(@"--section: %d", section);
         NSString *key = [filterKeys objectAtIndex:section];
         NSArray *filterSection = [filterValues objectForKey:key];
         return [filterSection count];
     }
+    else{
+        if (debug) NSLog(@"--unknown tableview called, returning -1");
+        return -1;
+    }
+        
     
 }
 
 - (UITableViewCell *)tableView:(UITableView *)songTableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    bool debug = true;
+    bool debug = false;
     if (songTableView == tableView){
         NSLog(@"loading tableView cell");
         static NSString *SongCellIdentifier = @"SongCellIdentifier";
@@ -495,7 +530,7 @@
         cell.scoreLabel.text = temp->score;
     
         return cell;
-    } else{ //tableView is FilterView
+    } else if (songTableView == filterTableView){ //tableView is FilterView
         if(debug) NSLog(@"loading filterView cell");
         NSUInteger section = [indexPath section];
         NSUInteger row = [indexPath row];
@@ -518,33 +553,37 @@
         cell.textColor = [UIColor whiteColor];
         return cell;
     }
+    else{
+        if (debug) NSLog(@"--unknown tableView: returning nil");
+        return nil;
+    }
 }
 
 - (NSString *)tableView:(UITableView *)songTableView
 titleForHeaderInSection:(NSInteger)section{
-    if (songTableView == tableView)
+    if (songTableView == tableView){
+        //todo: call refresh title
         return @"The Fresh List";
-    else
+    }
+    else if (songTableView == filterTableView){
         return [filterKeys objectAtIndex:section];
+    }
+    else{
+        return nil;
+    }
 }
 
-- (CGFloat)tableView:(UITableView *)tableView_in
+- (CGFloat)tableView:(UITableView *)songTableView
 heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (tableView_in == tableView){
+    if (songTableView == tableView){
         return 44.0; //same as SongCell.xib
-    }else
+    }else if (songTableView == filterTableView){
         return 30;
+    }else{
+        return 1; //error, never get here
+    }
 }
-- (void)dealloc {
-    [tableTitle release];
-    [tableView release];
-    [searchBar release];
-    [scrollView release];
-    [pageControl release];
-    [filterView release];
-    [super dealloc];
-    
-}
+
 
 - (void)tableView: (UITableView *)songTableView 
 didSelectRowAtIndexPath: (NSIndexPath *)indexPath {
@@ -558,6 +597,12 @@ didSelectRowAtIndexPath: (NSIndexPath *)indexPath {
     
     //cell.scoreLabel.textColor = [UIColor blackColor];
     //cell.genreLabel.textColor = [UIColor blackColor];
+    
+    if(songTableView == tableView){
+        NSIndexPath *indexP = [NSIndexPath indexPathForRow:2 inSection:0];
+        [tableView insertRowsAtIndexPaths:[[NSArray alloc] initWithObjects:indexP, nil] 
+                         withRowAnimation:UITableViewRowAnimationRight];
+    }
     
     
     
