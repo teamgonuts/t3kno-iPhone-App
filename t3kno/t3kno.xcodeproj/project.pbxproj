@@ -180,12 +180,12 @@
 		BD4F0EA91530D75E00573F67 /* t3kno */ = {
 			isa = PBXGroup;
 			children = (
-				BD79C709153E102C006A9C60 /* CBHViewController_iPhone.xib */,
 				BD79C70C153E1E85006A9C60 /* filter.plist */,
 				BDE6689E15314D670013CBFA /* logo_57.png */,
 				BDE6689F15314D670013CBFA /* logo_114.png */,
 				BD4F0EB21530D75F00573F67 /* CBHAppDelegate.h */,
 				BD4F0EB31530D75F00573F67 /* CBHAppDelegate.m */,
+				BD79C709153E102C006A9C60 /* CBHViewController_iPhone.xib */,
 				BD4F0EB51530D75F00573F67 /* CBHViewController.h */,
 				BD4F0EB61530D75F00573F67 /* CBHViewController.m */,
 				BDC55A34153CA26B00F79B92 /* YoutubeView.h */,

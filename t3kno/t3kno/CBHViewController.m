@@ -85,9 +85,14 @@
     
     pageControlBeingUsed = NO;
     
-    
 
-    
+    /* PUTS IN FAKE HEADER"
+    UILabel *lbl = [[[UILabel alloc] initWithFrame:CGRectMake(0, 61, scrollView.frame.size.width, 30)] autorelease];
+    lbl.textAlignment = UITextAlignmentCenter;
+    lbl.font = [UIFont systemFontOfSize:12];
+    lbl.text = @"Header";
+    tableView.tableHeaderView = lbl;
+     */
         
     
 }
@@ -435,6 +440,7 @@
 
 #pragma mark -
 #pragma mark Table View Data Source Methods
+
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)songTableView{
     bool debug = false;
