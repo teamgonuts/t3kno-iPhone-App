@@ -515,6 +515,7 @@
         }
         
         cell.textLabel.text = [filterSection objectAtIndex:row];
+        cell.textColor = [UIColor whiteColor];
         return cell;
     }
 }
