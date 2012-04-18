@@ -614,10 +614,11 @@ didSelectRowAtIndexPath: (NSIndexPath *)indexPath {
     
     //[cell setSelectedBackgroundView:clickedBackgroundView];
     //[cell setSelected:YES];
-    NSIndexPath *insertAT = [[NSIndexPath alloc] initWithIndex:(indexPath.row+1)];
     
-    NSArray *rowArray = [[NSArray alloc] initWithObjects:insertAT, nil];
-    [tableView insertRowsAtIndexPaths:rowArray withRowAnimation:UITableViewRowAnimationTop];
+    //kunal code
+    //NSIndexPath *insertAT = [[NSIndexPath alloc] initWithIndex:(indexPath.row+1)];
+    //NSArray *rowArray = [[NSArray alloc] initWithObjects:insertAT, nil];
+    //[tableView insertRowsAtIndexPaths:rowArray withRowAnimation:UITableViewRowAnimationTop];
         
     if(songTableView == tableView){
         SongCell *cell = [songTableView cellForRowAtIndexPath:indexPath];
@@ -626,12 +627,24 @@ didSelectRowAtIndexPath: (NSIndexPath *)indexPath {
             cell.bgImage.image = [UIImage imageNamed:@"tablecellbg_click.png"];
             cell->expanded = YES;
             
+            //create the expanded frame
+            CGRect frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y,
+                                       cell.frame.size.width, cell.frame.size.height+44);
+            
+            [cell setFrame:frame];
+            
+                        
             //add new cell below
             
         }else { //cell is already open, so close it
             //change cell image
             cell.bgImage.image = [UIImage imageNamed:@"tablecellbg.png"];
             cell->expanded = NO;
+            
+            CGRect frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y,
+                                      cell.frame.size.width, cell.frame.size.height-44);
+            
+            [cell setFrame:frame];
             
             //remove expaned cell below
         }
