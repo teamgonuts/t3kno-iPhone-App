@@ -21,6 +21,7 @@
 @synthesize tableTitle;
 @synthesize tableView;
 @synthesize searchBar;
+@synthesize searchButton;
 @synthesize songs;
 @synthesize receivedData;
 @synthesize genreFilter;
@@ -114,6 +115,7 @@
     [self setFilterTableView:nil];
     [self setSearchButton:nil];
     [self setLogoImageView:nil];
+    [self setSearchButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -167,6 +169,7 @@
     [filterView release];
     [filterTableView release];
     [logoImageView release];
+    [searchButton release];
     [super dealloc];
     
 }

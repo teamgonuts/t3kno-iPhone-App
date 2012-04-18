@@ -20,7 +20,7 @@
 		BD79C6F8153DF045006A9C60 /* logoWithText_lg.png in Resources */ = {isa = PBXBuildFile; fileRef = BD79C6F7153DF045006A9C60 /* logoWithText_lg.png */; };
 		BD79C70B153E102C006A9C60 /* CBHViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD79C709153E102C006A9C60 /* CBHViewController_iPhone.xib */; };
 		BD79C70D153E1E85006A9C60 /* filter.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD79C70C153E1E85006A9C60 /* filter.plist */; };
-		BD79C71D153F18CB006A9C60 /* magnifying_glass_button.png in Resources */ = {isa = PBXBuildFile; fileRef = BD79C71C153F18CB006A9C60 /* magnifying_glass_button.png */; };
+		BD79C71F153F4083006A9C60 /* magnifying_glass.png in Resources */ = {isa = PBXBuildFile; fileRef = BD79C71E153F4083006A9C60 /* magnifying_glass.png */; };
 		BDC55A1D153A723100F79B92 /* genreFilters.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDC55A1C153A723100F79B92 /* genreFilters.xib */; };
 		BDC55A1F153A762000F79B92 /* magnifying_glass_icon in Resources */ = {isa = PBXBuildFile; fileRef = BDC55A1E153A762000F79B92 /* magnifying_glass_icon */; };
 		BDC55A21153A767500F79B92 /* magnifying_glass_18x18 in Resources */ = {isa = PBXBuildFile; fileRef = BDC55A20153A767500F79B92 /* magnifying_glass_18x18 */; };
@@ -76,7 +76,7 @@
 		BD79C6F7153DF045006A9C60 /* logoWithText_lg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logoWithText_lg.png; path = "../../t3kno-iPhone-App/t3kno/t3kno/logoWithText_lg.png"; sourceTree = "<group>"; };
 		BD79C70A153E102C006A9C60 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CBHViewController_iPhone.xib; sourceTree = "<group>"; };
 		BD79C70C153E1E85006A9C60 /* filter.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = filter.plist; sourceTree = "<group>"; };
-		BD79C71C153F18CB006A9C60 /* magnifying_glass_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = magnifying_glass_button.png; path = "../../t3kno-iPhone-App/magnifying_glass_button.png"; sourceTree = "<group>"; };
+		BD79C71E153F4083006A9C60 /* magnifying_glass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = magnifying_glass.png; path = "../../t3kno-iPhone-App/magnifying_glass.png"; sourceTree = "<group>"; };
 		BDC55A1C153A723100F79B92 /* genreFilters.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = genreFilters.xib; sourceTree = "<group>"; };
 		BDC55A1E153A762000F79B92 /* magnifying_glass_icon */ = {isa = PBXFileReference; lastKnownFileType = file; path = magnifying_glass_icon; sourceTree = SOURCE_ROOT; };
 		BDC55A20153A767500F79B92 /* magnifying_glass_18x18 */ = {isa = PBXFileReference; lastKnownFileType = file; name = magnifying_glass_18x18; path = "../../t3kno-iPhone-App/magnifying_glass_18x18"; sourceTree = "<group>"; };
@@ -214,7 +214,7 @@
 		BD79C717153F0B93006A9C60 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				BD79C71C153F18CB006A9C60 /* magnifying_glass_button.png */,
+				BD79C71E153F4083006A9C60 /* magnifying_glass.png */,
 				BDC55A30153B73D600F79B92 /* tablecellbg.png */,
 				BD79C6F7153DF045006A9C60 /* logoWithText_lg.png */,
 				BDC55A2E153B555500F79B92 /* previous_track.png */,
@@ -352,7 +352,7 @@
 				BD79C6F8153DF045006A9C60 /* logoWithText_lg.png in Resources */,
 				BD79C70B153E102C006A9C60 /* CBHViewController_iPhone.xib in Resources */,
 				BD79C70D153E1E85006A9C60 /* filter.plist in Resources */,
-				BD79C71D153F18CB006A9C60 /* magnifying_glass_button.png in Resources */,
+				BD79C71F153F4083006A9C60 /* magnifying_glass.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,10 +462,12 @@
 		BD4F0EC11530D75F00573F67 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Calvin Hawkes (G98PQY95M8)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "t3kno/t3kno-Prefix.pch";
 				INFOPLIST_FILE = "t3kno/t3kno-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9EF4D596-CB8A-4644-99C7-7A766E5F492A";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -473,10 +475,12 @@
 		BD4F0EC21530D75F00573F67 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Calvin Hawkes (G98PQY95M8)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "t3kno/t3kno-Prefix.pch";
 				INFOPLIST_FILE = "t3kno/t3kno-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9EF4D596-CB8A-4644-99C7-7A766E5F492A";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -25,6 +25,7 @@
 @property (strong, nonatomic) NSData *receivedData;
 - (IBAction)seachButtonIconPressed:(id)sender;
 @property (retain, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (retain, nonatomic) IBOutlet UIButton *searchButton;
 
 
 
