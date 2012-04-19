@@ -180,6 +180,8 @@
 
 //if there is a song in the rankings that is open, close it
 -(void)closeExpandedSong{
+    bool debug = false;
+    if(debug) NSLog(@"--about to delete row: %d", expandedRow);
     if (expandedRow != -1){ //if there is a row open
         NSIndexPath *removeAt = [NSIndexPath indexPathForRow:expandedRow inSection:0];
         NSArray *rowArray = [[NSArray alloc] initWithObjects:removeAt, nil];
@@ -638,6 +640,15 @@ didSelectRowAtIndexPath: (NSIndexPath *)indexPath {
     if(songTableView == tableView){
         SongCell *cell = (SongCell *)[songTableView cellForRowAtIndexPath:indexPath];
         if (cell->expanded == NO){
+            if (debug) NSLog(@"row clicked: %d" , [indexPath row]);
+            //get the correct index to place the new cell
+            NSInteger atRow;
+            if (expandedRow != -1 && expandedRow < [indexPath row]){ //fix offset incase the row is below the expanded one
+                atRow = [indexPath row];
+                
+            } else{
+                atRow = [indexPath row] + 1;
+            }
             
             //if there is another cell open change it
             if (expandedRow != -1) [self closeExpandedSong];
@@ -648,8 +659,6 @@ didSelectRowAtIndexPath: (NSIndexPath *)indexPath {
             cell->expanded = YES;
                         
             //add new cell below
-            
-            NSInteger atRow = [indexPath row] + 1;
             NSIndexPath *insertAt = [NSIndexPath indexPathForRow:atRow inSection:0];
             if (debug) NSLog(@"Expanded row: %d", atRow);
 
