@@ -14,12 +14,11 @@
 	<key>Filters</key>
 	<array>
 		<string>The Freshest</string>
-		<string>Top of the</string>
-		<string>Day</string>
-		<string>Week</string>
-		<string>Month</string>
-		<string>Year</string>
-		<string>Century</string>
+		<string>Today&apos;s Best</string>
+		<string>Top of the Week</string>
+		<string>Top of the Month</string>
+		<string>Top of the Year</string>
+		<string>All Time Best</string>
 	</array>
 </dict>
 </plist>
