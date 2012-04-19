@@ -182,6 +182,14 @@
 -(void)closeExpandedSong{
     bool debug = false;
     if(debug) NSLog(@"--about to delete row: %d", expandedRow);
+    
+    //change the closed cell's bg
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:(expandedRow-1) inSection:0];
+    SongCell *cell = (SongCell *)[tableView cellForRowAtIndexPath:indexPath];
+    if (debug) NSLog(@"about to change bgImage for cell with title: %@", cell.titleLabel.text);
+    cell.bgImage.image = [UIImage imageNamed:@"tablecellbg.png"];
+    
+    //remove the expandedRow
     if (expandedRow != -1){ //if there is a row open
         NSIndexPath *removeAt = [NSIndexPath indexPathForRow:expandedRow inSection:0];
         NSArray *rowArray = [[NSArray alloc] initWithObjects:removeAt, nil];
@@ -562,10 +570,15 @@
  
         NSUInteger row = [indexPath row];
         if (row == expandedRow){ //the expanded row, return the custom cell
+            UITableViewCell *tempCell = [tableView dequeueReusableCellWithIdentifier:@"test"];
             if(debug) NSLog(@"row == expandedRow");
-            UITableViewCell *temp = [[UITableViewCell alloc] 
-                                     initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"test"];
-            return temp;
+            if (tempCell == nil){
+                tempCell = [[UITableViewCell alloc] 
+                                initWithStyle:UITableViewCellStyleDefault 
+                            reuseIdentifier:@"test"];
+            }
+            
+            return tempCell;
         }
         else if (expandedRow != -1 && row > expandedRow)
             row--;
@@ -643,7 +656,8 @@ didSelectRowAtIndexPath: (NSIndexPath *)indexPath {
             if (debug) NSLog(@"row clicked: %d" , [indexPath row]);
             //get the correct index to place the new cell
             NSInteger atRow;
-            if (expandedRow != -1 && expandedRow < [indexPath row]){ //fix offset incase the row is below the expanded one
+            if (expandedRow != -1 && expandedRow < [indexPath row]){ 
+                //fix offset incase the row is below the expanded one
                 atRow = [indexPath row];
                 
             } else{
@@ -660,23 +674,18 @@ didSelectRowAtIndexPath: (NSIndexPath *)indexPath {
                         
             //add new cell below
             NSIndexPath *insertAt = [NSIndexPath indexPathForRow:atRow inSection:0];
-            if (debug) NSLog(@"Expanded row: %d", atRow);
-
             NSArray *rowArray = [[NSArray alloc] initWithObjects:insertAt, nil];
             
+            if (debug) NSLog(@"Expanded row: %d", atRow);
             expandedRow = atRow;
             
             [tableView insertRowsAtIndexPaths:rowArray withRowAnimation:UITableViewRowAnimationTop];
             
         }else { //cell is already open, so close it
-            //change cell image
-            cell.bgImage.image = [UIImage imageNamed:@"tablecellbg.png"];
             cell->expanded = NO;
             
             if(debug) NSLog(@"--about to delete row: %d", expandedRow);
             [self closeExpandedSong];
-            
-            //remove expaned cell below
         }
     }
 }
