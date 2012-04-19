@@ -11,6 +11,7 @@
 #import "SongCell.h"
 #import "SBJson.h"
 #import "YoutubeView.h"
+#import "ExpandedSongCell.h"
 
 @implementation CBHViewController
 @synthesize logoImageView;
@@ -361,7 +362,9 @@
     static BOOL nibsRegistered = NO;
     if(!nibsRegistered){
         UINib *nib = [UINib nibWithNibName:@"SongCell" bundle:nil];
+        UINib *nib2 = [UINib nibWithNibName:@"ExpandedSongCell" bundle:nil];
         [tableView registerNib:nib forCellReuseIdentifier:SongCellIdentifier];
+        [tableView registerNib:nib2 forCellReuseIdentifier:@"ExpandedSongCellIdentifier"];
         nibsRegistered = YES;
     }
     
@@ -570,14 +573,17 @@
  
         NSUInteger row = [indexPath row];
         if (row == expandedRow){ //the expanded row, return the custom cell
-            UITableViewCell *tempCell = [tableView dequeueReusableCellWithIdentifier:@"test"];
-            if(debug) NSLog(@"row == expandedRow");
-            if (tempCell == nil){
-                tempCell = [[UITableViewCell alloc] 
-                                initWithStyle:UITableViewCellStyleDefault 
-                            reuseIdentifier:@"test"];
-            }
+            ExpandedSongCell *tempCell = [tableView dequeueReusableCellWithIdentifier:@"ExpandedSongCellIdentifier"];
+            if(debug) NSLog(@"row == expandedRow"); 
+            NSString *playerHTML = @"<html><head>\
+                                    <body style=\"margin:0\">\
+                                    <embed id=\"yt\" src=\"http://www.youtube.com/watch?v=oN86d0CdgHQ\" type=\"application/x-shockwave-flash\" width=\"50\" height=\"50\"></embed>\
+                                    </body></html>";
+
+            UIWebView *player = [[UIWebView alloc] init];
+            [player loadHTMLString:playerHTML baseURL:nil];
             
+            tempCell.webView = player;
             return tempCell;
         }
         else if (expandedRow != -1 && row > expandedRow)
@@ -636,11 +642,12 @@ titleForHeaderInSection:(NSInteger)section{
 - (CGFloat)tableView:(UITableView *)songTableView
 heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (songTableView == tableView){
-        return 44.0; //same as SongCell.xib
+        if (expandedRow == [indexPath row])
+            return 86.0; //same as ExpandedSongCell.xib
+        else 
+            return 44.0; //same as SongCell.xib
     }else if (songTableView == filterTableView){
         return 30;
-    }else{
-        return 1; //error, never get here
     }
 }
 
@@ -680,6 +687,7 @@ didSelectRowAtIndexPath: (NSIndexPath *)indexPath {
             expandedRow = atRow;
             
             [tableView insertRowsAtIndexPaths:rowArray withRowAnimation:UITableViewRowAnimationTop];
+                        
             
         }else { //cell is already open, so close it
             cell->expanded = NO;

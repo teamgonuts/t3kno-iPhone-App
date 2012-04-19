@@ -25,6 +25,8 @@
 		BD79C72F153F5EE3006A9C60 /* logo-57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = BD79C72C153F5EE3006A9C60 /* logo-57x57.png */; };
 		BD79C730153F5EE3006A9C60 /* logo-114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = BD79C72D153F5EE3006A9C60 /* logo-114x114.png */; };
 		BD79C731153F5EE3006A9C60 /* logo-512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = BD79C72E153F5EE3006A9C60 /* logo-512x512.png */; };
+		BD79C73415401DCD006A9C60 /* ExpandedSongCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BD79C73315401DCC006A9C60 /* ExpandedSongCell.m */; };
+		BD79C73615401EB9006A9C60 /* ExpandedSongCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD79C73515401EB8006A9C60 /* ExpandedSongCell.xib */; };
 		BDC55A1D153A723100F79B92 /* genreFilters.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDC55A1C153A723100F79B92 /* genreFilters.xib */; };
 		BDC55A1F153A762000F79B92 /* magnifying_glass_icon in Resources */ = {isa = PBXBuildFile; fileRef = BDC55A1E153A762000F79B92 /* magnifying_glass_icon */; };
 		BDC55A21153A767500F79B92 /* magnifying_glass_18x18 in Resources */ = {isa = PBXBuildFile; fileRef = BDC55A20153A767500F79B92 /* magnifying_glass_18x18 */; };
@@ -83,6 +85,9 @@
 		BD79C72C153F5EE3006A9C60 /* logo-57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo-57x57.png"; path = "../../t3kno-iPhone-App/logo-57x57.png"; sourceTree = "<group>"; };
 		BD79C72D153F5EE3006A9C60 /* logo-114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo-114x114.png"; path = "../../t3kno-iPhone-App/logo-114x114.png"; sourceTree = "<group>"; };
 		BD79C72E153F5EE3006A9C60 /* logo-512x512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo-512x512.png"; path = "../../t3kno-iPhone-App/logo-512x512.png"; sourceTree = "<group>"; };
+		BD79C73215401DCC006A9C60 /* ExpandedSongCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpandedSongCell.h; sourceTree = "<group>"; };
+		BD79C73315401DCC006A9C60 /* ExpandedSongCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpandedSongCell.m; sourceTree = "<group>"; };
+		BD79C73515401EB8006A9C60 /* ExpandedSongCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpandedSongCell.xib; sourceTree = "<group>"; };
 		BDC55A1C153A723100F79B92 /* genreFilters.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = genreFilters.xib; sourceTree = "<group>"; };
 		BDC55A1E153A762000F79B92 /* magnifying_glass_icon */ = {isa = PBXFileReference; lastKnownFileType = file; path = magnifying_glass_icon; sourceTree = SOURCE_ROOT; };
 		BDC55A20153A767500F79B92 /* magnifying_glass_18x18 */ = {isa = PBXFileReference; lastKnownFileType = file; name = magnifying_glass_18x18; path = "../../t3kno-iPhone-App/magnifying_glass_18x18"; sourceTree = "<group>"; };
@@ -193,6 +198,9 @@
 				BD79C709153E102C006A9C60 /* CBHViewController_iPhone.xib */,
 				BD4F0EB51530D75F00573F67 /* CBHViewController.h */,
 				BD4F0EB61530D75F00573F67 /* CBHViewController.m */,
+				BD79C73515401EB8006A9C60 /* ExpandedSongCell.xib */,
+				BD79C73215401DCC006A9C60 /* ExpandedSongCell.h */,
+				BD79C73315401DCC006A9C60 /* ExpandedSongCell.m */,
 				BDE668A415324D070013CBFA /* SongCell.xib */,
 				BDE668A615324FF20013CBFA /* SongCell.h */,
 				BDE668A715324FF20013CBFA /* SongCell.m */,
@@ -361,6 +369,7 @@
 				BD79C72F153F5EE3006A9C60 /* logo-57x57.png in Resources */,
 				BD79C730153F5EE3006A9C60 /* logo-114x114.png in Resources */,
 				BD79C731153F5EE3006A9C60 /* logo-512x512.png in Resources */,
+				BD79C73615401EB9006A9C60 /* ExpandedSongCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,6 +398,7 @@
 				BDE668CD153A035C0013CBFA /* SBJsonUTF8Stream.m in Sources */,
 				BDE668CE153A035C0013CBFA /* SBJsonWriter.m in Sources */,
 				BDC55A36153CA26B00F79B92 /* YoutubeView.m in Sources */,
+				BD79C73415401DCD006A9C60 /* ExpandedSongCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

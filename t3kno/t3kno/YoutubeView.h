@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface YoutubeView : UIWebView
-- (YoutubeView *)initWithStringAsURL:(NSString *)urlString frame:(CGRect)frame;
+- (YoutubeView *)initWithYouTubeCode:(NSString *)ytcode;
 
 @end

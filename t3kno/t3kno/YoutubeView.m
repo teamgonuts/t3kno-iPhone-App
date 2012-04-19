@@ -9,25 +9,21 @@
 #import "YoutubeView.h"
 
 @implementation YoutubeView
-- (YoutubeView *)initWithStringAsURL:(NSString *)urlString frame:(CGRect)frame;
+- (YoutubeView *)initWithYouTubeCode:(NSString *)ytcode
 {
     if (self = [super init]) 
     {
         // Create webview with requested frame size
-        self = [[UIWebView alloc] initWithFrame:frame];
+        self = [[UIWebView alloc] init];
         
         // HTML to embed YouTube video
-        NSString *youTubeVideoHTML = @"<html><head>\
-        <body style=\"margin:0\">\
-        <embed id=\"yt\" src=\"%@\" type=\"application/x-shockwave-flash\" \
-        width=\"%0.0f\" height=\"%0.0f\"></embed>\
-        </body></html>";
-        
-        // Populate HTML with the URL and requested frame size
-        NSString *html = [NSString stringWithFormat:youTubeVideoHTML, urlString, frame.size.width, frame.size.height];
-        //NSString *html = @"http://google.com";
+        NSString *playerHTML = [[NSString alloc] initWithFormat:@"<html><head>\
+                                <body style=\"margin:0\">\
+                                <embed id=\"yt\" src=\"http://www.youtube.com/watch?v=%@\" type=\"application/x-shockwave-flash\" width=\"50\" height=\"50\"></embed>\
+                                </body></html>", ytcode];
+
         // Load the html into the webview
-        [self loadHTMLString:html baseURL:nil];
+        [self loadHTMLString:playerHTML baseURL:nil];
     }
     return self;  
 }
