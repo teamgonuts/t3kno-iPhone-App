@@ -4,6 +4,7 @@
 <dict>
 	<key>Genres</key>
 	<array>
+		<string>All</string>
 		<string>Drum &amp; Bass</string>
 		<string>Dubstep</string>
 		<string>Electro</string>
