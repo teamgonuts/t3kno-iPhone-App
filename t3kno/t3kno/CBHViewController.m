@@ -177,6 +177,19 @@
 
 #pragma mark -
 #pragma mark Rankings View
+
+//if there is a song in the rankings that is open, close it
+-(void)closeExpandedSong{
+    if (expandedRow != -1){ //if there is a row open
+        NSIndexPath *removeAt = [NSIndexPath indexPathForRow:expandedRow inSection:0];
+        NSArray *rowArray = [[NSArray alloc] initWithObjects:removeAt, nil];
+    
+        expandedRow = -1;
+        [tableView deleteRowsAtIndexPaths:rowArray withRowAnimation:UITableViewRowAnimationTop];
+    }
+}
+
+
 - (IBAction)loadTableView:(id)sender {
     bool debug = false;
     if (debug){
@@ -512,7 +525,12 @@
     if (debug) NSLog(@"numberOfRowsInSection Called!");
     if(songTableView == tableView)
     {
-        if (debug) NSLog(@"--TableView: rankings");
+        if (debug) {
+            NSLog(@"--TableView: rankings");
+            NSLog(@"expanded row: %d", expandedRow);
+            NSLog(@"songs.count: %d", [songs count]);
+        }
+        
         if (expandedRow == -1) 
             return [self.songs count];
         else //one row is expanded, so there is +1
@@ -542,9 +560,17 @@
  
         NSUInteger row = [indexPath row];
         if (row == expandedRow){ //the expanded row, return the custom cell
+            if(debug) NSLog(@"row == expandedRow");
             UITableViewCell *temp = [[UITableViewCell alloc] 
                                      initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"test"];
             return temp;
+        }
+        else if (expandedRow != -1 && row > expandedRow)
+            row--;
+        
+        if(debug){
+            NSLog(@"row: %d", row);
+            NSLog(@"expandedRow: %d", expandedRow);
         }
         UITableViewCell *cell = [tableViewCells objectAtIndex:row];
         return cell;
@@ -606,11 +632,17 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 
 - (void)tableView: (UITableView *)songTableView 
 didSelectRowAtIndexPath: (NSIndexPath *)indexPath {
-    bool debug = true;
+    bool debug = false;
+    if (debug) NSLog(@"didSelectRowAtIndexPath called!");
     //todo: if the user selects expanded cell, doesn't do anything
     if(songTableView == tableView){
         SongCell *cell = (SongCell *)[songTableView cellForRowAtIndexPath:indexPath];
         if (cell->expanded == NO){
+            
+            //if there is another cell open change it
+            if (expandedRow != -1) [self closeExpandedSong];
+            //TODO: the next row doesn't open if there is already an expanding song
+            
             //change cell image
             cell.bgImage.image = [UIImage imageNamed:@"tablecellbg_click.png"];
             cell->expanded = YES;
@@ -619,9 +651,10 @@ didSelectRowAtIndexPath: (NSIndexPath *)indexPath {
             
             NSInteger atRow = [indexPath row] + 1;
             NSIndexPath *insertAt = [NSIndexPath indexPathForRow:atRow inSection:0];
+            if (debug) NSLog(@"Expanded row: %d", atRow);
+
             NSArray *rowArray = [[NSArray alloc] initWithObjects:insertAt, nil];
             
-            if (debug) NSLog(@"Expanded row: %d", atRow);
             expandedRow = atRow;
             
             [tableView insertRowsAtIndexPaths:rowArray withRowAnimation:UITableViewRowAnimationTop];
@@ -631,12 +664,8 @@ didSelectRowAtIndexPath: (NSIndexPath *)indexPath {
             cell.bgImage.image = [UIImage imageNamed:@"tablecellbg.png"];
             cell->expanded = NO;
             
-            NSIndexPath *removeAt = [NSIndexPath indexPathForRow:expandedRow inSection:0];
-            NSArray *rowArray = [[NSArray alloc] initWithObjects:removeAt, nil];
             if(debug) NSLog(@"--about to delete row: %d", expandedRow);
-
-            expandedRow = -1;
-            [tableView deleteRowsAtIndexPaths:rowArray withRowAnimation:UITableViewRowAnimationTop];
+            [self closeExpandedSong];
             
             //remove expaned cell below
         }

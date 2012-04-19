@@ -19,6 +19,7 @@
 
 //rankings View
 - (IBAction)loadTableView:(id)sender;
+- (void) closeExpandedSong;
 @property (retain, nonatomic) IBOutlet UILabel *tableTitle;
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
 @property (retain, nonatomic) IBOutlet UIScrollView *scrollView;
