@@ -17,9 +17,16 @@
 //universal
 @property (retain, nonatomic) IBOutlet UIImageView *logoImageView;
 
+//search (Youtube) view
+@property (retain, nonatomic) IBOutlet UIView *searchView;
+
+
+
 //rankings View
 - (IBAction)loadTableView:(id)sender;
 - (void) closeExpandedSong;
+- (void) scrollToMiddleView;
+@property (retain, nonatomic) IBOutlet UIView *rankingsView;
 @property (retain, nonatomic) IBOutlet UILabel *tableTitle;
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
 @property (retain, nonatomic) IBOutlet UIScrollView *scrollView;

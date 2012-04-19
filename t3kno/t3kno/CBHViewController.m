@@ -19,6 +19,7 @@
 @synthesize filterView;
 @synthesize filterTableView;
 @synthesize pageControl;
+@synthesize rankingsView;
 @synthesize tableTitle;
 @synthesize tableView;
 @synthesize searchBar;
@@ -58,22 +59,34 @@
     expandedRow = -1; //default = there is no expanded row
 
     
-    //creating the scrollview & frame
+    //initializing views
     if (filterView == nil){
         UIView *temp = [[UIView alloc] init];
         filterView = temp;
     }
+    if (rankingsView == nil){
+        UIView *temp = [[UIView alloc] init];
+        rankingsView = temp;
+    }
     
+    //placing views in scrollView
+    //right view
     CGRect frame;
-    frame.origin.x = self.scrollView.frame.size.width; //set it to the right of the screen
+    frame.origin.x = self.scrollView.frame.size.width * 2; //set it to the right of the screen
     frame.origin.y = 0;
     frame.size = self.scrollView.frame.size;
     [filterView setFrame:frame];
     [self.scrollView addSubview:filterView];
     [filterView release];
     
+    //center view
+    frame.origin.x = self.scrollView.frame.size.width;
+    [rankingsView setFrame:frame];
+    [self.scrollView addSubview:rankingsView];
+    [rankingsView release];
     
-    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * 2, self.scrollView.frame.size.height);
+    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * 3, self.scrollView.frame.size.height);
+    [self scrollToMiddleView];
     
     //testing
     filterTableView.allowsMultipleSelection = true;
@@ -95,6 +108,7 @@
     [self setSearchButton:nil];
     [self setLogoImageView:nil];
     [self setSearchButton:nil];
+    [self setRankingsView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -151,6 +165,7 @@
     [filterTableView release];
     [logoImageView release];
     [searchButton release];
+    [rankingsView release];
     [super dealloc];
     
 }
@@ -178,6 +193,14 @@
 
 #pragma mark -
 #pragma mark Rankings View
+//scrolls to the middle view
+-(void)scrollToMiddleView{
+    CGRect frame;
+    frame.origin.x = scrollView.frame.size.width; //scroll to middle
+    frame.origin.y = 0;
+    frame.size = self.scrollView.frame.size;
+    [self.scrollView scrollRectToVisible:frame animated:YES];
+}
 
 //if there is a song in the rankings that is open, close it
 -(void)closeExpandedSong{
@@ -452,11 +475,7 @@
         logoImageView.hidden = true;
         
         //scroll to the rankings
-        CGRect frame;
-        frame.origin.x = 0;
-        frame.origin.y = 0;
-        frame.size = self.scrollView.frame.size;
-        [self.scrollView scrollRectToVisible:frame animated:YES];
+        [self scrollToMiddleView];
         
         //show the searchBar and tableView
         searchBar.hidden = false;
