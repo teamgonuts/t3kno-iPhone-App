@@ -2,7 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Genres</key>
+	<key>Genre</key>
 	<array>
 		<string>All</string>
 		<string>Drum &amp; Bass</string>
@@ -12,7 +12,7 @@
 		<string>House</string>
 		<string>Trance</string>
 	</array>
-	<key>Filters</key>
+	<key>Filter</key>
 	<array>
 		<string>The Freshest</string>
 		<string>Today&apos;s Best</string>
