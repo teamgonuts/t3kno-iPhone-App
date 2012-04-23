@@ -17,6 +17,7 @@
 		BD4F0EB41530D75F00573F67 /* CBHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4F0EB31530D75F00573F67 /* CBHAppDelegate.m */; };
 		BD4F0EB71530D75F00573F67 /* CBHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4F0EB61530D75F00573F67 /* CBHViewController.m */; };
 		BD4F0EBD1530D75F00573F67 /* CBHViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD4F0EBB1530D75F00573F67 /* CBHViewController_iPad.xib */; };
+		BD7901571545E9E1007B0065 /* header_with_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = BD7901561545E9E1007B0065 /* header_with_logo.png */; };
 		BD79C6F8153DF045006A9C60 /* logoWithText_lg.png in Resources */ = {isa = PBXBuildFile; fileRef = BD79C6F7153DF045006A9C60 /* logoWithText_lg.png */; };
 		BD79C70B153E102C006A9C60 /* CBHViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD79C709153E102C006A9C60 /* CBHViewController_iPhone.xib */; };
 		BD79C70D153E1E85006A9C60 /* filter.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD79C70C153E1E85006A9C60 /* filter.plist */; };
@@ -77,6 +78,7 @@
 		BD4F0EB51530D75F00573F67 /* CBHViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBHViewController.h; sourceTree = "<group>"; };
 		BD4F0EB61530D75F00573F67 /* CBHViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBHViewController.m; sourceTree = "<group>"; };
 		BD4F0EBC1530D75F00573F67 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CBHViewController_iPad.xib; sourceTree = "<group>"; };
+		BD7901561545E9E1007B0065 /* header_with_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = header_with_logo.png; path = ../header_with_logo.png; sourceTree = "<group>"; };
 		BD79C6F7153DF045006A9C60 /* logoWithText_lg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logoWithText_lg.png; path = "../../t3kno-iPhone-App/t3kno/t3kno/logoWithText_lg.png"; sourceTree = "<group>"; };
 		BD79C70A153E102C006A9C60 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CBHViewController_iPhone.xib; sourceTree = "<group>"; };
 		BD79C70C153E1E85006A9C60 /* filter.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = filter.plist; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 		BD4F0E941530D75E00573F67 = {
 			isa = PBXGroup;
 			children = (
+				BD7901561545E9E1007B0065 /* header_with_logo.png */,
 				BDC55A1C153A723100F79B92 /* genreFilters.xib */,
 				BDE66898153147820013CBFA /* libz.dylib */,
 				BDE66896153147680013CBFA /* MobileCoreServices.framework */,
@@ -370,6 +373,7 @@
 				BD79C730153F5EE3006A9C60 /* logo-114x114.png in Resources */,
 				BD79C731153F5EE3006A9C60 /* logo-512x512.png in Resources */,
 				BD79C73615401EB9006A9C60 /* ExpandedSongCell.xib in Resources */,
+				BD7901571545E9E1007B0065 /* header_with_logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
