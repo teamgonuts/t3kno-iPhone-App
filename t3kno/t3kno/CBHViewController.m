@@ -211,7 +211,7 @@
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:(expandedRow-1) inSection:0];
     SongCell *cell = (SongCell *)[tableView cellForRowAtIndexPath:indexPath];
     if (debug) NSLog(@"about to change bgImage for cell with title: %@", cell.titleLabel.text);
-    cell.bgImage.image = [UIImage imageNamed:@"tablecellbg.png"];
+    cell.bgImage.image = [UIImage imageNamed:@"songcell.png"];
     
     //remove the expandedRow
     if (expandedRow != -1){ //if there is a row open
@@ -613,6 +613,10 @@
             NSLog(@"expandedRow: %d", expandedRow);
         }
         UITableViewCell *cell = [tableViewCells objectAtIndex:row];
+        
+        //doesnt work
+        //UIImage *selectedBG = [UIImage imageNamed:@"songcell_bg_click.png"];
+        //[cell setSelectedBackgroundView:[[UIImageView alloc] initWithImage:selectedBG]];
         return cell;
     } 
     else if (songTableView == filterTableView){ //tableView is FilterView
@@ -635,7 +639,6 @@
         }
         
         cell.textLabel.text = [filterSection objectAtIndex:row];
-        cell.textColor = [UIColor whiteColor];
         return cell;
     }
     else{
@@ -695,7 +698,7 @@ didSelectRowAtIndexPath: (NSIndexPath *)indexPath {
             //TODO: the next row doesn't open if there is already an expanding song
             
             //change cell image
-            cell.bgImage.image = [UIImage imageNamed:@"tablecellbg_click.png"];
+            cell.bgImage.image = [UIImage imageNamed:@"songcell_bg_click.png"];
             cell->expanded = YES;
                         
             //add new cell below

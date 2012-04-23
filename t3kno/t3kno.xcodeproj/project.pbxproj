@@ -18,6 +18,8 @@
 		BD4F0EB71530D75F00573F67 /* CBHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4F0EB61530D75F00573F67 /* CBHViewController.m */; };
 		BD4F0EBD1530D75F00573F67 /* CBHViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD4F0EBB1530D75F00573F67 /* CBHViewController_iPad.xib */; };
 		BD7901571545E9E1007B0065 /* header_with_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = BD7901561545E9E1007B0065 /* header_with_logo.png */; };
+		BD79015B1545EDE2007B0065 /* songcell_bg_click.png in Resources */ = {isa = PBXBuildFile; fileRef = BD79015A1545EDE2007B0065 /* songcell_bg_click.png */; };
+		BD79015F1545EF19007B0065 /* songcell.png in Resources */ = {isa = PBXBuildFile; fileRef = BD79015E1545EF19007B0065 /* songcell.png */; };
 		BD79C6F8153DF045006A9C60 /* logoWithText_lg.png in Resources */ = {isa = PBXBuildFile; fileRef = BD79C6F7153DF045006A9C60 /* logoWithText_lg.png */; };
 		BD79C70B153E102C006A9C60 /* CBHViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD79C709153E102C006A9C60 /* CBHViewController_iPhone.xib */; };
 		BD79C70D153E1E85006A9C60 /* filter.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD79C70C153E1E85006A9C60 /* filter.plist */; };
@@ -79,6 +81,8 @@
 		BD4F0EB61530D75F00573F67 /* CBHViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBHViewController.m; sourceTree = "<group>"; };
 		BD4F0EBC1530D75F00573F67 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CBHViewController_iPad.xib; sourceTree = "<group>"; };
 		BD7901561545E9E1007B0065 /* header_with_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = header_with_logo.png; path = ../header_with_logo.png; sourceTree = "<group>"; };
+		BD79015A1545EDE2007B0065 /* songcell_bg_click.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = songcell_bg_click.png; path = "../../t3kno-iPhone-App/songcell_bg_click.png"; sourceTree = "<group>"; };
+		BD79015E1545EF19007B0065 /* songcell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = songcell.png; path = "../../t3kno-iPhone-App/songcell.png"; sourceTree = "<group>"; };
 		BD79C6F7153DF045006A9C60 /* logoWithText_lg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logoWithText_lg.png; path = "../../t3kno-iPhone-App/t3kno/t3kno/logoWithText_lg.png"; sourceTree = "<group>"; };
 		BD79C70A153E102C006A9C60 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CBHViewController_iPhone.xib; sourceTree = "<group>"; };
 		BD79C70C153E1E85006A9C60 /* filter.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = filter.plist; sourceTree = "<group>"; };
@@ -207,8 +211,8 @@
 				BDE668A415324D070013CBFA /* SongCell.xib */,
 				BDE668A615324FF20013CBFA /* SongCell.h */,
 				BDE668A715324FF20013CBFA /* SongCell.m */,
-				BD79C718153F0BD8006A9C60 /* Classes */,
 				BD79C717153F0B93006A9C60 /* Images */,
+				BD79C718153F0BD8006A9C60 /* Classes */,
 				BDE668A9153A035C0013CBFA /* JSON */,
 				BD4F0EAA1530D75E00573F67 /* Supporting Files */,
 				BD4F0EBB1530D75F00573F67 /* CBHViewController_iPad.xib */,
@@ -230,6 +234,8 @@
 		BD79C717153F0B93006A9C60 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				BD79015E1545EF19007B0065 /* songcell.png */,
+				BD79015A1545EDE2007B0065 /* songcell_bg_click.png */,
 				BD79C72C153F5EE3006A9C60 /* logo-57x57.png */,
 				BD79C72D153F5EE3006A9C60 /* logo-114x114.png */,
 				BD79C72E153F5EE3006A9C60 /* logo-512x512.png */,
@@ -374,6 +380,8 @@
 				BD79C731153F5EE3006A9C60 /* logo-512x512.png in Resources */,
 				BD79C73615401EB9006A9C60 /* ExpandedSongCell.xib in Resources */,
 				BD7901571545E9E1007B0065 /* header_with_logo.png in Resources */,
+				BD79015B1545EDE2007B0065 /* songcell_bg_click.png in Resources */,
+				BD79015F1545EF19007B0065 /* songcell.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
