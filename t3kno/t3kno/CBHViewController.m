@@ -665,7 +665,7 @@ titleForHeaderInSection:(NSInteger)section{
 heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (songTableView == tableView){
         if (expandedRow == [indexPath row])
-            return 86.0; //same as ExpandedSongCell.xib
+            return 68.0; //same as ExpandedSongCell.xib
         else 
             return 44.0; //same as SongCell.xib
     }else if (songTableView == filterTableView){
@@ -711,7 +711,8 @@ didSelectRowAtIndexPath: (NSIndexPath *)indexPath {
             [tableView insertRowsAtIndexPaths:rowArray withRowAnimation:UITableViewRowAnimationTop];
                         
             
-        }else { //cell is already open, so close it
+        }
+        else { //cell is already open, so close it
             cell->expanded = NO;
             
             if(debug) NSLog(@"--about to delete row: %d", expandedRow);
