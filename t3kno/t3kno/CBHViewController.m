@@ -574,8 +574,10 @@
             ExpandedSongCell *tempCell = [tableView dequeueReusableCellWithIdentifier:@"ExpandedSongCellIdentifier"];
             
             if(debug) NSLog(@"row == expandedRow"); 
+            Song *tempSong = [songs objectAtIndex:(expandedRow - 1)];
+            NSString *ytcode = tempSong->ytcode;
             
-            NSString *playerHTML = @"<html><head> <meta name = \"viewport\" content = \"initial-scale = 1.0, user-scalable = no, width = 105\"/></head><body style=\"background:#F00;margin-top:0px;margin-left:0px\"><div><object width=\"105\" height=\"58\"><param name=\"movie\" value=\"http://www.youtube.com/v/oHg5SJYRHA0&f=gdata_videos&c=ytapi-my-clientID&d=nGF83uyVrg8eD4rfEkk22mDOl3qUImVMV6ramM\"></param><param name=\"wmode\" value=\"transparent\"></param><embed src=\"http://www.youtube.com/v/oHg5SJYRHA0&f=gdata_videos&c=ytapi-my-clientID&d=nGF83uyVrg8eD4rfEkk22mDOl3qUImVMV6ramM\"type=\"application/x-shockwave-flash\" wmode=\"transparent\" width=\"105\" height=\"58\"></embed></object></div></body></html>";
+            NSString *playerHTML = [[NSString alloc] initWithFormat:@"<html><head> <meta name = \"viewport\" content = \"initial-scale = 1.0, user-scalable = no, width = 105\"/></head><body style=\"background:#F00;margin-top:0px;margin-left:0px\"><div><object width=\"105\" height=\"58\"><param name=\"movie\" value=\"http://www.youtube.com/v/%@\"></param><param name=\"wmode\" value=\"transparent\"></param><embed src=\"http://www.youtube.com/v/%@\"type=\"application/x-shockwave-flash\" wmode=\"transparent\" width=\"105\" height=\"58\"></embed></object></div></body></html>", ytcode, ytcode];
             
 
             [tempCell.webView loadHTMLString:playerHTML baseURL:nil];
