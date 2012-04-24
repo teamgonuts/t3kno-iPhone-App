@@ -10,15 +10,7 @@
 
 @implementation ExpandedSongCell
 @synthesize webView;
-
-- (ExpandedSongCell *) initWithYouTubeCode:(NSString *)ytcode{
-    self = [super init];
-    if (self){
-   
-        
-    }
-    return self;
-}
+@synthesize loadingLabel;
 
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -40,6 +32,7 @@
 
 - (void)dealloc {
     [webView release];
+    [loadingLabel release];
     [super dealloc];
 }
 @end

@@ -564,8 +564,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)songTableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    //NSLog(@"modifying cell %d",indexPath.row);
     bool debug = false;
+    if (debug) NSLog(@"modifying cell %d",indexPath.row);
+    
+    // =============================
+    //         Rankings TableView
+    // =============================
     if (songTableView == tableView){
         if (debug) NSLog(@"--tableView: tableView");
  
@@ -598,7 +602,11 @@
         //[cell setSelectedBackgroundView:[[UIImageView alloc] initWithImage:selectedBG]];
         return cell;
     } 
-    else if (songTableView == filterTableView){ //tableView is FilterView
+    // =============================
+    //         Filter TableView
+    // =============================
+    else if (songTableView == filterTableView)
+    {
         if(debug) NSLog(@"--tableView: filterTableView");
         NSUInteger section = [indexPath section];
         NSUInteger row = [indexPath row];
@@ -618,48 +626,62 @@
         }
         
         cell.textLabel.text = [filterSection objectAtIndex:row];
+        cell.textLabel.textColor = [UIColor whiteColor];
         return cell;
     }
-    else{
+    else
+    {
         if (debug) NSLog(@"--unknown tableView: returning nil");
         return nil;
     }
 }
 
 - (NSString *)tableView:(UITableView *)songTableView
-titleForHeaderInSection:(NSInteger)section{
+titleForHeaderInSection:(NSInteger)section
+{
     if (songTableView == filterTableView)
     {
         return [filterKeys objectAtIndex:section];
     }
-    else
+    else // no headers for rankings view
     {
         return nil;
     }
 }
 
 - (CGFloat)tableView:(UITableView *)songTableView
-heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (songTableView == tableView){
+heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (songTableView == tableView)
+    {
         if (expandedRow == [indexPath row])
             return 68.0; //same as ExpandedSongCell.xib
         else 
             return 44.0; //same as SongCell.xib
-    }else if (songTableView == filterTableView){
+    }
+    else if (songTableView == filterTableView)
+    {
         return 30;
     }
 }
 
 
 - (void)tableView: (UITableView *)songTableView 
-didSelectRowAtIndexPath: (NSIndexPath *)indexPath {
+didSelectRowAtIndexPath: (NSIndexPath *)indexPath 
+{
     bool debug = false;
     if (debug) NSLog(@"didSelectRowAtIndexPath called!");
-    //todo: if the user selects expanded cell, doesn't do anything
-    if(songTableView == tableView){
+    
+    // =============================
+    //         Rankings TableView
+    // =============================    
+    if(songTableView == tableView)
+    {
         SongCell *cell = (SongCell *)[songTableView cellForRowAtIndexPath:indexPath];
-        if (cell->expanded == NO){
+        if (cell->expanded == NO)
+        {
             if (debug) NSLog(@"row clicked: %d" , [indexPath row]);
+            
             //get the correct index to place the new cell
             NSInteger atRow;
             if (expandedRow != -1 && expandedRow < [indexPath row]){ 
@@ -669,10 +691,10 @@ didSelectRowAtIndexPath: (NSIndexPath *)indexPath {
             } else{
                 atRow = [indexPath row] + 1;
             }
+            if (debug) NSLog(@"Expanded row: %d", atRow);
             
             //if there is another cell open change it
             if (expandedRow != -1) [self closeExpandedSong];
-            //TODO: the next row doesn't open if there is already an expanding song
             
             //change cell image
             cell.bgImage.image = [UIImage imageNamed:@"songcell_bg_click.png"];
@@ -682,21 +704,26 @@ didSelectRowAtIndexPath: (NSIndexPath *)indexPath {
             NSIndexPath *insertAt = [NSIndexPath indexPathForRow:atRow inSection:0];
             NSArray *rowArray = [[NSArray alloc] initWithObjects:insertAt, nil];
             
-            if (debug) NSLog(@"Expanded row: %d", atRow);
             expandedRow = atRow;
             
             [tableView insertRowsAtIndexPaths:rowArray withRowAnimation:UITableViewRowAnimationTop];
-            
-                        
-            
         }
-        else { //cell is already open, so close it
+        else 
+        { //cell is already open, so close it
             cell->expanded = NO;
             
             if(debug) NSLog(@"--about to delete row: %d", expandedRow);
             [self closeExpandedSong];
         }
     }
+    // =============================
+    //         Filter TableView
+    // =============================   
+    else if (songTableView == filterTableView)
+    {
+        
+    }
+
 }
 
 

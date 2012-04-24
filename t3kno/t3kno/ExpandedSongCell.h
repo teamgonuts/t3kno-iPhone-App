@@ -11,6 +11,7 @@
 @interface ExpandedSongCell : UITableViewCell
 
 @property (retain, nonatomic) IBOutlet UIWebView *webView;
+@property (retain, nonatomic) IBOutlet UILabel *loadingLabel;
 
--(ExpandedSongCell *) initWithYouTubeCode:(NSString *)ytcode;
+
 @end
