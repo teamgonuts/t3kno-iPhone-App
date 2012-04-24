@@ -170,26 +170,6 @@
     
 }
 
-#pragma mark -
-#pragma mark Load Embedded Player
-- (void) playSong:(NSString *)ytcode{
-    BOOL debug = false;
-    if(debug){
-        NSLog(@"playSong()!");
-    }
-    YoutubeView *youTubeView = [[YoutubeView alloc] 
-                                initWithStringAsURL:@"http://www.youtube.com/watch?v=gczw0WRmHQU" 
-                                frame:CGRectMake(0, 280, 320, 136)];
-    
-    [[self view] addSubview:youTubeView];
-    
-    //opens window in safari
-    //[[UIApplication sharedApplication] 
-     //openURL:[NSURL URLWithString:@"http://www.youtube.com/watch?v=gczw0WRmHQU"]];
-    if(debug){
-        NSLog(@"playSong() ended!");
-    }
-}
 
 #pragma mark -
 #pragma mark Rankings View
@@ -534,7 +514,6 @@
 #pragma mark -
 #pragma mark Table View Data Source Methods
 
-
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)songTableView{
     bool debug = false;
     if (debug) NSLog(@"numberOfSectionsInTable Called!");
@@ -593,16 +572,15 @@
         NSUInteger row = [indexPath row];
         if (row == expandedRow){ //the expanded row, return the custom cell
             ExpandedSongCell *tempCell = [tableView dequeueReusableCellWithIdentifier:@"ExpandedSongCellIdentifier"];
-            if(debug) NSLog(@"row == expandedRow"); 
-            NSString *playerHTML = @"<html><head>\
-                                    <body style=\"margin:0\">\
-                                    <embed id=\"yt\" src=\"http://www.youtube.com/watch?v=oN86d0CdgHQ\" type=\"application/x-shockwave-flash\" width=\"50\" height=\"50\"></embed>\
-                                    </body></html>";
-
-            UIWebView *player = [[UIWebView alloc] init];
-            [player loadHTMLString:playerHTML baseURL:nil];
             
-            tempCell.webView = player;
+            //NSLog(@"tempcell %@",tempCell.webView);
+            if(debug) NSLog(@"row == expandedRow"); 
+            
+            NSString *playerHTML = @"<html><head> <meta name = \"viewport\" content = \"initial-scale = 1.0, user-scalable = no, width = 212\"/></head><body style=\"background:#F00;margin-top:0px;margin-left:0px\"><div><object width=\"212\" height=\"172\"><param name=\"movie\" value=\"http://www.youtube.com/v/oHg5SJYRHA0&f=gdata_videos&c=ytapi-my-clientID&d=nGF83uyVrg8eD4rfEkk22mDOl3qUImVMV6ramM\"></param><param name=\"wmode\" value=\"transparent\"></param><embed src=\"http://www.youtube.com/v/oHg5SJYRHA0&f=gdata_videos&c=ytapi-my-clientID&d=nGF83uyVrg8eD4rfEkk22mDOl3qUImVMV6ramM\"type=\"application/x-shockwave-flash\" wmode=\"transparent\" width=\"212\" height=\"172\"></embed></object></div></body></html>";
+            
+
+            [tempCell.webView loadHTMLString:playerHTML baseURL:nil];
+            
             return tempCell;
         }
         else if (expandedRow != -1 && row > expandedRow)
@@ -649,14 +627,12 @@
 
 - (NSString *)tableView:(UITableView *)songTableView
 titleForHeaderInSection:(NSInteger)section{
-    if (songTableView == tableView){
-        //todo: call refresh title
-        return @"The Fresh List";
-    }
-    else if (songTableView == filterTableView){
+    if (songTableView == filterTableView)
+    {
         return [filterKeys objectAtIndex:section];
     }
-    else{
+    else
+    {
         return nil;
     }
 }
@@ -709,6 +685,7 @@ didSelectRowAtIndexPath: (NSIndexPath *)indexPath {
             expandedRow = atRow;
             
             [tableView insertRowsAtIndexPaths:rowArray withRowAnimation:UITableViewRowAnimationTop];
+            
                         
             
         }
