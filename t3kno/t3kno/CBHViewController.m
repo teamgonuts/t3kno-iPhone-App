@@ -13,6 +13,9 @@
 #import "YoutubeView.h"
 #import "ExpandedSongCell.h"
 
+#define _genreFiltersSection 0
+#define _timeFiltersSection 1
+
 @implementation CBHViewController
 @synthesize logoImageView;
 @synthesize scrollView;
@@ -57,6 +60,14 @@
     songs = [[NSMutableArray alloc] init];
     pageControlBeingUsed = NO;
     expandedRow = -1; //default = there is no expanded row
+    
+    //selecting the defualt rows in filter tableview
+    NSIndexPath *allIndexPath = [NSIndexPath indexPathForRow:0 inSection:_genreFiltersSection];
+    [filterTableView selectRowAtIndexPath:allIndexPath animated:false scrollPosition:nil];
+    
+    NSIndexPath *freshestIndexPath = [NSIndexPath indexPathForRow:0 inSection:_timeFiltersSection];
+    [filterTableView selectRowAtIndexPath:freshestIndexPath animated:false scrollPosition:nil];
+
 
     
     //initializing views
@@ -88,8 +99,7 @@
     self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * 3, self.scrollView.frame.size.height);
     [self scrollToMiddleView];
     
-    //testing
-    filterTableView.allowsMultipleSelection = true;
+        
         
     
 }
@@ -722,7 +732,14 @@ didSelectRowAtIndexPath: (NSIndexPath *)indexPath
     // =============================   
     else if (songTableView == filterTableView)
     {
-        
+        if (indexPath.section == _genreFiltersSection)
+        {
+            
+        }
+        else if (indexPath.section == _timeFiltersSection)
+        {
+            
+        }
     }
 
 }

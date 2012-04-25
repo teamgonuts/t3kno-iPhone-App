@@ -76,7 +76,7 @@
 						<string key="NSFrame">{{285, 13}, {29, 30}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="395767433"/>
+						<reference key="NSNextKeyView" ref="823795805"/>
 						<string key="NSReuseIdentifierKey">_NS:225</string>
 						<object class="NSColor" key="IBUIBackgroundColor" id="1064127154">
 							<int key="NSColorSpace">3</int>
@@ -174,13 +174,13 @@
 						<int key="IBUINumberOfPages">3</int>
 						<int key="IBUICurrentPage">1</int>
 					</object>
-					<object class="IBUIImageView" id="395767433">
+					<object class="IBUIImageView" id="823795805">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{0, 60}, {320, 29}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="72136318"/>
+						<reference key="NSNextKeyView" ref="555170137"/>
 						<string key="NSReuseIdentifierKey">_NS:567</string>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -189,7 +189,7 @@
 							<string key="NSResourceName">rankings_title_bg.png</string>
 						</object>
 					</object>
-					<object class="IBUILabel" id="72136318">
+					<object class="IBUILabel" id="555170137">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{0, 64}, {320, 21}}</string>
@@ -255,6 +255,7 @@
 						<bool key="IBUIAlwaysBounceVertical">YES</bool>
 						<int key="IBUISeparatorStyle">1</int>
 						<int key="IBUISectionIndexMinimumDisplayRowCount">0</int>
+						<bool key="IBUIAllowsMultipleSelection">YES</bool>
 						<bool key="IBUIShowsSelectionImmediatelyOnTouchBegin">YES</bool>
 						<float key="IBUIRowHeight">44</float>
 						<float key="IBUISectionHeaderHeight">22</float>
@@ -384,7 +385,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">rankingsTitle</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="72136318"/>
+						<reference key="destination" ref="555170137"/>
 					</object>
 					<int key="connectionID">206</int>
 				</object>
@@ -481,10 +482,10 @@
 							<reference ref="919329700"/>
 							<reference ref="827915400"/>
 							<reference ref="584148888"/>
-							<reference ref="395767433"/>
+							<reference ref="823795805"/>
 							<reference ref="407484073"/>
 							<reference ref="765429466"/>
-							<reference ref="72136318"/>
+							<reference ref="555170137"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -544,7 +545,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">204</int>
-						<reference key="object" ref="395767433"/>
+						<reference key="object" ref="823795805"/>
 						<reference key="parent" ref="774585933"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -554,7 +555,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">205</int>
-						<reference key="object" ref="72136318"/>
+						<reference key="object" ref="555170137"/>
 						<reference key="parent" ref="774585933"/>
 					</object>
 				</array>
