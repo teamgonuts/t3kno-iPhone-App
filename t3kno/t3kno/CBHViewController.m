@@ -581,7 +581,7 @@
             Song *tempSong = [songs objectAtIndex:(expandedRow - 1)];
             NSString *ytcode = tempSong->ytcode;
             
-            NSString *playerHTML = [[NSString alloc] initWithFormat:@"<html><head> <meta name = \"viewport\" content = \"initial-scale = 1.0, user-scalable = no, width = 86\"/></head><body style=\"background:#F00;margin-top:0px;margin-left:0px\"><div><object width=\"86\" height=\"60\"><param name=\"movie\" value=\"http://www.youtube.com/v/%@\"></param><param name=\"wmode\" value=\"transparent\"></param><embed src=\"http://www.youtube.com/v/%@\"type=\"application/x-shockwave-flash\" wmode=\"transparent\" width=\"86\" height=\"60\"></embed></object></div></body></html>", ytcode, ytcode];
+            NSString *playerHTML = [[NSString alloc] initWithFormat:@"<html><head> <meta name = \"viewport\" content = \"initial-scale = 1.0, user-scalable = no, width = 88\"/></head><body style=\"background:#F00;margin-top:0px;margin-left:0px\"><div><object width=\"88\" height=\"60\"><param name=\"movie\" value=\"http://www.youtube.com/v/%@\"></param><param name=\"wmode\" value=\"transparent\"></param><embed src=\"http://www.youtube.com/v/%@\"type=\"application/x-shockwave-flash\" wmode=\"transparent\" width=\"88\" height=\"60\"></embed></object></div></body></html>", ytcode, ytcode];
             
 
             [tempCell.webView loadHTMLString:playerHTML baseURL:nil];
