@@ -674,6 +674,10 @@ didSelectRowAtIndexPath: (NSIndexPath *)indexPath
     // =============================    
     if(songTableView == tableView)
     {
+        //if the cell clicked is the expanded row, do nothing
+        if (indexPath.row == expandedRow)
+            return;
+        
         SongCell *cell = (SongCell *)[songTableView cellForRowAtIndexPath:indexPath];
         if (cell->expanded == NO)
         {

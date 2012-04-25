@@ -5,3 +5,5 @@
 5. remove white lines between table cells in rankingsView
 6. clean up code
 7. remove '\' from song title's/artists
+8. if user clicks the expanded cell (not a button), the program crashes
+9. Download youtube videos!!
