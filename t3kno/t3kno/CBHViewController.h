@@ -27,7 +27,7 @@
 - (void) closeExpandedSong;
 - (void) scrollToMiddleView;
 @property (retain, nonatomic) IBOutlet UIView *rankingsView;
-@property (retain, nonatomic) IBOutlet UILabel *tableTitle;
+@property (retain, nonatomic) IBOutlet UILabel *rankingsTitle;
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
 @property (retain, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (retain, nonatomic) NSMutableArray *songs;

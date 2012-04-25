@@ -20,7 +20,7 @@
 @synthesize filterTableView;
 @synthesize pageControl;
 @synthesize rankingsView;
-@synthesize tableTitle;
+@synthesize rankingsTitle;
 @synthesize tableView;
 @synthesize searchBar;
 @synthesize searchButton;
@@ -96,7 +96,6 @@
 
 - (void)viewDidUnload
 {
-    [self setTableTitle:nil];
     [self setSongs:nil];
     [self setTableView:nil];
     [self setSearchBar:nil];
@@ -109,6 +108,7 @@
     [self setLogoImageView:nil];
     [self setSearchButton:nil];
     [self setRankingsView:nil];
+    [self setRankingsTitle:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -156,7 +156,6 @@
 }
 
 - (void)dealloc {
-    [tableTitle release];
     [tableView release];
     [searchBar release];
     [scrollView release];
@@ -166,6 +165,7 @@
     [logoImageView release];
     [searchButton release];
     [rankingsView release];
+    [rankingsTitle release];
     [super dealloc];
     
 }
@@ -416,15 +416,15 @@
     //the fresh List is selected
     if ([genre isEqualToString:@"Tracks"] && 
         [time isEqualToString:@"new"]){
-        tableTitle.text = @"The Fresh List";
+        rankingsTitle.text = @"The Fresh List";
     }
     //the freshest + genre
     else if ([time isEqualToString:@"new"]){
-        tableTitle.text = [[NSString alloc] initWithFormat:@"The Freshest %@", genre];
+        rankingsTitle.text = [[NSString alloc] initWithFormat:@"The Freshest %@", genre];
     }
     //top top [genre] of the [time]
     else{
-        tableTitle.text = [[NSString alloc] initWithFormat:@"Top %@ of the %@",
+        rankingsTitle.text = [[NSString alloc] initWithFormat:@"Top %@ of the %@",
                            genre, time];
     }
     
@@ -473,7 +473,7 @@
         NSLog(@"Searched: %@", searchTerm);
     }
     
-    tableTitle.text = [[NSString alloc] initWithFormat:@"Searching: %@" , searchTerm];
+    rankingsTitle.text = [[NSString alloc] initWithFormat:@"Searching: %@" , searchTerm];
     
     NSString *urlString = [[NSString alloc] 
                            initWithFormat:@"http://t3k.no/app/search.php?searchTerm=%@&",
