@@ -43,6 +43,13 @@
 		BDC55A36153CA26B00F79B92 /* YoutubeView.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC55A35153CA26B00F79B92 /* YoutubeView.m */; };
 		BDD9462115487D6300C53EFD /* rankings_title_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = BDD9462015487D6300C53EFD /* rankings_title_bg.png */; };
 		BDD9462315487F0D00C53EFD /* header_with_logo2.png in Resources */ = {isa = PBXBuildFile; fileRef = BDD9462215487F0D00C53EFD /* header_with_logo2.png */; };
+		BDD946271548822700C53EFD /* songcell_bg3.png in Resources */ = {isa = PBXBuildFile; fileRef = BDD946261548822700C53EFD /* songcell_bg3.png */; };
+		BDD946291548827C00C53EFD /* songcell_bg3_click.png in Resources */ = {isa = PBXBuildFile; fileRef = BDD946281548827C00C53EFD /* songcell_bg3_click.png */; };
+		BDD9462E154883E900C53EFD /* songcell_bg4_click.png in Resources */ = {isa = PBXBuildFile; fileRef = BDD9462A154883E900C53EFD /* songcell_bg4_click.png */; };
+		BDD9462F154883E900C53EFD /* songcell_bg4.png in Resources */ = {isa = PBXBuildFile; fileRef = BDD9462B154883E900C53EFD /* songcell_bg4.png */; };
+		BDD94630154883E900C53EFD /* songcell_bg5_click.png in Resources */ = {isa = PBXBuildFile; fileRef = BDD9462C154883E900C53EFD /* songcell_bg5_click.png */; };
+		BDD94631154883E900C53EFD /* songcell_bg5.png in Resources */ = {isa = PBXBuildFile; fileRef = BDD9462D154883E900C53EFD /* songcell_bg5.png */; };
+		BDD9463715488A2000C53EFD /* expandedcell_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = BDD9463615488A2000C53EFD /* expandedcell_bg.png */; };
 		BDE668861531028D0013CBFA /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE668851531028D0013CBFA /* Song.m */; };
 		BDE66893153147420013CBFA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDE66892153147420013CBFA /* CFNetwork.framework */; };
 		BDE66895153147530013CBFA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDE66894153147530013CBFA /* SystemConfiguration.framework */; };
@@ -108,6 +115,13 @@
 		BDC55A35153CA26B00F79B92 /* YoutubeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YoutubeView.m; sourceTree = "<group>"; };
 		BDD9462015487D6300C53EFD /* rankings_title_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rankings_title_bg.png; path = "../../t3kno-iPhone-App/rankings_title_bg.png"; sourceTree = "<group>"; };
 		BDD9462215487F0D00C53EFD /* header_with_logo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = header_with_logo2.png; path = "../../t3kno-iPhone-App/header_with_logo2.png"; sourceTree = "<group>"; };
+		BDD946261548822700C53EFD /* songcell_bg3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = songcell_bg3.png; path = "../../t3kno-iPhone-App/songcell_bg3.png"; sourceTree = "<group>"; };
+		BDD946281548827C00C53EFD /* songcell_bg3_click.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = songcell_bg3_click.png; path = "../../t3kno-iPhone-App/songcell_bg3_click.png"; sourceTree = "<group>"; };
+		BDD9462A154883E900C53EFD /* songcell_bg4_click.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = songcell_bg4_click.png; path = "../../t3kno-iPhone-App/songcell_bg4_click.png"; sourceTree = "<group>"; };
+		BDD9462B154883E900C53EFD /* songcell_bg4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = songcell_bg4.png; path = "../../t3kno-iPhone-App/songcell_bg4.png"; sourceTree = "<group>"; };
+		BDD9462C154883E900C53EFD /* songcell_bg5_click.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = songcell_bg5_click.png; path = "../../t3kno-iPhone-App/songcell_bg5_click.png"; sourceTree = "<group>"; };
+		BDD9462D154883E900C53EFD /* songcell_bg5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = songcell_bg5.png; path = "../../t3kno-iPhone-App/songcell_bg5.png"; sourceTree = "<group>"; };
+		BDD9463615488A2000C53EFD /* expandedcell_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = expandedcell_bg.png; path = "../../t3kno-iPhone-App/expandedcell_bg.png"; sourceTree = "<group>"; };
 		BDE668841531028D0013CBFA /* Song.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Song.h; sourceTree = "<group>"; };
 		BDE668851531028D0013CBFA /* Song.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Song.m; sourceTree = "<group>"; };
 		BDE66892153147420013CBFA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -232,6 +246,13 @@
 		BD79C717153F0B93006A9C60 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				BDD9463615488A2000C53EFD /* expandedcell_bg.png */,
+				BDD9462A154883E900C53EFD /* songcell_bg4_click.png */,
+				BDD9462B154883E900C53EFD /* songcell_bg4.png */,
+				BDD9462C154883E900C53EFD /* songcell_bg5_click.png */,
+				BDD9462D154883E900C53EFD /* songcell_bg5.png */,
+				BDD946281548827C00C53EFD /* songcell_bg3_click.png */,
+				BDD946261548822700C53EFD /* songcell_bg3.png */,
 				BDD9462215487F0D00C53EFD /* header_with_logo2.png */,
 				BDD9462015487D6300C53EFD /* rankings_title_bg.png */,
 				BD79016615471C27007B0065 /* thumbs_down.png */,
@@ -382,6 +403,13 @@
 				BD79016915471C27007B0065 /* thumbs_up.png in Resources */,
 				BDD9462115487D6300C53EFD /* rankings_title_bg.png in Resources */,
 				BDD9462315487F0D00C53EFD /* header_with_logo2.png in Resources */,
+				BDD946271548822700C53EFD /* songcell_bg3.png in Resources */,
+				BDD946291548827C00C53EFD /* songcell_bg3_click.png in Resources */,
+				BDD9462E154883E900C53EFD /* songcell_bg4_click.png in Resources */,
+				BDD9462F154883E900C53EFD /* songcell_bg4.png in Resources */,
+				BDD94630154883E900C53EFD /* songcell_bg5_click.png in Resources */,
+				BDD94631154883E900C53EFD /* songcell_bg5.png in Resources */,
+				BDD9463715488A2000C53EFD /* expandedcell_bg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
