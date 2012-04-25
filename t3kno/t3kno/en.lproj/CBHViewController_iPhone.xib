@@ -92,7 +92,7 @@
 						<string key="NSFrameSize">{320, 44}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="765429466"/>
+						<reference key="NSNextKeyView" ref="584148888"/>
 						<string key="NSReuseIdentifierKey">_NS:597</string>
 						<reference key="IBUIBackgroundColor" ref="376887337"/>
 						<int key="IBUIContentMode">3</int>
@@ -111,10 +111,10 @@
 					<object class="IBUIImageView" id="584148888">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrameSize">{320, 63}</string>
+						<string key="NSFrameSize">{320, 60}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="827915400"/>
+						<reference key="NSNextKeyView" ref="765429466"/>
 						<string key="NSReuseIdentifierKey">_NS:567</string>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -133,7 +133,7 @@
 								<string key="NSFrameSize">{320, 344}</string>
 								<reference key="NSSuperview" ref="919329700"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="584148888"/>
+								<reference key="NSNextKeyView" ref="827915400"/>
 								<string key="NSReuseIdentifierKey">_NS:693</string>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">1</int>
@@ -144,7 +144,7 @@
 								<bool key="IBUIDetectsPhoneNumbers">YES</bool>
 							</object>
 						</array>
-						<string key="NSFrame">{{0, 61}, {320, 379}}</string>
+						<string key="NSFrame">{{0, 60}, {320, 379}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="702985717"/>
@@ -849,14 +849,14 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="header_with_logo.png">{320, 63}</string>
+			<string key="header_with_logo.png">{320, 60}</string>
 			<string key="magnifying_glass.png">{29, 30}</string>
 			<string key="magnifying_glass_18x18">{18, 19}</string>
 			<string key="next_track.png">{18, 18}</string>
 			<string key="play-button.png">{18, 18}</string>
 			<string key="previous_track.png">{18, 18}</string>
-			<string key="thumbs_down.png">{14, 18}</string>
-			<string key="thumbs_up.png">{14, 18}</string>
+			<string key="thumbs_down.png">{29, 29}</string>
+			<string key="thumbs_up.png">{29, 29}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">933</string>
 	</data>

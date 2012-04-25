@@ -4,3 +4,4 @@
 4. Load more songs on scroll
 5. remove white lines between table cells in rankingsView
 6. clean up code
+7. remove '\' from song title's/artists
