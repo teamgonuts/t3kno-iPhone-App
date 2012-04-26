@@ -225,7 +225,7 @@
 
 
 - (IBAction)loadTableView:(id)sender {
-    bool debug = true;
+    bool debug = false;
     if (debug){
         
         NSLog(@"loadTableView called!");  
@@ -270,13 +270,15 @@
 //method will also refresh the title and reload the rankings tableview
 - (void) refreshFilters
 {
+    bool debug = false;
     NSArray *selectedRows = [filterTableView indexPathsForSelectedRows];
     for (NSIndexPath *indexPath in selectedRows) 
     {
         UITableViewCell *cell = [filterTableView cellForRowAtIndexPath:indexPath];
+        
+       
         if (indexPath.section == _genreFiltersSection)
         {
-            NSLog(@"cell.text: -%@-" , cell.textLabel.text);
             if ([cell.textLabel.text isEqualToString:@"Drum & Bass"])
                 genreFilter = @"dnb";
             else
@@ -287,18 +289,33 @@
         }
         else if (indexPath.section == _timeFiltersSection)
         {
-            if (cell.textLabel.text == @"The Freshest")
+            if (debug) NSLog(@"old timefilter: %@", timeFilter);
+            if ([cell.textLabel.text isEqualToString:@"The Freshest"])
                 timeFilter = @"new";
-            else if (cell.textLabel.text == @"Today's Best")
+            else if ([cell.textLabel.text isEqualToString:@"Today's Best"])
                 timeFilter = @"day";
-            else if (cell.textLabel.text == @"Top of the Week")
+            else if ([cell.textLabel.text isEqualToString:@"Top of the Week"])
                 timeFilter = @"week";
-            else if (cell.textLabel.text == @"Top of the Month")
+            else if ([cell.textLabel.text isEqualToString:@"Top of the Month"])
                 timeFilter = @"month";
-            else if (cell.textLabel.text == @"Top of the Year")
+            else if ([cell.textLabel.text isEqualToString:@"Top of the Year"])
                 timeFilter = @"year";
-            else if (cell.textLabel.text == @"All Time Best")
+            else if ([cell.textLabel.text isEqualToString:@"All Time Best"])
                 timeFilter = @"century";
+            else
+                if (debug) NSLog(@"time filter selection not recognized");
+            
+            if (debug) NSLog(@"new timefilter: %@", timeFilter);
+
+        }
+        
+        //ERROR ALERT
+        //for some reason when the genre is 'all' sometimes the cell returns nil
+        //the following line is a quick fix, investigate the reason
+        if (cell == nil)
+        {
+            if (debug) NSLog(@"cell == nil");
+            genreFilter = @"all";
         }
     }
     
@@ -789,6 +806,8 @@ didSelectRowAtIndexPath: (NSIndexPath *)indexPath
     {
         bool debug2 = false;
         NSArray *selectedRows = [filterTableView indexPathsForSelectedRows];
+        
+        
         if (debug2)
         {
             NSLog(@"selectedRows.count: %d", [selectedRows count]);
