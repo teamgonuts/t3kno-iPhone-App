@@ -13,8 +13,16 @@
 #import "YoutubeView.h"
 #import "ExpandedSongCell.h"
 
+//definitions for filter tableview
 #define _genreFiltersSection 0
 #define _timeFiltersSection 1
+#define _allRow 0
+#define _dnbRow 1
+#define _dubstepRow 2
+#define _electroRow 3
+#define _hardstyleRow 4
+#define _houseRow 5
+#define _tranceRow 6
 
 @implementation CBHViewController
 @synthesize logoImageView;
@@ -62,10 +70,12 @@
     expandedRow = -1; //default = there is no expanded row
     
     //selecting the defualt rows in filter tableview
-    NSIndexPath *allIndexPath = [NSIndexPath indexPathForRow:0 inSection:_genreFiltersSection];
+    NSIndexPath *allIndexPath = [[NSIndexPath alloc] init];
+    allIndexPath = [NSIndexPath indexPathForRow:0 inSection:_genreFiltersSection];
     [filterTableView selectRowAtIndexPath:allIndexPath animated:false scrollPosition:nil];
     
-    NSIndexPath *freshestIndexPath = [NSIndexPath indexPathForRow:0 inSection:_timeFiltersSection];
+    NSIndexPath *freshestIndexPath = [[NSIndexPath alloc] init];
+    freshestIndexPath = [NSIndexPath indexPathForRow:0 inSection:_timeFiltersSection];
     [filterTableView selectRowAtIndexPath:freshestIndexPath animated:false scrollPosition:nil];
 
 
@@ -215,7 +225,7 @@
 
 
 - (IBAction)loadTableView:(id)sender {
-    bool debug = false;
+    bool debug = true;
     if (debug){
         
         NSLog(@"loadTableView called!");  
@@ -252,6 +262,85 @@
     [searchBar setHidden:true];
     //[self refreshTitle];
 }
+
+#pragma mark -
+#pragma mark Filter Table View
+
+//method will set the new filters based on the filter tableview's selections
+//method will also refresh the title and reload the rankings tableview
+- (void) refreshFilters
+{
+    NSArray *selectedRows = [filterTableView indexPathsForSelectedRows];
+    for (NSIndexPath *indexPath in selectedRows) 
+    {
+        UITableViewCell *cell = [filterTableView cellForRowAtIndexPath:indexPath];
+        if (indexPath.section == _genreFiltersSection)
+        {
+            NSLog(@"cell.text: -%@-" , cell.textLabel.text);
+            if ([cell.textLabel.text isEqualToString:@"Drum & Bass"])
+                genreFilter = @"dnb";
+            else
+            {
+                genreFilter = [cell.textLabel.text lowercaseString];
+            }
+            
+        }
+        else if (indexPath.section == _timeFiltersSection)
+        {
+            if (cell.textLabel.text == @"The Freshest")
+                timeFilter = @"new";
+            else if (cell.textLabel.text == @"Today's Best")
+                timeFilter = @"day";
+            else if (cell.textLabel.text == @"Top of the Week")
+                timeFilter = @"week";
+            else if (cell.textLabel.text == @"Top of the Month")
+                timeFilter = @"month";
+            else if (cell.textLabel.text == @"Top of the Year")
+                timeFilter = @"year";
+            else if (cell.textLabel.text == @"All Time Best")
+                timeFilter = @"century";
+        }
+    }
+    
+    [self refreshTitle];
+    [self loadTableView:nil];
+}
+
+- (NSString *) refreshTitle{
+    bool debug = true;
+    if (debug){
+        NSLog(@"refreshTitle()!");
+        NSLog(@"  Genre: %@", genreFilter);
+        NSLog(@"  Time: %@", timeFilter);
+    }
+    
+    NSString *genre = genreFilter;
+    NSString *time = timeFilter;
+    
+    if ([genre isEqualToString:@"all"]){
+        genre = @"Tracks";
+    }
+    else if ([genre isEqualToString:@"dnb"]){
+        genre = @"Drum & Bass";
+    }
+    
+    //the fresh List is selected
+    if ([genre isEqualToString:@"Tracks"] && 
+        [time isEqualToString:@"new"]){
+        rankingsTitle.text = @"The Fresh List";
+    }
+    //the freshest + genre
+    else if ([time isEqualToString:@"new"]){
+        rankingsTitle.text = [[NSString alloc] initWithFormat:@"The Freshest %@", genre];
+    }
+    //top top [genre] of the [time]
+    else{
+        rankingsTitle.text = [[NSString alloc] initWithFormat:@"Top %@ of the %@",
+                              genre, time];
+    }
+    
+}
+
 
 /*================================**
     PageControl/ScrollView Delegate
@@ -405,40 +494,6 @@
 /*=========================**
         Filter Controls
  *=========================*/
-- (NSString *) refreshTitle{
-    bool debug = false;
-    if (debug){
-        NSLog(@"refreshTitle()!");
-        NSLog(@"  Genre: %@", genreFilter);
-        NSLog(@"  Time: %@", timeFilter);
-    }
-    
-    NSString *genre = genreFilter;
-    NSString *time = timeFilter;
-    
-    if ([genre isEqualToString:@"all"]){
-        genre = @"Tracks";
-    }
-    else if ([genre isEqualToString:@"DnB"]){
-        genre = @"Drum & Bass";
-    }
-    
-    //the fresh List is selected
-    if ([genre isEqualToString:@"Tracks"] && 
-        [time isEqualToString:@"new"]){
-        rankingsTitle.text = @"The Fresh List";
-    }
-    //the freshest + genre
-    else if ([time isEqualToString:@"new"]){
-        rankingsTitle.text = [[NSString alloc] initWithFormat:@"The Freshest %@", genre];
-    }
-    //top top [genre] of the [time]
-    else{
-        rankingsTitle.text = [[NSString alloc] initWithFormat:@"Top %@ of the %@",
-                           genre, time];
-    }
-    
-}
 
 
 
@@ -732,14 +787,48 @@ didSelectRowAtIndexPath: (NSIndexPath *)indexPath
     // =============================   
     else if (songTableView == filterTableView)
     {
+        bool debug2 = false;
+        NSArray *selectedRows = [filterTableView indexPathsForSelectedRows];
+        if (debug2)
+        {
+            NSLog(@"selectedRows.count: %d", [selectedRows count]);
+            NSIndexPath *one = [selectedRows objectAtIndex:0];
+            NSIndexPath *two = [selectedRows objectAtIndex:1];
+            NSIndexPath *three = [selectedRows objectAtIndex:2];
+            
+            NSLog(@"selectedRow[0].section: %d, .row: %d", one.section, one.row);
+            NSLog(@"selectedRow[1].section: %d, .row: %d", two.section, two.row);
+            NSLog(@"selectedRow[2].section: %d, .row: %d", three.section, three.row);
+        }
+        
+        //there will always be 3 rows selected at this point
+        //the last object in the array selectedRows is the newest one selected
+        //the first two objects are the current selections, but can be in any order
+        
         if (indexPath.section == _genreFiltersSection)
         {
+            //======deselect current selection
+            //finding the correct selected row to deselect
+            NSIndexPath *temp = [selectedRows objectAtIndex:0];
+            if (temp.section == _genreFiltersSection)
+                [filterTableView deselectRowAtIndexPath:temp animated:false];
+            else
+                [filterTableView deselectRowAtIndexPath:[selectedRows objectAtIndex:1] animated:false];
             
         }
         else if (indexPath.section == _timeFiltersSection)
         {
-            
+            //deselect current selection
+            NSIndexPath *temp = [selectedRows objectAtIndex:0];
+            if (temp.section == _timeFiltersSection)
+                [filterTableView deselectRowAtIndexPath:temp animated:false
+                 ];
+            else
+                [filterTableView deselectRowAtIndexPath:[selectedRows objectAtIndex:1] animated:false];
         }
+        
+        //method will automatically refresh title and load new tableview as well
+        [self refreshFilters];
     }
 
 }
