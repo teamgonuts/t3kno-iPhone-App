@@ -6,4 +6,4 @@
 6. clean up code
 7. remove '\' from song title's/artists
 8. if user clicks the expanded cell (not a button), the program crashes
-9. Download youtube videos!!
+9. launch video player in portrait mode

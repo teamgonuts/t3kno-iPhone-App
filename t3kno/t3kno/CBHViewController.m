@@ -55,6 +55,7 @@
 {
     [super viewDidLoad];
     
+    
 	// loading up the filter table
     NSString *path = [[NSBundle mainBundle] pathForResource:@"filter" ofType:@"plist"];
     NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:path];
@@ -109,6 +110,8 @@
     self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * 3, self.scrollView.frame.size.height);
     [self scrollToMiddleView];
     
+    
+    
         
         
     
@@ -141,10 +144,12 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    //start loading the rankings tableView
     [self loadTableView:nil];    
-
+    
     //hiding pickers/search bar
     searchBar.hidden = true;
+    
     
 
 
@@ -210,6 +215,8 @@
     //change the closed cell's bg
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:(expandedRow-1) inSection:0];
     SongCell *cell = (SongCell *)[tableView cellForRowAtIndexPath:indexPath];
+    
+    
     if (debug) NSLog(@"about to change bgImage for cell with title: %@", cell.titleLabel.text);
     cell.bgImage.image = [UIImage imageNamed:@"songcell_bg5.png"];
     
@@ -648,6 +655,34 @@
     
 }
 
+- (void) tableView:(UITableView *)songTableView
+   willDisplayCell:(UITableViewCell *)cell 
+ forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    bool debug = false;
+    if(debug) 
+    {
+        NSLog(@"willDisplayCellforRowAtIndexPath called!");
+        NSLog(@"--cell.class = %@", cell.class);
+    }
+    SongCell *tempSongCell = [[SongCell alloc] init];
+    if(cell.class == tempSongCell.class)
+    {
+        tempSongCell = (SongCell *)cell;
+
+        //quick fix to error: if the song is displaying it's expanded but actually not
+        //change the images bg and set it to not expanded
+        if(tempSongCell->expanded == YES && indexPath.row != (expandedRow - 1))
+        {
+            if (debug) NSLog(@"--changing bgimage!");
+            ((SongCell *)cell).bgImage.image  = [UIImage imageNamed:@"songcell_bg5.png"];
+            ((SongCell *)cell)->expanded = NO;
+        }
+        
+    }
+   
+}
+
 - (UITableViewCell *)tableView:(UITableView *)songTableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     bool debug = false;
@@ -684,7 +719,8 @@
             NSLog(@"row: %d", row);
             NSLog(@"expandedRow: %d", expandedRow);
         }
-        UITableViewCell *cell = [tableViewCells objectAtIndex:row];
+        SongCell *cell = [tableViewCells objectAtIndex:row];
+        
         
         return cell;
     } 
@@ -751,19 +787,25 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath
     }
 }
 
-- (void)tableView: (UITableView *)songTableView
+- (NSIndexPath *)tableView: (UITableView *)songTableView
 willDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    bool debug = false;
+    if (debug) NSLog(@"willDeselectRowAtIndexPath called!");
     if(songTableView == filterTableView)
     {
         //if the selected row is already selected, return nil so it cannot be deselected
         NSArray *selectedRows = [filterTableView indexPathsForSelectedRows];
-        for (NSIndexPath *selectedIndexPath in selectedRows) {
+        for (NSIndexPath *selectedIndexPath in selectedRows) 
+        {
             if(selectedIndexPath == indexPath)
                 return nil;
         }
 
     }
+    
+    //return the clicked indexPath to be deselected
+    return indexPath;
 }
 
 - (void)tableView: (UITableView *)songTableView 
@@ -815,7 +857,6 @@ didSelectRowAtIndexPath: (NSIndexPath *)indexPath
         else 
         { //cell is already open, so close it
             cell->expanded = NO;
-            
             if(debug) NSLog(@"--about to delete row: %d", expandedRow);
             [self closeExpandedSong];
         }
