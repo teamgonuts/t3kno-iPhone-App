@@ -324,7 +324,7 @@
 }
 
 - (NSString *) refreshTitle{
-    bool debug = true;
+    bool debug = false;
     if (debug){
         NSLog(@"refreshTitle()!");
         NSLog(@"  Genre: %@", genreFilter);
@@ -665,8 +665,11 @@
             
             if(debug) NSLog(@"row == expandedRow"); 
             Song *tempSong = [songs objectAtIndex:(expandedRow - 1)];
-            NSString *ytcode = tempSong->ytcode;
             
+            tempCell.scoreLabel.text = tempSong->score; //adding song score
+            
+            //embedding youtube video
+            NSString *ytcode = tempSong->ytcode;
             NSString *playerHTML = [[NSString alloc] initWithFormat:@"<html><head> <meta name = \"viewport\" content = \"initial-scale = 1.0, user-scalable = no, width = 88\"/></head><body style=\"background:#F00;margin-top:0px;margin-left:0px\"><div><object width=\"88\" height=\"60\"><param name=\"movie\" value=\"http://www.youtube.com/v/%@\"></param><param name=\"wmode\" value=\"transparent\"></param><embed src=\"http://www.youtube.com/v/%@\"type=\"application/x-shockwave-flash\" wmode=\"transparent\" width=\"88\" height=\"60\"></embed></object></div></body></html>", ytcode, ytcode];
             
 
@@ -748,6 +751,20 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath
     }
 }
 
+- (void)tableView: (UITableView *)songTableView
+willDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(songTableView == filterTableView)
+    {
+        //if the selected row is already selected, return nil so it cannot be deselected
+        NSArray *selectedRows = [filterTableView indexPathsForSelectedRows];
+        for (NSIndexPath *selectedIndexPath in selectedRows) {
+            if(selectedIndexPath == indexPath)
+                return nil;
+        }
+
+    }
+}
 
 - (void)tableView: (UITableView *)songTableView 
 didSelectRowAtIndexPath: (NSIndexPath *)indexPath 

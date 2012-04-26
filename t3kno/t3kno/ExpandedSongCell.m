@@ -11,6 +11,7 @@
 @implementation ExpandedSongCell
 @synthesize webView;
 @synthesize loadingLabel;
+@synthesize scoreLabel;
 
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -33,6 +34,7 @@
 - (void)dealloc {
     [webView release];
     [loadingLabel release];
+    [scoreLabel release];
     [super dealloc];
 }
 @end
