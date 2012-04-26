@@ -47,7 +47,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{285, 13}, {29, 30}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
-						<reference key="NSNextKeyView" ref="508003022"/>
+						<reference key="NSNextKeyView" ref="583575737"/>
 						<string key="NSReuseIdentifierKey">_NS:225</string>
 						<object class="NSColor" key="IBUIBackgroundColor" id="1064127154">
 							<int key="NSColorSpace">3</int>
@@ -144,7 +144,7 @@
 						<int key="IBUINumberOfPages">3</int>
 						<int key="IBUICurrentPage">1</int>
 					</object>
-					<object class="IBUIImageView" id="508003022">
+					<object class="IBUIImageView" id="583575737">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{0, 60}, {320, 29}}</string>
@@ -158,7 +158,7 @@
 							<string key="NSResourceName">rankings_title_bg.png</string>
 						</object>
 					</object>
-					<object class="IBUILabel" id="360492959">
+					<object class="IBUILabel" id="323641570">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{0, 64}, {320, 21}}</string>
@@ -197,7 +197,7 @@
 						<int key="NSvFlags">290</int>
 						<string key="NSFrame">{{0, 60}, {320, 88}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
-						<reference key="NSNextKeyView" ref="360492959"/>
+						<reference key="NSNextKeyView" ref="323641570"/>
 						<string key="NSReuseIdentifierKey">_NS:597</string>
 						<reference key="IBUIBackgroundColor" ref="376887337"/>
 						<int key="IBUIContentMode">3</int>
@@ -366,7 +366,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">rankingsTitle</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="360492959"/>
+						<reference key="destination" ref="323641570"/>
 					</object>
 					<int key="connectionID">206</int>
 				</object>
@@ -471,9 +471,9 @@
 							<reference ref="919329700"/>
 							<reference ref="827915400"/>
 							<reference ref="584148888"/>
-							<reference ref="508003022"/>
+							<reference ref="583575737"/>
 							<reference ref="765429466"/>
-							<reference ref="360492959"/>
+							<reference ref="323641570"/>
 							<reference ref="407484073"/>
 						</array>
 						<reference key="parent" ref="0"/>
@@ -529,7 +529,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">204</int>
-						<reference key="object" ref="508003022"/>
+						<reference key="object" ref="583575737"/>
 						<reference key="parent" ref="774585933"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -539,7 +539,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">205</int>
-						<reference key="object" ref="360492959"/>
+						<reference key="object" ref="323641570"/>
 						<reference key="parent" ref="774585933"/>
 					</object>
 					<object class="IBObjectRecord">

@@ -794,12 +794,21 @@ willDeselectRowAtIndexPath:(NSIndexPath *)indexPath
     if (debug) NSLog(@"willDeselectRowAtIndexPath called!");
     if(songTableView == filterTableView)
     {
+        if (debug) NSLog(@"--deselecting filter tableview: row %d in section %d", 
+                         indexPath.row, indexPath.section);
         //if the selected row is already selected, return nil so it cannot be deselected
         NSArray *selectedRows = [filterTableView indexPathsForSelectedRows];
         for (NSIndexPath *selectedIndexPath in selectedRows) 
         {
-            if(selectedIndexPath == indexPath)
+            if (debug) NSLog(@"--selected row %d in section %d",
+                             selectedIndexPath.row, selectedIndexPath.section);
+            if(selectedIndexPath.section == indexPath.section
+               && selectedIndexPath.row == indexPath.row)
+            {
+                if (debug) NSLog(@"--blocking row %d in section %d from being selected",
+                                 indexPath.row, indexPath.section);
                 return nil;
+            }
         }
 
     }
