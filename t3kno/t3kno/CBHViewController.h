@@ -12,6 +12,7 @@
 <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>{
     bool pageControlBeingUsed;
     int expandedRow;
+    //bool searching; //if the user has entered a search term
 }
 
 //universal

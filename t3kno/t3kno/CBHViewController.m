@@ -149,6 +149,7 @@
     
     //hiding pickers/search bar
     searchBar.hidden = true;
+    //searching = NO;
     
     
 
@@ -559,6 +560,13 @@
 
 -(void) searchBarSearchButtonClicked:(UISearchBar *)aSearchBar{
     bool debug = false;
+    
+//    searching = YES; //user is now searching
+//    //deselect all filters
+//    for (NSIndexPath *indexPath in [filterTableView indexPathsForSelectedRows]) 
+//    {
+//        [filterTableView deselectRowAtIndexPath:indexPath animated:NO];
+//    }
     
     NSString *searchTerm = [aSearchBar text];
     

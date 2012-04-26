@@ -8,6 +8,6 @@
 8. if user clicks the expanded cell (not a button), the program crashes
 9. launch video player in portrait mode
 10. allow users to vote only once
-11. search
+11. safe-string search results
 12. allow users to see their previous searches
 13. why can't i do cell->expanded = NO in closeExpandedCell method
