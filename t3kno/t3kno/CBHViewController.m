@@ -350,6 +350,10 @@
     else if ([time isEqualToString:@"new"]){
         rankingsTitle.text = [[NSString alloc] initWithFormat:@"The Freshest %@", genre];
     }
+    else if ([time isEqualToString:@"day"])
+        rankingsTitle.text = [[NSString alloc] initWithFormat:@"Today's Best %@", genre];
+    else if ([time isEqualToString:@"century"])
+        rankingsTitle.text = [[NSString alloc] initWithFormat:@"Best %@ of All Time", genre];
     //top top [genre] of the [time]
     else{
         rankingsTitle.text = [[NSString alloc] initWithFormat:@"Top %@ of the %@",
