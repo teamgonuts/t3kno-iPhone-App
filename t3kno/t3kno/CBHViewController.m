@@ -382,9 +382,10 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)sender {
     // Update the page when more than 50% of the previous/next page is visible
-    bool debug = false;
+    bool debug = true;
     if(debug){
         NSLog(@"scrollViewDidScroll called!");
+        NSLog(@"--pageControl.currentPage = %d", self.pageControl.currentPage);
     }
     
     if (!pageControlBeingUsed) {
@@ -403,28 +404,6 @@
 	pageControlBeingUsed = NO;
 }
 
-
--(IBAction)changePage:(id)sender{
-    // update the scroll view to the appropriate page
-    bool debug = false;
-    if(debug){
-        NSLog(@"changePage called!");
-    }
-    
-    // Update the scroll view to the appropriate page
-	CGRect frame;
-	frame.origin.x = self.scrollView.frame.size.width * self.pageControl.currentPage;
-	frame.origin.y = 0;
-	frame.size = self.scrollView.frame.size;
-	[self.scrollView scrollRectToVisible:frame animated:YES];
-	
-	// Keep track of when scrolls happen in response to the page control
-	// value changing. If we don't do this, a noticeable "flashing" occurs
-	// as the the scroll delegate will temporarily switch back the page
-	// number.
-	pageControlBeingUsed = YES;
-    
-}
 
 
 /*=========================**

@@ -42,6 +42,34 @@
 				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">274</int>
 				<array class="NSMutableArray" key="NSSubviews">
+					<object class="IBUISearchBar" id="407484073">
+						<reference key="NSNextResponder" ref="774585933"/>
+						<int key="NSvFlags">290</int>
+						<string key="NSFrame">{{0, 60}, {320, 44}}</string>
+						<reference key="NSSuperview" ref="774585933"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="348603107"/>
+						<string key="NSReuseIdentifierKey">_NS:597</string>
+						<object class="NSColor" key="IBUIBackgroundColor" id="376887337">
+							<int key="NSColorSpace">3</int>
+							<bytes key="NSWhite">MAA</bytes>
+						</object>
+						<int key="IBUIContentMode">3</int>
+						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<string key="IBPlaceholder">search for a song or artist</string>
+						<bool key="IBShowsCancelButton">YES</bool>
+						<object class="NSColor" key="IBTintColor">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MC4yOTQxMTc2NDcxIDAuMjk0MTE3NjQ3MSAwLjI5NDExNzY0NzEAA</bytes>
+						</object>
+						<object class="IBUITextInputTraits" key="IBTextInputTraits">
+							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						</object>
+						<array key="IBScopeButtonTitles">
+							<string>YouTube</string>
+							<string>t3k.no</string>
+						</array>
+					</object>
 					<object class="IBUIImageView" id="584148888">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
@@ -83,10 +111,7 @@
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="702985717"/>
 						<string key="NSReuseIdentifierKey">_NS:190</string>
-						<object class="NSColor" key="IBUIBackgroundColor" id="376887337">
-							<int key="NSColorSpace">3</int>
-							<bytes key="NSWhite">MAA</bytes>
-						</object>
+						<reference key="IBUIBackgroundColor" ref="376887337"/>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
 						<array key="IBUIGestureRecognizers" id="0"/>
@@ -110,7 +135,7 @@
 						<int key="IBUINumberOfPages">3</int>
 						<int key="IBUICurrentPage">1</int>
 					</object>
-					<object class="IBUIImageView" id="1008269517">
+					<object class="IBUIImageView" id="119753616">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{0, 60}, {320, 29}}</string>
@@ -125,7 +150,7 @@
 							<string key="NSResourceName">rankings_title_bg.png</string>
 						</object>
 					</object>
-					<object class="IBUILabel" id="89758202">
+					<object class="IBUILabel" id="348603107">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{0, 64}, {320, 21}}</string>
@@ -145,8 +170,7 @@
 						</object>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">1</int>
-						<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
-						<float key="IBUIMinimumFontSize">10</float>
+						<float key="IBUIMinimumFontSize">15</float>
 						<int key="IBUITextAlignment">1</int>
 						<object class="IBUIFontDescription" key="IBUIFontDescription">
 							<string key="name">Copperplate</string>
@@ -160,38 +184,13 @@
 							<int key="NSfFlags">16</int>
 						</object>
 					</object>
-					<object class="IBUISearchBar" id="407484073">
-						<reference key="NSNextResponder" ref="774585933"/>
-						<int key="NSvFlags">290</int>
-						<string key="NSFrame">{{0, 60}, {320, 44}}</string>
-						<reference key="NSSuperview" ref="774585933"/>
-						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="89758202"/>
-						<string key="NSReuseIdentifierKey">_NS:597</string>
-						<reference key="IBUIBackgroundColor" ref="376887337"/>
-						<int key="IBUIContentMode">3</int>
-						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBPlaceholder">search for a song or artist</string>
-						<bool key="IBShowsCancelButton">YES</bool>
-						<object class="NSColor" key="IBTintColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4yOTQxMTc2NDcxIDAuMjk0MTE3NjQ3MSAwLjI5NDExNzY0NzEAA</bytes>
-						</object>
-						<object class="IBUITextInputTraits" key="IBTextInputTraits">
-							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						</object>
-						<array key="IBScopeButtonTitles">
-							<string>YouTube</string>
-							<string>t3k.no</string>
-						</array>
-					</object>
 					<object class="IBUIButton" id="765429466">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{274, 23}, {26, 21}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="1008269517"/>
+						<reference key="NSNextKeyView" ref="119753616"/>
 						<string key="NSReuseIdentifierKey">_NS:225</string>
 						<object class="NSColor" key="IBUIBackgroundColor" id="1064127154">
 							<int key="NSColorSpace">3</int>
@@ -374,7 +373,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">rankingsTitle</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="89758202"/>
+						<reference key="destination" ref="348603107"/>
 					</object>
 					<int key="connectionID">206</int>
 				</object>
@@ -479,8 +478,8 @@
 							<reference ref="919329700"/>
 							<reference ref="827915400"/>
 							<reference ref="584148888"/>
-							<reference ref="1008269517"/>
-							<reference ref="89758202"/>
+							<reference ref="119753616"/>
+							<reference ref="348603107"/>
 							<reference ref="407484073"/>
 							<reference ref="765429466"/>
 						</array>
@@ -537,7 +536,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">204</int>
-						<reference key="object" ref="1008269517"/>
+						<reference key="object" ref="119753616"/>
 						<reference key="parent" ref="774585933"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -547,7 +546,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">205</int>
-						<reference key="object" ref="89758202"/>
+						<reference key="object" ref="348603107"/>
 						<reference key="parent" ref="774585933"/>
 					</object>
 					<object class="IBObjectRecord">
