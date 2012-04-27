@@ -102,7 +102,7 @@
     }
     
     if (debug){
-        NSLog([[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding]);
+        NSLog(@"%@",[[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding]);
     }
 
 }

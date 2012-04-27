@@ -12,10 +12,7 @@
 - (YoutubeView *)initWithYouTubeCode:(NSString *)ytcode
 {
     if (self = [super init]) 
-    {
-        // Create webview with requested frame size
-        self = [[UIWebView alloc] init];
-        
+    {        
         // HTML to embed YouTube video
         NSString *playerHTML = [[NSString alloc] initWithFormat:@"<html><head>\
                                 <body style=\"margin:0\">\
