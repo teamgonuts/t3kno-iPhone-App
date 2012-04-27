@@ -27,6 +27,7 @@
 @implementation CBHViewController
 @synthesize logoImageView;
 @synthesize scrollView;
+@synthesize searchView;
 @synthesize filterView;
 @synthesize filterTableView;
 @synthesize pageControl;
@@ -73,11 +74,11 @@
     //selecting the defualt rows in filter tableview
     NSIndexPath *allIndexPath = [[NSIndexPath alloc] init];
     allIndexPath = [NSIndexPath indexPathForRow:0 inSection:_genreFiltersSection];
-    [filterTableView selectRowAtIndexPath:allIndexPath animated:false scrollPosition:nil];
+    [filterTableView selectRowAtIndexPath:allIndexPath animated:false scrollPosition:UITableViewScrollPositionNone];
     
     NSIndexPath *freshestIndexPath = [[NSIndexPath alloc] init];
     freshestIndexPath = [NSIndexPath indexPathForRow:0 inSection:_timeFiltersSection];
-    [filterTableView selectRowAtIndexPath:freshestIndexPath animated:false scrollPosition:nil];
+    [filterTableView selectRowAtIndexPath:freshestIndexPath animated:false scrollPosition:UITableViewScrollPositionNone];
 
 
     
@@ -125,6 +126,7 @@
     [self setScrollView:nil];
     [self setPageControl:nil];
     [self setFilterView:nil];
+    [self setSearchView:nil];
 
     [self setFilterTableView:nil];
     [self setSearchButton:nil];
@@ -189,6 +191,7 @@
     [scrollView release];
     [pageControl release];
     [filterView release];
+    [searchView release];
     [filterTableView release];
     [logoImageView release];
     [searchButton release];
@@ -267,7 +270,7 @@
     }
     
     if (debug){
-        NSLog([[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding]);
+        NSLog(@"%@", [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding]);
     }
     
     [searchBar setHidden:true];
@@ -382,7 +385,7 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)sender {
     // Update the page when more than 50% of the previous/next page is visible
-    bool debug = true;
+    bool debug = NO;
     if(debug){
         NSLog(@"scrollViewDidScroll called!");
         NSLog(@"--pageControl.currentPage = %d", self.pageControl.currentPage);
@@ -401,7 +404,19 @@
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    bool debug = NO;
+    if (debug) NSLog(@"ending scroll, pageControl.currentPage = %d", self.pageControl.currentPage);
 	pageControlBeingUsed = NO;
+    
+    //updating the title
+    if(self.pageControl.currentPage == 0)//if im at the upload page
+    {
+        rankingsTitle.text = @"Upload a Song from YouTube";
+    }
+    else
+    {
+        [self refreshTitle];
+    }
 }
 
 
@@ -922,4 +937,12 @@ didSelectRowAtIndexPath: (NSIndexPath *)indexPath
 }
 
 
+- (IBAction)browserBackButtonPressed:(id)sender {
+}
+
+- (IBAction)browserForwardButtonPressed:(id)sender {
+}
+
+- (IBAction)uploadButtonPressed:(id)sender {
+}
 @end

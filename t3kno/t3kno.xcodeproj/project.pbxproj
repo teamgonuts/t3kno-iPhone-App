@@ -41,6 +41,8 @@
 		BDD94641154B0C9F00C53EFD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = BDD94640154B0C9F00C53EFD /* Default.png */; };
 		BDD9464E154B151800C53EFD /* NSString+MD5Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD9464B154B151800C53EFD /* NSString+MD5Addition.m */; };
 		BDD9464F154B151800C53EFD /* UIDevice+IdentifierAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD9464D154B151800C53EFD /* UIDevice+IdentifierAddition.m */; };
+		BDD94651154B51CD00C53EFD /* browser-back.png in Resources */ = {isa = PBXBuildFile; fileRef = BDD94650154B51CD00C53EFD /* browser-back.png */; };
+		BDD94657154B538F00C53EFD /* browser-forward2.png in Resources */ = {isa = PBXBuildFile; fileRef = BDD94656154B538F00C53EFD /* browser-forward2.png */; };
 		BDE668861531028D0013CBFA /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE668851531028D0013CBFA /* Song.m */; };
 		BDE66893153147420013CBFA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDE66892153147420013CBFA /* CFNetwork.framework */; };
 		BDE66895153147530013CBFA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDE66894153147530013CBFA /* SystemConfiguration.framework */; };
@@ -106,6 +108,8 @@
 		BDD9464B154B151800C53EFD /* NSString+MD5Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+MD5Addition.m"; path = "../../../UIDevice-with-UniqueIdentifier-for-iOS-5/Classes/NSString+MD5Addition.m"; sourceTree = "<group>"; };
 		BDD9464C154B151800C53EFD /* UIDevice+IdentifierAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIDevice+IdentifierAddition.h"; path = "../../../UIDevice-with-UniqueIdentifier-for-iOS-5/Classes/UIDevice+IdentifierAddition.h"; sourceTree = "<group>"; };
 		BDD9464D154B151800C53EFD /* UIDevice+IdentifierAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIDevice+IdentifierAddition.m"; path = "../../../UIDevice-with-UniqueIdentifier-for-iOS-5/Classes/UIDevice+IdentifierAddition.m"; sourceTree = "<group>"; };
+		BDD94650154B51CD00C53EFD /* browser-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "browser-back.png"; path = "../../t3kno-iPhone-App/browser-back.png"; sourceTree = "<group>"; };
+		BDD94656154B538F00C53EFD /* browser-forward2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "browser-forward2.png"; path = "../../t3kno-iPhone-App/browser-forward2.png"; sourceTree = "<group>"; };
 		BDE668841531028D0013CBFA /* Song.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Song.h; sourceTree = "<group>"; };
 		BDE668851531028D0013CBFA /* Song.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Song.m; sourceTree = "<group>"; };
 		BDE66892153147420013CBFA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -232,6 +236,8 @@
 		BD79C717153F0B93006A9C60 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				BDD94656154B538F00C53EFD /* browser-forward2.png */,
+				BDD94650154B51CD00C53EFD /* browser-back.png */,
 				BDD9463C1549B61400C53EFD /* searchIcon.png */,
 				BDD9463A154896D100C53EFD /* facebook_logo.png */,
 				BDD946381548961400C53EFD /* twitter_logo.png */,
@@ -384,6 +390,8 @@
 				BDD9463B154896D100C53EFD /* facebook_logo.png in Resources */,
 				BDD9463D1549B61400C53EFD /* searchIcon.png in Resources */,
 				BDD94641154B0C9F00C53EFD /* Default.png in Resources */,
+				BDD94651154B51CD00C53EFD /* browser-back.png in Resources */,
+				BDD94657154B538F00C53EFD /* browser-forward2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

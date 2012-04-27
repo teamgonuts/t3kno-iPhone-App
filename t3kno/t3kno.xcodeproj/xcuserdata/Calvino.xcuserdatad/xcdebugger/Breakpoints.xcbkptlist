@@ -9,11 +9,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "t3kno/CBHViewController.m"
-         timestampString = "357256614.802143"
+         timestampString = "357257038.214667"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "810"
-         endingLineNumber = "810"
+         startingLineNumber = "789"
+         endingLineNumber = "789"
          landmarkName = "-tableView:heightForRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -23,11 +23,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "t3kno/CBHViewController.m"
-         timestampString = "357256614.802143"
+         timestampString = "357257038.214667"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "652"
-         endingLineNumber = "652"
+         startingLineNumber = "631"
+         endingLineNumber = "631"
          landmarkName = "-tableView:numberOfRowsInSection:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -37,11 +37,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "t3kno/CBHViewController.m"
-         timestampString = "357256614.802143"
+         timestampString = "357257038.214667"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "634"
-         endingLineNumber = "634"
+         startingLineNumber = "613"
+         endingLineNumber = "613"
          landmarkName = "-numberOfSectionsInTableView:"
          landmarkType = "5">
       </FileBreakpoint>

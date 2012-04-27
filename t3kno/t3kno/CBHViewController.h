@@ -18,10 +18,11 @@
 //universal
 @property (retain, nonatomic) IBOutlet UIImageView *logoImageView;
 
-//search (Youtube) view
+//upload (Youtube) view
 @property (retain, nonatomic) IBOutlet UIView *searchView;
-
-
+- (IBAction)browserBackButtonPressed:(id)sender;
+- (IBAction)browserForwardButtonPressed:(id)sender;
+- (IBAction)uploadButtonPressed:(id)sender;
 
 //rankings View
 - (IBAction)loadTableView:(id)sender;
