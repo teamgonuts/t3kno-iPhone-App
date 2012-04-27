@@ -37,4 +37,12 @@
     [scoreLabel release];
     [super dealloc];
 }
+- (IBAction)upVote:(id)sender {
+    bool debug = true;
+    NSString *uniqueID = [[UIDevice currentDevice] uniqueIdentifier];
+    if (debug) NSLog(@"uniqueID: %@", uniqueID);
+}
+
+- (IBAction)downVote:(id)sender {
+}
 @end

@@ -13,6 +13,8 @@
 @property (retain, nonatomic) IBOutlet UIWebView *webView;
 @property (retain, nonatomic) IBOutlet UILabel *loadingLabel;
 @property (retain, nonatomic) IBOutlet UILabel *scoreLabel;
+- (IBAction)upVote:(id)sender;
+- (IBAction)downVote:(id)sender;
 
 
 @end
