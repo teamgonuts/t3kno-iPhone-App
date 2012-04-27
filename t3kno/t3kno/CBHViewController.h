@@ -34,7 +34,7 @@
 @property (retain, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (retain, nonatomic) NSMutableArray *songs;
 @property (retain, nonatomic) NSMutableArray *tableViewCells;
-@property (strong, nonatomic) NSData *receivedData;
+@property (strong, nonatomic) NSMutableData *receivedData;
 - (IBAction)seachButtonIconPressed:(id)sender;
 @property (retain, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (retain, nonatomic) IBOutlet UIButton *searchButton;

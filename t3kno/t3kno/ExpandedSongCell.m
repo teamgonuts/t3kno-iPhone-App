@@ -7,9 +7,9 @@
 //
 
 #import "ExpandedSongCell.h"
+#import "Song.h"
 #import "NSString+MD5Addition.h"
 #import "UIDevice+IdentifierAddition.h"
-#import "Song.h"
 
 @implementation ExpandedSongCell
 @synthesize webView;
@@ -59,7 +59,7 @@
 
 -(void) voteOnSong:(NSString *)voteValue
 {
-    bool debug = true;
+    bool debug = false;
     
     //will be the same if the user deletes the app and reinstalls it
     //uses mac addresss

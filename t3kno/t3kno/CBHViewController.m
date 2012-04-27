@@ -795,8 +795,10 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath
     }
     else if (songTableView == filterTableView)
     {
-        return 30;
+        return 30.0;
     }
+    else //somethings gone horribly wrong
+        return 0;
 }
 
 - (NSIndexPath *)tableView: (UITableView *)songTableView
