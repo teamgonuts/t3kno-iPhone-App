@@ -108,7 +108,7 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
-    BOOL debug = false;
+    BOOL debug = true;
     if (debug){
         NSLog(@"didReceiveResponse called!");  
     }
@@ -125,6 +125,7 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
+    if (true) NSLog(@"connection appending data!");
     // Append the new data to receivedData.
     // receivedData is an instance variable declared elsewhere.
     [receivedData appendData:data];
@@ -144,9 +145,11 @@
           [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
 }
 
+//receivedData will be the vote result (1 or -1)
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    BOOL debug = false;
+    
+    BOOL debug = true;
     // do something with the data
     // receivedData is declared as a method instance elsewhere
     if(debug){
@@ -154,12 +157,18 @@
     }
     
     NSString *result = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
-    if([result isEqualToString:@"true"]) //vote was valid
-    {
-        int oldScore = [scoreLabel.text intValue];
-        scoreLabel.text = [[NSString alloc] initWithFormat:@"%d", (oldScore+1)];
+    if(debug){
+        NSLog(@"--result: %@", result);
+        NSLog(@"--(int)result: %d", [result intValue]);
     }
     
+    if ([receivedData length] > 0) //if the vote was valid
+    {
+        int newScore = [scoreLabel.text intValue] + [result intValue];
+        
+        scoreLabel.text = [[NSString alloc] initWithFormat:@"%d", newScore];
+    }
+
     // release the connection, and the data object
     [connection release];
     [receivedData release];
