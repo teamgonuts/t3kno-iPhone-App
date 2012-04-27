@@ -64,20 +64,24 @@
     //will be the same if the user deletes the app and reinstalls it
     //uses mac addresss
     NSString *uniqueID = [[UIDevice currentDevice] uniqueGlobalDeviceIdentifier];
-
+    
+    //trimming strings of whitespaces
+    NSString *ytcode = [song->ytcode stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *user = [song->user stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     
     if (debug)
     {
         NSLog(@"voteOnSong called! Parameters:");
         NSLog(@"--vote: %@", voteValue);
-        NSLog(@"--ytcode: %@", song->ytcode);
+        NSLog(@"--ytcode: %@", ytcode);
         NSLog(@"--uniqueID: %@", uniqueID);
-        NSLog(@"--user: %@", song->user);
-    }    
+        NSLog(@"--user: %@", user);
+    }
+    
         
     NSString *urlString = [[NSString alloc] 
                            initWithFormat:@"http://t3k.no/app/vote.php?vote=%@&ytcode=%@&uid=%@&user=%@",
-                           voteValue, song->ytcode, uniqueID, song->user];
+                           voteValue, ytcode, uniqueID, user];
     
     NSURL *urlToRequest = [NSURL URLWithString:urlString];
     
@@ -108,7 +112,7 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
-    BOOL debug = true;
+    BOOL debug = false;
     if (debug){
         NSLog(@"didReceiveResponse called!");  
     }
@@ -125,7 +129,8 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
-    if (true) NSLog(@"connection appending data!");
+    bool debug = false;
+    if (debug) NSLog(@"connection appending data!");
     // Append the new data to receivedData.
     // receivedData is an instance variable declared elsewhere.
     [receivedData appendData:data];
@@ -149,7 +154,7 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     
-    BOOL debug = true;
+    BOOL debug = false;
     // do something with the data
     // receivedData is declared as a method instance elsewhere
     if(debug){
