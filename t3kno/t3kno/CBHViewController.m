@@ -415,7 +415,7 @@
     }
     else
     {
-        [self refreshTitle];
+        //[self refreshTitle];
     }
 }
 
@@ -596,15 +596,15 @@
     }
     
     if (debug){
-        NSLog([[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding]);
+        NSLog(@"%@",[[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding]);
     }
     
     [searchBar setHidden:true];
     [searchBar resignFirstResponder];
 }
 
-- (void) searchBarCancelButtonClicked:(UISearchBar *)searchBar{
-    searchBar.text  = @"";
+- (void) searchBarCancelButtonClicked:(UISearchBar *)searchBarIn{
+    searchBarIn.text  = @"";
     [self seachButtonIconPressed:nil];
 }
 
