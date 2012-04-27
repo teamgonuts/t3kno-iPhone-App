@@ -38,8 +38,6 @@
 @synthesize searchButton;
 @synthesize songs;
 @synthesize receivedData;
-@synthesize genreFilter;
-@synthesize timeFilter;
 @synthesize filterKeys;
 @synthesize filterValues;
 @synthesize tableViewCells;
@@ -344,7 +342,6 @@
         NSLog(@"  Genre: %@", genreFilter);
         NSLog(@"  Time: %@", timeFilter);
     }
-    
     NSString *genre = genreFilter;
     NSString *time = timeFilter;
     
@@ -731,10 +728,13 @@
             NSLog(@"row: %d", row);
             NSLog(@"expandedRow: %d", expandedRow);
         }
-        SongCell *cell = [tableViewCells objectAtIndex:row];
-        
-        
-        return cell;
+        if ([tableViewCells count] > 0)
+        {
+            SongCell *cell = [tableViewCells objectAtIndex:row];
+            return cell;
+        }
+        else
+            return nil;
     } 
     // =============================
     //         Filter TableView

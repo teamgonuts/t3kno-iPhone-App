@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface CBHViewController : UIViewController 
-<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>{
+<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UIScrollViewDelegate>{
     bool pageControlBeingUsed;
     int expandedRow;
-    //bool searching; //if the user has entered a search term
+    NSString *genreFilter;
+    NSString *timeFilter;
 }
 
 //universal
@@ -46,8 +47,6 @@
 - (void) refreshTitle;
 @property (retain, nonatomic) IBOutlet UIView *filterView;
 @property (retain, nonatomic) IBOutlet UITableView *filterTableView;
-@property (strong, nonatomic) NSString *genreFilter; 
-@property (strong, nonatomic) NSString *timeFilter;
 @property (strong, nonatomic) NSDictionary *filterValues;
 @property (strong, nonatomic) NSArray *filterKeys;
 
