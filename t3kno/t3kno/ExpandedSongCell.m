@@ -57,16 +57,24 @@
 }
 
 
--(void) voteOnSong:(int)voteValue
+-(void) voteOnSong:(NSString *)voteValue
 {
     bool debug = true;
-    if (debug) NSLog(@"voteOnSong, vote=%@", voteValue);
     
     //will be the same if the user deletes the app and reinstalls it
     //uses mac addresss
     NSString *uniqueID = [[UIDevice currentDevice] uniqueGlobalDeviceIdentifier];
-    if (debug) NSLog(@"uniqueID: %@", uniqueID);
+
     
+    if (debug)
+    {
+        NSLog(@"voteOnSong called! Parameters:");
+        NSLog(@"--vote: %@", voteValue);
+        NSLog(@"--ytcode: %@", song->ytcode);
+        NSLog(@"--uniqueID: %@", uniqueID);
+        NSLog(@"--user: %@", song->user);
+    }    
+        
     NSString *urlString = [[NSString alloc] 
                            initWithFormat:@"http://t3k.no/app/vote.php?vote=%@&ytcode=%@&uid=%@&user=%@",
                            voteValue, song->ytcode, uniqueID, song->user];
