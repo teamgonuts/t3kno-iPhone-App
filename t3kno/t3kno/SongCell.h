@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Song.h"
 
 @interface SongCell : UITableViewCell{
     @public
@@ -17,8 +18,7 @@
 @property (retain, nonatomic) IBOutlet UILabel *artistLabel;
 
 @property (retain, nonatomic) IBOutlet UIImageView *bgImage;
-
-
 @property (retain, nonatomic) IBOutlet UILabel *genreLabel;
 @property (retain, nonatomic) IBOutlet UILabel *scoreLabel;
+
 @end

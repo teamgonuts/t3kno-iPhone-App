@@ -39,6 +39,8 @@
 		BDD9463B154896D100C53EFD /* facebook_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = BDD9463A154896D100C53EFD /* facebook_logo.png */; };
 		BDD9463D1549B61400C53EFD /* searchIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = BDD9463C1549B61400C53EFD /* searchIcon.png */; };
 		BDD94641154B0C9F00C53EFD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = BDD94640154B0C9F00C53EFD /* Default.png */; };
+		BDD9464E154B151800C53EFD /* NSString+MD5Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD9464B154B151800C53EFD /* NSString+MD5Addition.m */; };
+		BDD9464F154B151800C53EFD /* UIDevice+IdentifierAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD9464D154B151800C53EFD /* UIDevice+IdentifierAddition.m */; };
 		BDE668861531028D0013CBFA /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE668851531028D0013CBFA /* Song.m */; };
 		BDE66893153147420013CBFA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDE66892153147420013CBFA /* CFNetwork.framework */; };
 		BDE66895153147530013CBFA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDE66894153147530013CBFA /* SystemConfiguration.framework */; };
@@ -100,6 +102,10 @@
 		BDD9463A154896D100C53EFD /* facebook_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = facebook_logo.png; path = "../../t3kno-iPhone-App/facebook_logo.png"; sourceTree = "<group>"; };
 		BDD9463C1549B61400C53EFD /* searchIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = searchIcon.png; path = "../../t3kno-iPhone-App/searchIcon.png"; sourceTree = "<group>"; };
 		BDD94640154B0C9F00C53EFD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../../Default.png; sourceTree = "<group>"; };
+		BDD9464A154B151800C53EFD /* NSString+MD5Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+MD5Addition.h"; path = "../../../UIDevice-with-UniqueIdentifier-for-iOS-5/Classes/NSString+MD5Addition.h"; sourceTree = "<group>"; };
+		BDD9464B154B151800C53EFD /* NSString+MD5Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+MD5Addition.m"; path = "../../../UIDevice-with-UniqueIdentifier-for-iOS-5/Classes/NSString+MD5Addition.m"; sourceTree = "<group>"; };
+		BDD9464C154B151800C53EFD /* UIDevice+IdentifierAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIDevice+IdentifierAddition.h"; path = "../../../UIDevice-with-UniqueIdentifier-for-iOS-5/Classes/UIDevice+IdentifierAddition.h"; sourceTree = "<group>"; };
+		BDD9464D154B151800C53EFD /* UIDevice+IdentifierAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIDevice+IdentifierAddition.m"; path = "../../../UIDevice-with-UniqueIdentifier-for-iOS-5/Classes/UIDevice+IdentifierAddition.m"; sourceTree = "<group>"; };
 		BDE668841531028D0013CBFA /* Song.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Song.h; sourceTree = "<group>"; };
 		BDE668851531028D0013CBFA /* Song.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Song.m; sourceTree = "<group>"; };
 		BDE66892153147420013CBFA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -202,9 +208,9 @@
 				BDE668A415324D070013CBFA /* SongCell.xib */,
 				BDE668A615324FF20013CBFA /* SongCell.h */,
 				BDE668A715324FF20013CBFA /* SongCell.m */,
-				BDD94642154B13EC00C53EFD /* UniqueID */,
 				BD79C717153F0B93006A9C60 /* Images */,
 				BD79C718153F0BD8006A9C60 /* Classes */,
+				BDD94649154B14F800C53EFD /* UniqueID */,
 				BDE668A9153A035C0013CBFA /* JSON */,
 				BD4F0EAA1530D75E00573F67 /* Supporting Files */,
 				BD4F0EBB1530D75F00573F67 /* CBHViewController_iPad.xib */,
@@ -259,12 +265,15 @@
 			name = Classes;
 			sourceTree = "<group>";
 		};
-		BDD94642154B13EC00C53EFD /* UniqueID */ = {
+		BDD94649154B14F800C53EFD /* UniqueID */ = {
 			isa = PBXGroup;
 			children = (
+				BDD9464A154B151800C53EFD /* NSString+MD5Addition.h */,
+				BDD9464B154B151800C53EFD /* NSString+MD5Addition.m */,
+				BDD9464C154B151800C53EFD /* UIDevice+IdentifierAddition.h */,
+				BDD9464D154B151800C53EFD /* UIDevice+IdentifierAddition.m */,
 			);
 			name = UniqueID;
-			path = ../../../SBJson_3.1/Classes;
 			sourceTree = "<group>";
 		};
 		BDE668A9153A035C0013CBFA /* JSON */ = {
@@ -404,6 +413,8 @@
 				BDE668CE153A035C0013CBFA /* SBJsonWriter.m in Sources */,
 				BDC55A36153CA26B00F79B92 /* YoutubeView.m in Sources */,
 				BD79C73415401DCD006A9C60 /* ExpandedSongCell.m in Sources */,
+				BDD9464E154B151800C53EFD /* NSString+MD5Addition.m in Sources */,
+				BDD9464F154B151800C53EFD /* UIDevice+IdentifierAddition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,17 +10,19 @@
 
 @interface Song : NSObject{
     @public
-        NSString *ytcode;
-        NSString *title;
-        NSString *artist;
-        NSString *genre;
-        NSString *score;
+    NSString *ytcode;
+    NSString *title;
+    NSString *artist;
+    NSString *genre;
+    NSString *score;
+    NSString *user;
 }
 
 - (Song *) initWithTitle: (NSString *) title_i
                andArtist: artist_i
                 andGenre: genre_i
-                andScore: score_i;
+                andScore: score_i
+                 andUser: user_i;
 
 - (Song *) initWithDictionary: (NSDictionary *) songDictionary;
 

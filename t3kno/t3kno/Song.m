@@ -12,7 +12,8 @@
 - (Song *) initWithTitle:(NSString *)title_i 
                andArtist:(id)artist_i
                 andGenre:(id)genre_i 
-                andScore:(id)score_i{
+                andScore:(id)score_i
+                 andUser:(id)user_i{
     title = title_i;
     artist = artist_i;
     genre = genre_i;
@@ -26,6 +27,7 @@
     genre = [self cleanString:[songDictionary objectForKey:@"genre"]];
     score = [self cleanString:[songDictionary objectForKey:@"score"]];
     ytcode = [self cleanString:[songDictionary objectForKey:@"ytcode"]];
+    user = [self cleanString:[songDictionary objectForKey:@"user"]];
     
     return (self);
 }

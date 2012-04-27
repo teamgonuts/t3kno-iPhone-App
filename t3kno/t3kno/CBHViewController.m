@@ -222,6 +222,7 @@
     
     if (debug) NSLog(@"about to change bgImage for cell with title: %@", cell.titleLabel.text);
     cell.bgImage.image = [UIImage imageNamed:@"songcell_bg5.png"];
+    cell.scoreLabel.hidden = NO;
     
     //remove the expandedRow
     if (expandedRow != -1){ //if there is a row open
@@ -712,6 +713,7 @@
             Song *tempSong = [songs objectAtIndex:(expandedRow - 1)];
             
             tempCell.scoreLabel.text = tempSong->score; //adding song score
+            tempCell.song = tempSong;
             
             NSString *ytcode = tempSong->ytcode;
             //embedding youtube video with flash
@@ -870,6 +872,7 @@ didSelectRowAtIndexPath: (NSIndexPath *)indexPath
             //change cell image
             cell.bgImage.image = [UIImage imageNamed:@"songcell_bg4_click.png"];
             cell->expanded = YES;
+            cell.scoreLabel.hidden = YES;
                         
             //add new cell below
             NSIndexPath *insertAt = [NSIndexPath indexPathForRow:atRow inSection:0];
