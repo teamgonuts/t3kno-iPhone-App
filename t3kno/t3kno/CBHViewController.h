@@ -43,6 +43,7 @@
 
 //filterview
 - (void) refreshFilters;
+- (void) refreshTitle;
 @property (retain, nonatomic) IBOutlet UIView *filterView;
 @property (retain, nonatomic) IBOutlet UITableView *filterTableView;
 @property (strong, nonatomic) NSString *genreFilter; 
@@ -54,11 +55,6 @@
 //page control
 @property (retain, nonatomic) IBOutlet UIPageControl *pageControl;
 
-//custom methods
-- (NSString *) refreshTitle;
-- (void) playSong:(NSString *)ytcode;
-- (IBAction)changePage:(id)sender;
 
-//need to do
 
 @end

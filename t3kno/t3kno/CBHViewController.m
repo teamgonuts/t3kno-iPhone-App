@@ -79,8 +79,8 @@
     NSIndexPath *freshestIndexPath = [[NSIndexPath alloc] init];
     freshestIndexPath = [NSIndexPath indexPathForRow:0 inSection:_timeFiltersSection];
     [filterTableView selectRowAtIndexPath:freshestIndexPath animated:false scrollPosition:UITableViewScrollPositionNone];
-
-
+    
+    
     
     //initializing views
     if (filterView == nil){
@@ -113,8 +113,8 @@
     
     
     
-        
-        
+    
+    
     
 }
 
@@ -127,7 +127,7 @@
     [self setPageControl:nil];
     [self setFilterView:nil];
     [self setSearchView:nil];
-
+    
     [self setFilterTableView:nil];
     [self setSearchButton:nil];
     [self setLogoImageView:nil];
@@ -156,8 +156,8 @@
     
     
     
-
-
+    
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -231,7 +231,7 @@
     if (expandedRow != -1){ //if there is a row open
         NSIndexPath *removeAt = [NSIndexPath indexPathForRow:expandedRow inSection:0];
         NSArray *rowArray = [[NSArray alloc] initWithObjects:removeAt, nil];
-    
+        
         expandedRow = -1;
         [tableView deleteRowsAtIndexPaths:rowArray withRowAnimation:UITableViewRowAnimationTop];
     }
@@ -248,8 +248,8 @@
     }
     
     NSString *urlString = [[NSString alloc] 
-                          initWithFormat:@"http://t3k.no/app/request_songs.php?genrefilter=%@&timefilter=%@",
-                          genreFilter, timeFilter];
+                           initWithFormat:@"http://t3k.no/app/request_songs.php?genrefilter=%@&timefilter=%@",
+                           genreFilter, timeFilter];
     
     NSURL *urlToRequest = [NSURL URLWithString:urlString];
     
@@ -290,7 +290,7 @@
     {
         UITableViewCell *cell = [filterTableView cellForRowAtIndexPath:indexPath];
         
-       
+        
         if (indexPath.section == _genreFiltersSection)
         {
             if ([cell.textLabel.text isEqualToString:@"Drum & Bass"])
@@ -320,7 +320,7 @@
                 if (debug) NSLog(@"time filter selection not recognized");
             
             if (debug) NSLog(@"new timefilter: %@", timeFilter);
-
+            
         }
         
         //ERROR ALERT
@@ -337,7 +337,7 @@
     [self loadTableView:nil];
 }
 
-- (NSString *) refreshTitle{
+- (void) refreshTitle{
     bool debug = false;
     if (debug){
         NSLog(@"refreshTitle()!");
@@ -378,7 +378,7 @@
 
 
 /*================================**
-    PageControl/ScrollView Delegate
+ PageControl/ScrollView Delegate
  *================================*/
 #pragma mark -
 #pragma mark Page Control and ScrollView Delegate
@@ -422,7 +422,7 @@
 
 
 /*=========================**
-    NSURLConnection Delegate
+ NSURLConnection Delegate
  *=========================*/
 # pragma mark -
 # pragma mark NSURLConnection Delegate Methods
@@ -431,9 +431,9 @@
 {
     BOOL debug = false;
     if (debug){
-      NSLog(@"didReceiveResponse called!");  
+        NSLog(@"didReceiveResponse called!");  
     }
-
+    
     // This method is called when the server has determined that it
     // has enough information to create the NSURLResponse.
     
@@ -513,12 +513,12 @@
     
     [tableView reloadData];
     
-   }
+}
 
 
 
 /*=========================**
-        Filter Controls
+ Filter Controls
  *=========================*/
 
 
@@ -558,12 +558,12 @@
 -(void) searchBarSearchButtonClicked:(UISearchBar *)aSearchBar{
     bool debug = false;
     
-//    searching = YES; //user is now searching
-//    //deselect all filters
-//    for (NSIndexPath *indexPath in [filterTableView indexPathsForSelectedRows]) 
-//    {
-//        [filterTableView deselectRowAtIndexPath:indexPath animated:NO];
-//    }
+    //    searching = YES; //user is now searching
+    //    //deselect all filters
+    //    for (NSIndexPath *indexPath in [filterTableView indexPathsForSelectedRows]) 
+    //    {
+    //        [filterTableView deselectRowAtIndexPath:indexPath animated:NO];
+    //    }
     
     NSString *searchTerm = [aSearchBar text];
     
@@ -656,7 +656,7 @@
         if (debug) NSLog(@"--unknown tableview called, returning -1");
         return -1;
     }
-        
+    
     
 }
 
@@ -674,7 +674,7 @@
     if(cell.class == tempSongCell.class)
     {
         tempSongCell = (SongCell *)cell;
-
+        
         //quick fix to error: if the song is displaying it's expanded but actually not
         //change the images bg and set it to not expanded
         if(tempSongCell->expanded == YES && indexPath.row != (expandedRow - 1))
@@ -685,7 +685,7 @@
         }
         
     }
-   
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)songTableView
@@ -698,7 +698,7 @@
     // =============================
     if (songTableView == tableView){
         if (debug) NSLog(@"--tableView: tableView");
- 
+        
         NSUInteger row = [indexPath row];
         if (row == expandedRow){ //the expanded row, return the custom cell
             ExpandedSongCell *tempCell = [tableView dequeueReusableCellWithIdentifier:@"ExpandedSongCellIdentifier"];
@@ -719,7 +719,7 @@
             //launches in portrait mode but is slower to play video and sloppier
             //NSString *playerHTML = [[NSString alloc] initWithFormat:@"<html><head></head><body style=\"background:#F00;margin-top:0px;margin-left:0px\"><div><object width=\"88\" height=\"60\"><iframe title=\"YouTube video player\" width=\"88\" height=\"60\" scrolling=\"no\" src=\"http://www.youtube.com/embed/%@?modestbranding=1&amp;rel=0;autoplay=1;showinfo=0;loop=1;autohide=1\" frameborder=\"0\" allowfullscreen allowTransparency=\"true\"></iframe></object></div></body></html>", ytcode];
             
-
+            
             [tempCell.webView loadHTMLString:playerHTML baseURL:nil];
             
             return tempCell;
@@ -822,7 +822,7 @@ willDeselectRowAtIndexPath:(NSIndexPath *)indexPath
                 return nil;
             }
         }
-
+        
     }
     
     //return the clicked indexPath to be deselected
@@ -867,7 +867,7 @@ didSelectRowAtIndexPath: (NSIndexPath *)indexPath
             cell.bgImage.image = [UIImage imageNamed:@"songcell_bg4_click.png"];
             cell->expanded = YES;
             cell.scoreLabel.hidden = YES;
-                        
+            
             //add new cell below
             NSIndexPath *insertAt = [NSIndexPath indexPathForRow:atRow inSection:0];
             NSArray *rowArray = [[NSArray alloc] initWithObjects:insertAt, nil];
@@ -933,7 +933,7 @@ didSelectRowAtIndexPath: (NSIndexPath *)indexPath
         //method will automatically refresh title and load new tableview as well
         [self refreshFilters];
     }
-
+    
 }
 
 
