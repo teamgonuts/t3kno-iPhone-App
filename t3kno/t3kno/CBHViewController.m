@@ -284,7 +284,7 @@
 //method will also refresh the title and reload the rankings tableview
 - (void) refreshFilters
 {
-    bool debug = true;
+    bool debug = false;
     if (debug) NSLog(@"refreshFilters called!");
     NSArray *selectedRows = [filterTableView indexPathsForSelectedRows];
     for (NSIndexPath *indexPath in selectedRows) 
@@ -393,6 +393,9 @@
     URLParser *parsey = [[URLParser alloc] initWithURLString:currentURL];
     NSString *ytcode = [parsey valueForVariable:@"v"];
     if (debug) NSLog(@"ytcode: %@", ytcode);
+    
+    if (ytcode == nil)
+        rankingsTitle.text = @"Navigate to a Video to Upload";
     
     
 
