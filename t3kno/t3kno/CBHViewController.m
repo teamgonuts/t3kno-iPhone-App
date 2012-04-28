@@ -155,8 +155,6 @@
     //start loading the rankings tableView
     [self loadTableView:nil];    
     
-    //hiding pickers/search bar
-    searchBar.hidden = true;    
 }
 
 - (void)viewDidAppear:(BOOL)animated
