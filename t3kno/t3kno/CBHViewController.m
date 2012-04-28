@@ -412,6 +412,16 @@
                                                   cachePolicy:NSURLRequestUseProtocolCachePolicy
                                               timeoutInterval:60.0];
         [thumbnailWebView loadRequest:urlRequest];
+        
+        //loading video title
+        NSString *titleTagContents = [youtubeWebView 
+                                      stringByEvaluatingJavaScriptFromString:@"document.title"];
+        NSString *videoTitle = [titleTagContents stringByReplacingOccurrencesOfString:@"YouTube - "
+                                                                           withString:@""];
+        if (debug){
+            NSLog(@"--titleTagContents: %@", titleTagContents);
+            NSLog(@"--videoTitle: %@", videoTitle);
+        }
 
     }
     
