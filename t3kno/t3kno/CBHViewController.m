@@ -12,6 +12,7 @@
 #import "SBJson.h"
 #import "YoutubeView.h"
 #import "ExpandedSongCell.h"
+#import "URLParser.h"
 
 //definitions for filter tableview
 #define _genreFiltersSection 0
@@ -155,14 +156,7 @@
     [self loadTableView:nil];    
     
     //hiding pickers/search bar
-    searchBar.hidden = true;
-    //searching = NO;
-    
-    
-    
-    
-    
-    
+    searchBar.hidden = true;    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -290,7 +284,8 @@
 //method will also refresh the title and reload the rankings tableview
 - (void) refreshFilters
 {
-    bool debug = false;
+    bool debug = true;
+    if (debug) NSLog(@"refreshFilters called!");
     NSArray *selectedRows = [filterTableView indexPathsForSelectedRows];
     for (NSIndexPath *indexPath in selectedRows) 
     {
@@ -305,11 +300,12 @@
             {
                 genreFilter = [cell.textLabel.text lowercaseString];
             }
+            if (debug) NSLog(@"--genreFilter = %@", genreFilter);
             
         }
         else if (indexPath.section == _timeFiltersSection)
         {
-            if (debug) NSLog(@"old timefilter: %@", timeFilter);
+            //if (debug) NSLog(@"--old timefilter: %@", timeFilter);
             if ([cell.textLabel.text isEqualToString:@"The Freshest"])
                 timeFilter = @"new";
             else if ([cell.textLabel.text isEqualToString:@"Today's Best"])
@@ -325,8 +321,7 @@
             else
                 if (debug) NSLog(@"time filter selection not recognized");
             
-            if (debug) NSLog(@"new timefilter: %@", timeFilter);
-            
+            if (debug) NSLog(@"--timeFilter: %@", timeFilter);
         }
         
         //ERROR ALERT
@@ -392,6 +387,16 @@
 }
 
 - (IBAction)uploadButtonPressed:(id)sender {
+    bool debug = YES;
+    if (debug) NSLog(@"uploadButton Pressed!");
+    NSString *currentURL = [youtubeWebView stringByEvaluatingJavaScriptFromString:@"window.location.href"];
+    URLParser *parsey = [[URLParser alloc] initWithURLString:currentURL];
+    NSString *ytcode = [parsey valueForVariable:@"v"];
+    if (debug) NSLog(@"ytcode: %@", ytcode);
+    
+    
+
+    
 }
 
 - (IBAction)refreshButtonPressed:(id)sender {
