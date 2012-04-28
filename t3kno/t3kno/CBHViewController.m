@@ -68,6 +68,7 @@
     songs = [[NSMutableArray alloc] init];
     pageControlBeingUsed = NO;
     expandedRow = -1; //default = there is no expanded row
+    scrolledFromUploadView = NO; //the page we scrolled from initially is the middle page
     
     //selecting the defualt rows in filter tableview
     NSIndexPath *allIndexPath = [[NSIndexPath alloc] init];
@@ -342,8 +343,8 @@
         NSLog(@"  Genre: %@", genreFilter);
         NSLog(@"  Time: %@", timeFilter);
     }
-    NSString *genre = genreFilter;
-    NSString *time = timeFilter;
+    NSString *genre = [genreFilter mutableCopy];
+    NSString *time = [timeFilter mutableCopy];
     
     if ([genre isEqualToString:@"all"]){
         genre = @"Tracks";
@@ -408,11 +409,15 @@
     //updating the title
     if(self.pageControl.currentPage == 0)//if im at the upload page
     {
+        titlePlaceHolder = [rankingsTitle.text mutableCopy]; //temporarily holding the place of the title
         rankingsTitle.text = @"Upload a Song from YouTube";
+        scrolledFromUploadView = YES;
+        
     }
-    else
+    else if(self.pageControl.currentPage == 1 && scrolledFromUploadView == YES)
     {
-        //[self refreshTitle];
+        scrolledFromUploadView = NO;
+        rankingsTitle.text = titlePlaceHolder;
     }
 }
 

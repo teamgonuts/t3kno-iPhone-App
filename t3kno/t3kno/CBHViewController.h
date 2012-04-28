@@ -14,6 +14,8 @@
     int expandedRow;
     NSString *genreFilter;
     NSString *timeFilter;
+    bool scrolledFromUploadView;
+    NSMutableString *titlePlaceHolder;
 }
 
 //universal
