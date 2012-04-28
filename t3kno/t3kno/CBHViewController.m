@@ -399,6 +399,10 @@
 - (IBAction)uploadButtonPressed:(id)sender {
 }
 
+- (IBAction)refreshButtonPressed:(id)sender {
+    [youtubeWebView reload];
+}
+
 /*================================**
  PageControl/ScrollView Delegate
  *================================*/
