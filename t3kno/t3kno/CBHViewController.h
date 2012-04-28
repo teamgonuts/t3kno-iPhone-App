@@ -23,6 +23,7 @@
 
 //upload (Youtube) view
 @property (retain, nonatomic) IBOutlet UIView *searchView;
+@property (retain, nonatomic) IBOutlet UIWebView *youtubeWebView;
 - (IBAction)browserBackButtonPressed:(id)sender;
 - (IBAction)browserForwardButtonPressed:(id)sender;
 - (IBAction)uploadButtonPressed:(id)sender;

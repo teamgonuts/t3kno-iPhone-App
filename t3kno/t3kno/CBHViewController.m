@@ -28,6 +28,7 @@
 @synthesize logoImageView;
 @synthesize scrollView;
 @synthesize searchView;
+@synthesize youtubeWebView;
 @synthesize filterView;
 @synthesize filterTableView;
 @synthesize pageControl;
@@ -61,6 +62,15 @@
     self.filterValues = dict;
     NSArray *array = [filterValues allKeys];
     self.filterKeys = array;
+    
+    //loading youtube in the upload view
+    NSURL *urlToRequest = [NSURL URLWithString:@"http://m.youtube.com"];
+    
+    // Create the request.
+    NSURLRequest *urlRequest=[NSURLRequest requestWithURL:urlToRequest
+                                              cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                          timeoutInterval:60.0];
+    [youtubeWebView loadRequest:urlRequest];
     
     //default filter = the fresh list
     genreFilter = @"all";
@@ -133,6 +143,7 @@
     [self setSearchButton:nil];
     [self setRankingsView:nil];
     [self setRankingsTitle:nil];
+    [self setYoutubeWebView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -196,6 +207,7 @@
     [searchButton release];
     [rankingsView release];
     [rankingsTitle release];
+    [youtubeWebView release];
     [super dealloc];
     
 }
@@ -374,6 +386,18 @@
     
 }
 
+#pragma mark -
+#pragma mark Upload View Methods
+- (IBAction)browserBackButtonPressed:(id)sender {
+    [youtubeWebView goBack];
+}
+
+- (IBAction)browserForwardButtonPressed:(id)sender {
+    [youtubeWebView goForward];
+}
+
+- (IBAction)uploadButtonPressed:(id)sender {
+}
 
 /*================================**
  PageControl/ScrollView Delegate
@@ -944,12 +968,6 @@ didSelectRowAtIndexPath: (NSIndexPath *)indexPath
 }
 
 
-- (IBAction)browserBackButtonPressed:(id)sender {
-}
 
-- (IBAction)browserForwardButtonPressed:(id)sender {
-}
 
-- (IBAction)uploadButtonPressed:(id)sender {
-}
 @end
