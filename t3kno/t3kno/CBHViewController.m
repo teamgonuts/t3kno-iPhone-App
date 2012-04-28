@@ -26,6 +26,8 @@
 #define _tranceRow 6
 
 @implementation CBHViewController
+@synthesize thumbnailWebView;
+@synthesize finalUploadSongView;
 @synthesize logoImageView;
 @synthesize scrollView;
 @synthesize searchView;
@@ -140,6 +142,8 @@
     [self setRankingsView:nil];
     [self setRankingsTitle:nil];
     [self setYoutubeWebView:nil];
+    [self setFinalUploadSongView:nil];
+    [self setThumbnailWebView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -195,6 +199,8 @@
     [rankingsView release];
     [rankingsTitle release];
     [youtubeWebView release];
+    [finalUploadSongView release];
+    [thumbnailWebView release];
     [super dealloc];
     
 }
@@ -394,6 +400,21 @@
     
     if (ytcode == nil)
         rankingsTitle.text = @"Navigate to a Video to Upload";
+    else
+    {
+        rankingsTitle.text = @"Enter Song Details";
+        finalUploadSongView.hidden = NO;
+        
+        //loading video thumbnail
+        NSString *urlString = [[NSString alloc] initWithFormat:@"http://img.youtube.com/vi/%@/1.jpg", ytcode];
+        NSURL *urlToRequest = [NSURL URLWithString:urlString];
+        NSURLRequest *urlRequest=[NSURLRequest requestWithURL:urlToRequest
+                                                  cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                              timeoutInterval:60.0];
+        [thumbnailWebView loadRequest:urlRequest];
+
+    }
+    
     
     
 
@@ -412,6 +433,10 @@
                                               cachePolicy:NSURLRequestUseProtocolCachePolicy
                                           timeoutInterval:60.0];
     [youtubeWebView loadRequest:urlRequest];
+}
+
+- (IBAction)finalUploadCancelButtonPressed:(id)sender {
+    finalUploadSongView.hidden = YES;
 }
 
 /*================================**
@@ -983,6 +1008,7 @@ didSelectRowAtIndexPath: (NSIndexPath *)indexPath
 }
 
 
+@end    
 
 
-@end
+

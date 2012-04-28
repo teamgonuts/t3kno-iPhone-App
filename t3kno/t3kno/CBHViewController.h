@@ -30,6 +30,12 @@
 - (IBAction)refreshButtonPressed:(id)sender;
 - (IBAction)homeButtonPressed:(id)sender;
 
+//final upload song view
+@property (retain, nonatomic) IBOutlet UIView *finalUploadSongView;
+- (IBAction)finalUploadCancelButtonPressed:(id)sender;
+@property (retain, nonatomic) IBOutlet UIWebView *thumbnailWebView;
+
+
 //rankings View
 - (IBAction)loadTableView:(id)sender;
 - (void) closeExpandedSong;
