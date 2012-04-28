@@ -64,13 +64,8 @@
     self.filterKeys = array;
     
     //loading youtube in the upload view
-    NSURL *urlToRequest = [NSURL URLWithString:@"http://m.youtube.com"];
+    [self homeButtonPressed:nil];
     
-    // Create the request.
-    NSURLRequest *urlRequest=[NSURLRequest requestWithURL:urlToRequest
-                                              cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                          timeoutInterval:60.0];
-    [youtubeWebView loadRequest:urlRequest];
     
     //default filter = the fresh list
     genreFilter = @"all";
@@ -401,6 +396,16 @@
 
 - (IBAction)refreshButtonPressed:(id)sender {
     [youtubeWebView reload];
+}
+
+- (IBAction)homeButtonPressed:(id)sender {
+    NSURL *urlToRequest = [NSURL URLWithString:@"http://m.youtube.com"];
+    
+    // Create the request.
+    NSURLRequest *urlRequest=[NSURLRequest requestWithURL:urlToRequest
+                                              cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                          timeoutInterval:60.0];
+    [youtubeWebView loadRequest:urlRequest];
 }
 
 /*================================**

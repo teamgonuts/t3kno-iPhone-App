@@ -28,6 +28,7 @@
 - (IBAction)browserForwardButtonPressed:(id)sender;
 - (IBAction)uploadButtonPressed:(id)sender;
 - (IBAction)refreshButtonPressed:(id)sender;
+- (IBAction)homeButtonPressed:(id)sender;
 
 //rankings View
 - (IBAction)loadTableView:(id)sender;

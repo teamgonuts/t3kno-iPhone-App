@@ -44,6 +44,7 @@
 		BDD9465D154B5FBE00C53EFD /* NSString+MD5Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD9465A154B5FBE00C53EFD /* NSString+MD5Addition.m */; };
 		BDD9465E154B5FBE00C53EFD /* UIDevice+IdentifierAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD9465C154B5FBE00C53EFD /* UIDevice+IdentifierAddition.m */; };
 		BDD94660154B730200C53EFD /* refreshbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = BDD9465F154B730200C53EFD /* refreshbutton.png */; };
+		BDD94662154B767E00C53EFD /* home-button.png in Resources */ = {isa = PBXBuildFile; fileRef = BDD94661154B767E00C53EFD /* home-button.png */; };
 		BDE668861531028D0013CBFA /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE668851531028D0013CBFA /* Song.m */; };
 		BDE66893153147420013CBFA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDE66892153147420013CBFA /* CFNetwork.framework */; };
 		BDE66895153147530013CBFA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDE66894153147530013CBFA /* SystemConfiguration.framework */; };
@@ -112,6 +113,7 @@
 		BDD9465B154B5FBE00C53EFD /* UIDevice+IdentifierAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIDevice+IdentifierAddition.h"; path = "../../../UIDevice-with-UniqueIdentifier-for-iOS-5/Classes/UIDevice+IdentifierAddition.h"; sourceTree = "<group>"; };
 		BDD9465C154B5FBE00C53EFD /* UIDevice+IdentifierAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIDevice+IdentifierAddition.m"; path = "../../../UIDevice-with-UniqueIdentifier-for-iOS-5/Classes/UIDevice+IdentifierAddition.m"; sourceTree = "<group>"; };
 		BDD9465F154B730200C53EFD /* refreshbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = refreshbutton.png; path = "../../t3kno-iPhone-App/refreshbutton.png"; sourceTree = "<group>"; };
+		BDD94661154B767E00C53EFD /* home-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "home-button.png"; path = "../../t3kno-iPhone-App/home-button.png"; sourceTree = "<group>"; };
 		BDE668841531028D0013CBFA /* Song.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Song.h; sourceTree = "<group>"; };
 		BDE668851531028D0013CBFA /* Song.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Song.m; sourceTree = "<group>"; };
 		BDE66892153147420013CBFA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -238,6 +240,7 @@
 		BD79C717153F0B93006A9C60 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				BDD94661154B767E00C53EFD /* home-button.png */,
 				BDD9465F154B730200C53EFD /* refreshbutton.png */,
 				BDD94656154B538F00C53EFD /* browser-forward2.png */,
 				BDD94650154B51CD00C53EFD /* browser-back.png */,
@@ -396,6 +399,7 @@
 				BDD94651154B51CD00C53EFD /* browser-back.png in Resources */,
 				BDD94657154B538F00C53EFD /* browser-forward2.png in Resources */,
 				BDD94660154B730200C53EFD /* refreshbutton.png in Resources */,
+				BDD94662154B767E00C53EFD /* home-button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
