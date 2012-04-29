@@ -430,7 +430,7 @@
 }
 
 - (IBAction)uploadButtonPressed:(id)sender {
-    bool debug = NO;
+    bool debug = YES;
     if (debug) NSLog(@"uploadButton Pressed!");
     NSString *currentURL = [youtubeWebView stringByEvaluatingJavaScriptFromString:@"window.location.href"];
     URLParser *parsey = [[URLParser alloc] initWithURLString:currentURL];
