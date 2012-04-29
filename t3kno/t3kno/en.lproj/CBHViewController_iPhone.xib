@@ -549,7 +549,7 @@
 									<object class="IBUIPickerView" id="685573048">
 										<reference key="NSNextResponder" ref="760140160"/>
 										<int key="NSvFlags">-2147483358</int>
-										<string key="NSFrame">{{0, 136}, {320, 216}}</string>
+										<string key="NSFrame">{{0, 121}, {320, 216}}</string>
 										<reference key="NSSuperview" ref="760140160"/>
 										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="431152375"/>
@@ -892,6 +892,22 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">genrePicker</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="685573048"/>
+					</object>
+					<int key="connectionID">250</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">genreTextField</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="490860211"/>
+					</object>
+					<int key="connectionID">255</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">delegate</string>
 						<reference key="source" ref="729618445"/>
 						<reference key="destination" ref="372490531"/>
@@ -1009,6 +1025,30 @@
 						<int key="IBEventType">7</int>
 					</object>
 					<int key="connectionID">246</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">dataSource</string>
+						<reference key="source" ref="685573048"/>
+						<reference key="destination" ref="372490531"/>
+					</object>
+					<int key="connectionID">251</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="685573048"/>
+						<reference key="destination" ref="372490531"/>
+					</object>
+					<int key="connectionID">252</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="490860211"/>
+						<reference key="destination" ref="372490531"/>
+					</object>
+					<int key="connectionID">254</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1156,7 +1196,6 @@
 						<int key="objectID">227</int>
 						<reference key="object" ref="760140160"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="685573048"/>
 							<reference ref="612767053"/>
 							<reference ref="1034586094"/>
 							<reference ref="490860211"/>
@@ -1169,6 +1208,7 @@
 							<reference ref="306088322"/>
 							<reference ref="73555371"/>
 							<reference ref="567484355"/>
+							<reference ref="685573048"/>
 						</array>
 						<reference key="parent" ref="919329700"/>
 					</object>
@@ -1282,7 +1322,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">249</int>
+			<int key="maxID">255</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1337,6 +1377,8 @@
 						<string key="filterTableView">UITableView</string>
 						<string key="filterView">UIView</string>
 						<string key="finalUploadSongView">UIView</string>
+						<string key="genrePicker">UIPickerView</string>
+						<string key="genreTextField">UITextField</string>
 						<string key="logoImageView">UIImageView</string>
 						<string key="pageControl">UIPageControl</string>
 						<string key="rankingsTitle">UILabel</string>
@@ -1347,6 +1389,7 @@
 						<string key="searchView">UIView</string>
 						<string key="tableView">UITableView</string>
 						<string key="thumbnailWebView">UIWebView</string>
+						<string key="videoTitleLabel">UILabel</string>
 						<string key="youtubeWebView">UIWebView</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -1361,6 +1404,14 @@
 						<object class="IBToOneOutletInfo" key="finalUploadSongView">
 							<string key="name">finalUploadSongView</string>
 							<string key="candidateClassName">UIView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="genrePicker">
+							<string key="name">genrePicker</string>
+							<string key="candidateClassName">UIPickerView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="genreTextField">
+							<string key="name">genreTextField</string>
+							<string key="candidateClassName">UITextField</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="logoImageView">
 							<string key="name">logoImageView</string>
@@ -1401,6 +1452,10 @@
 						<object class="IBToOneOutletInfo" key="thumbnailWebView">
 							<string key="name">thumbnailWebView</string>
 							<string key="candidateClassName">UIWebView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="videoTitleLabel">
+							<string key="name">videoTitleLabel</string>
+							<string key="candidateClassName">UILabel</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="youtubeWebView">
 							<string key="name">youtubeWebView</string>

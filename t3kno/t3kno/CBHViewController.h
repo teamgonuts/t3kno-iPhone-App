@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface CBHViewController : UIViewController 
-<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UIScrollViewDelegate>{
+<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UIScrollViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>{
     bool pageControlBeingUsed;
     int expandedRow;
     NSString *genreFilter;
@@ -31,9 +31,12 @@
 - (IBAction)homeButtonPressed:(id)sender;
 
 //final upload song view
+@property (strong, nonatomic) IBOutlet UIPickerView *genrePicker;
+@property (strong, nonatomic) NSArray *genrePickerData;
 @property (retain, nonatomic) IBOutlet UIView *finalUploadSongView;
 - (IBAction)finalUploadCancelButtonPressed:(id)sender;
 @property (retain, nonatomic) IBOutlet UIWebView *thumbnailWebView;
+@property (retain, nonatomic) IBOutlet UITextField *genreTextField;
 @property (retain, nonatomic) IBOutlet UILabel *videoTitleLabel;
 
 

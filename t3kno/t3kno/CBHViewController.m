@@ -26,7 +26,10 @@
 #define _tranceRow 6
 
 @implementation CBHViewController
+@synthesize genrePicker;
+@synthesize genrePickerData;
 @synthesize thumbnailWebView;
+@synthesize genreTextField;
 @synthesize videoTitleLabel;
 @synthesize finalUploadSongView;
 @synthesize logoImageView;
@@ -69,6 +72,12 @@
     
     //loading youtube in the upload view
     [self homeButtonPressed:nil];
+    
+    //loading genrePickerData
+    NSArray *tempGenreArray = [[NSArray alloc] initWithObjects:@"Drum & Bass", @"Dubstep",
+                               @"Electro", @"Hardstyle", @"House", @"Trance" , nil ];
+    self.genrePickerData = tempGenreArray;
+    genreTextField.inputView = genrePicker;
     
     
     //default filter = the fresh list
@@ -146,12 +155,16 @@
     [self setFinalUploadSongView:nil];
     [self setThumbnailWebView:nil];
     [self setVideoTitleLabel:nil];
+    [self setGenrePicker:nil];
+    [self setGenreTextField:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
     self.filterKeys = nil;
     self.filterValues = nil;
     self.tableViewCells = nil;
+    self.genrePickerData = nil;
+    self.genrePicker = nil;
     
 }
 
@@ -204,6 +217,8 @@
     [finalUploadSongView release];
     [thumbnailWebView release];
     [videoTitleLabel release];
+    [genrePicker release];
+    [genreTextField release];
     [super dealloc];
     
 }
@@ -394,7 +409,7 @@
 }
 
 - (IBAction)uploadButtonPressed:(id)sender {
-    bool debug = YES;
+    bool debug = NO;
     if (debug) NSLog(@"uploadButton Pressed!");
     NSString *currentURL = [youtubeWebView stringByEvaluatingJavaScriptFromString:@"window.location.href"];
     URLParser *parsey = [[URLParser alloc] initWithURLString:currentURL];
@@ -403,7 +418,7 @@
     
     if (ytcode == nil)
         rankingsTitle.text = @"Navigate to a Video to Upload";
-    else
+    else //user has navigated to a video
     {
         rankingsTitle.text = @"Enter Song Details";
         finalUploadSongView.hidden = NO;
@@ -423,6 +438,8 @@
             NSLog(@"--videoTitle: %@", videoTitle);
         }
         videoTitleLabel.text = videoTitle;
+        
+        
 
     }
     
@@ -448,6 +465,36 @@
 
 - (IBAction)finalUploadCancelButtonPressed:(id)sender {
     finalUploadSongView.hidden = YES;
+}
+
+#pragma mark -
+#pragma mark TextField Delegate Methods
+- (void) textFieldDidBeginEditing:(UITextField *)textField{
+    bool debug = YES;
+    if (textField == genreTextField){
+        if (debug) NSLog(@"genreTextField begin editting!");
+        genrePicker.hidden = NO;
+    }
+}
+
+
+
+#pragma mark -
+#pragma mark Picker Data Source Methods
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    return [genrePickerData count];
+}
+
+#pragma mark - 
+#pragma mark Picker Delegate Methods
+- (NSString *) pickerView:(UIPickerView *)pickerView 
+              titleForRow:(NSInteger)row 
+             forComponent:(NSInteger)component{
+    return [genrePickerData objectAtIndex:row];
 }
 
 /*================================**
@@ -1017,6 +1064,7 @@ didSelectRowAtIndexPath: (NSIndexPath *)indexPath
     }
     
 }
+
 
 
 @end    
