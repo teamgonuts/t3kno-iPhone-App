@@ -480,6 +480,12 @@
 
 - (IBAction)finalUploadCancelButtonPressed:(id)sender {
     finalUploadSongView.hidden = YES;
+    
+    //clearing text Fields
+    titleTextField.text = @"";
+    artistTextField.text = @"";
+    usernameTextField.text = @"";
+    genreTextField.text = @"";
 }
 
 - (IBAction)finalUploadButtonPressed:(id)sender {
