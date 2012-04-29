@@ -34,6 +34,7 @@
 @property (retain, nonatomic) IBOutlet UIView *finalUploadSongView;
 - (IBAction)finalUploadCancelButtonPressed:(id)sender;
 @property (retain, nonatomic) IBOutlet UIWebView *thumbnailWebView;
+@property (retain, nonatomic) IBOutlet UILabel *videoTitleLabel;
 
 
 //rankings View

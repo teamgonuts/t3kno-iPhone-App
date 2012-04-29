@@ -27,6 +27,7 @@
 
 @implementation CBHViewController
 @synthesize thumbnailWebView;
+@synthesize videoTitleLabel;
 @synthesize finalUploadSongView;
 @synthesize logoImageView;
 @synthesize scrollView;
@@ -144,6 +145,7 @@
     [self setYoutubeWebView:nil];
     [self setFinalUploadSongView:nil];
     [self setThumbnailWebView:nil];
+    [self setVideoTitleLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -201,6 +203,7 @@
     [youtubeWebView release];
     [finalUploadSongView release];
     [thumbnailWebView release];
+    [videoTitleLabel release];
     [super dealloc];
     
 }
@@ -414,14 +417,12 @@
         [thumbnailWebView loadRequest:urlRequest];
         
         //loading video title
-        NSString *titleTagContents = [youtubeWebView 
-                                      stringByEvaluatingJavaScriptFromString:@"document.title"];
-        NSString *videoTitle = [titleTagContents stringByReplacingOccurrencesOfString:@"YouTube - "
-                                                                           withString:@""];
+        NSString *videoTitle = [youtubeWebView 
+                                      stringByEvaluatingJavaScriptFromString:@"document.getElementsByClassName('kt')[0].innerHTML"];
         if (debug){
-            NSLog(@"--titleTagContents: %@", titleTagContents);
             NSLog(@"--videoTitle: %@", videoTitle);
         }
+        videoTitleLabel.text = videoTitle;
 
     }
     
