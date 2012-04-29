@@ -35,6 +35,7 @@
 @property (strong, nonatomic) NSArray *genrePickerData;
 @property (retain, nonatomic) IBOutlet UIView *finalUploadSongView;
 - (IBAction)finalUploadCancelButtonPressed:(id)sender;
+- (IBAction)finalUploadButtonPressed:(id)sender;
 @property (retain, nonatomic) IBOutlet UIWebView *thumbnailWebView;
 @property (retain, nonatomic) IBOutlet UITextField *genreTextField;
 @property (retain, nonatomic) IBOutlet UITextField *titleTextField;

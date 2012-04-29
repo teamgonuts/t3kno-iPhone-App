@@ -482,6 +482,27 @@
     finalUploadSongView.hidden = YES;
 }
 
+- (IBAction)finalUploadButtonPressed:(id)sender {
+    //making sure the user entered valid details
+    if (titleTextField.text.length <= 0){
+        rankingsTitle.text = @"Please Enter the Song Title";
+        return;
+    }
+    else if (artistTextField.text.length <= 0){
+        rankingsTitle.text = @"Please Enter the Song Artist";
+        return;
+    }
+    else if (usernameTextField.text.length <= 0){
+        rankingsTitle.text = @"Please Enter a Username";
+        return;
+    }
+    else if (genreTextField.text.length <= 0){
+        rankingsTitle.text = @"Please Enter the Song's Genre";
+        return;
+    }
+    
+}
+
 #pragma mark -
 #pragma mark TextField Delegate Methods
 - (void) textFieldDidBeginEditing:(UITextField *)textField{
@@ -615,7 +636,8 @@ shouldChangeCharactersInRange:(NSRange)range
 	pageControlBeingUsed = NO;
     
     //updating the title
-    if(self.pageControl.currentPage == 0)//if im at the upload page
+    if(self.pageControl.currentPage == 0 && scrolledFromUploadView == NO
+       )//if im at the upload page
     {
         titlePlaceHolder = [rankingsTitle.text mutableCopy]; //temporarily holding the place of the title
         rankingsTitle.text = @"Upload a Song from YouTube";
