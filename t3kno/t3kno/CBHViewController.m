@@ -496,7 +496,13 @@
     if (textField != genreTextField)
     {
         displayedTextLabel.hidden = NO;
-        displayedTextLabel.text =  textField.placeholder;
+        if (textField.text.length > 0){
+            displayedTextLabel.text = textField.text;
+        }
+        else{
+            displayedTextLabel.text =  [[NSString alloc] initWithFormat:@"enter a %@", 
+                                        textField.placeholder];
+        }
     }
     
     if (textField == genreTextField){
