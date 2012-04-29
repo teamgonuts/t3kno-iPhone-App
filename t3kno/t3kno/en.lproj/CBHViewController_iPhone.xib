@@ -908,6 +908,30 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">titleTextField</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="338702395"/>
+					</object>
+					<int key="connectionID">257</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">artistTextField</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="902240413"/>
+					</object>
+					<int key="connectionID">258</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">usernameTextField</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="310509135"/>
+					</object>
+					<int key="connectionID">260</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">delegate</string>
 						<reference key="source" ref="729618445"/>
 						<reference key="destination" ref="372490531"/>
@@ -1018,6 +1042,22 @@
 					<int key="connectionID">225</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="338702395"/>
+						<reference key="destination" ref="372490531"/>
+					</object>
+					<int key="connectionID">256</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="902240413"/>
+						<reference key="destination" ref="372490531"/>
+					</object>
+					<int key="connectionID">262</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">finalUploadCancelButtonPressed:</string>
 						<reference key="source" ref="417366081"/>
@@ -1041,6 +1081,14 @@
 						<reference key="destination" ref="372490531"/>
 					</object>
 					<int key="connectionID">252</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="310509135"/>
+						<reference key="destination" ref="372490531"/>
+					</object>
+					<int key="connectionID">261</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -1322,7 +1370,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">255</int>
+			<int key="maxID">262</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1374,6 +1422,7 @@
 						</object>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="artistTextField">UITextField</string>
 						<string key="filterTableView">UITableView</string>
 						<string key="filterView">UIView</string>
 						<string key="finalUploadSongView">UIView</string>
@@ -1389,10 +1438,16 @@
 						<string key="searchView">UIView</string>
 						<string key="tableView">UITableView</string>
 						<string key="thumbnailWebView">UIWebView</string>
+						<string key="titleTextField">UITextField</string>
+						<string key="usernameTextField">UITextField</string>
 						<string key="videoTitleLabel">UILabel</string>
 						<string key="youtubeWebView">UIWebView</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="artistTextField">
+							<string key="name">artistTextField</string>
+							<string key="candidateClassName">UITextField</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="filterTableView">
 							<string key="name">filterTableView</string>
 							<string key="candidateClassName">UITableView</string>
@@ -1452,6 +1507,14 @@
 						<object class="IBToOneOutletInfo" key="thumbnailWebView">
 							<string key="name">thumbnailWebView</string>
 							<string key="candidateClassName">UIWebView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="titleTextField">
+							<string key="name">titleTextField</string>
+							<string key="candidateClassName">UITextField</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="usernameTextField">
+							<string key="name">usernameTextField</string>
+							<string key="candidateClassName">UITextField</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="videoTitleLabel">
 							<string key="name">videoTitleLabel</string>

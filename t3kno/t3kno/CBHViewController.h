@@ -37,6 +37,9 @@
 - (IBAction)finalUploadCancelButtonPressed:(id)sender;
 @property (retain, nonatomic) IBOutlet UIWebView *thumbnailWebView;
 @property (retain, nonatomic) IBOutlet UITextField *genreTextField;
+@property (retain, nonatomic) IBOutlet UITextField *titleTextField;
+@property (retain, nonatomic) IBOutlet UITextField *artistTextField;
+@property (retain, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (retain, nonatomic) IBOutlet UILabel *videoTitleLabel;
 
 

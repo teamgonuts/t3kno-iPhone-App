@@ -30,6 +30,9 @@
 @synthesize genrePickerData;
 @synthesize thumbnailWebView;
 @synthesize genreTextField;
+@synthesize titleTextField;
+@synthesize artistTextField;
+@synthesize usernameTextField;
 @synthesize videoTitleLabel;
 @synthesize finalUploadSongView;
 @synthesize logoImageView;
@@ -157,6 +160,9 @@
     [self setVideoTitleLabel:nil];
     [self setGenrePicker:nil];
     [self setGenreTextField:nil];
+    [self setTitleTextField:nil];
+    [self setArtistTextField:nil];
+    [self setUsernameTextField:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -219,6 +225,9 @@
     [videoTitleLabel release];
     [genrePicker release];
     [genreTextField release];
+    [titleTextField release];
+    [artistTextField release];
+    [usernameTextField release];
     [super dealloc];
     
 }
@@ -477,6 +486,14 @@
     }
 }
 
+- (BOOL) textFieldShouldReturn:(UITextField *)textField{
+    bool debug = YES;
+    if (debug) NSLog(@"return button pressed");
+    [textField resignFirstResponder];
+    return YES;
+    
+}
+
 
 
 #pragma mark -
@@ -495,6 +512,15 @@
               titleForRow:(NSInteger)row 
              forComponent:(NSInteger)component{
     return [genrePickerData objectAtIndex:row];
+}
+
+- (void) pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row 
+        inComponent:(NSInteger)component{
+    //setting the text field ot the selected genre
+    NSInteger selectedIndex = [genrePicker selectedRowInComponent:0];
+    genreTextField.text = [genrePickerData objectAtIndex:selectedIndex];
+    [genreTextField endEditing:YES];
+    genrePicker.hidden = YES;
 }
 
 /*================================**
