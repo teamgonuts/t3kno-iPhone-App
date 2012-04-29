@@ -26,6 +26,7 @@
 #define _tranceRow 6
 
 @implementation CBHViewController
+@synthesize uploadytcode;
 @synthesize genrePicker;
 @synthesize genrePickerData;
 @synthesize thumbnailWebView;
@@ -36,6 +37,7 @@
 @synthesize videoTitleLabel;
 @synthesize titleTextFieldLabel;
 @synthesize displayedTextLabel;
+@synthesize uploadCancelButton;
 @synthesize finalUploadSongView;
 @synthesize logoImageView;
 @synthesize scrollView;
@@ -149,6 +151,7 @@
     [self setPageControl:nil];
     [self setFilterView:nil];
     [self setSearchView:nil];
+    [self setUploadytcode:nil];
     
     [self setFilterTableView:nil];
     [self setSearchButton:nil];
@@ -167,6 +170,7 @@
     [self setUsernameTextField:nil];
     [self setTitleTextFieldLabel:nil];
     [self setDisplayedTextLabel:nil];
+    [self setUploadCancelButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -223,6 +227,7 @@
     [searchButton release];
     [rankingsView release];
     [rankingsTitle release];
+    [uploadytcode release];
     [youtubeWebView release];
     [finalUploadSongView release];
     [thumbnailWebView release];
@@ -234,6 +239,7 @@
     [usernameTextField release];
     [titleTextFieldLabel release];
     [displayedTextLabel release];
+    [uploadCancelButton release];
     [super dealloc];
     
 }
@@ -428,10 +434,10 @@
     if (debug) NSLog(@"uploadButton Pressed!");
     NSString *currentURL = [youtubeWebView stringByEvaluatingJavaScriptFromString:@"window.location.href"];
     URLParser *parsey = [[URLParser alloc] initWithURLString:currentURL];
-    NSString *ytcode = [parsey valueForVariable:@"v"];
-    if (debug) NSLog(@"ytcode: %@", ytcode);
+    uploadytcode = [parsey valueForVariable:@"v"];
+    if (debug) NSLog(@"ytcode: %@", uploadytcode);
     
-    if (ytcode == nil)
+    if (uploadytcode == nil)
         rankingsTitle.text = @"Navigate to a Video to Upload";
     else //user has navigated to a video
     {
@@ -439,7 +445,7 @@
         finalUploadSongView.hidden = NO;
         
         //loading video thumbnail
-        NSString *urlString = [[NSString alloc] initWithFormat:@"http://img.youtube.com/vi/%@/1.jpg", ytcode];
+        NSString *urlString = [[NSString alloc] initWithFormat:@"http://img.youtube.com/vi/%@/1.jpg", uploadytcode];
         NSURL *urlToRequest = [NSURL URLWithString:urlString];
         NSURLRequest *urlRequest=[NSURLRequest requestWithURL:urlToRequest
                                                   cachePolicy:NSURLRequestUseProtocolCachePolicy
@@ -506,6 +512,42 @@
         rankingsTitle.text = @"Please Enter the Song's Genre";
         return;
     }
+    
+    //gathing variables
+    NSString *ytcode = [uploadytcode stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *title = [titleTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    title = [title stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
+    NSString *artist = [artistTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    artist = [artist stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
+    NSString *user = [usernameTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    user = [user stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
+    NSString *genre = [genreTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    if([genre isEqualToString:@"Drum & Bass"]){
+        genre = @"DnB";
+    }
+
+    NSString *urlString = [[NSString alloc] 
+                           initWithFormat:@"http://t3k.no/app/upload.php?title=%@&artist=%@&user=%@&ytcode=%@&genre=%@",
+                           title, artist, user, ytcode, genre];
+    
+    NSURL *urlToRequest = [NSURL URLWithString:urlString];
+    
+    // Create the request.
+    NSURLRequest *theRequest=[NSURLRequest requestWithURL:urlToRequest
+                                              cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                          timeoutInterval:60.0];
+    // create the connection with the request
+    // and start loading the data
+    uploadConnection =[[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    if (uploadConnection) {
+        // Create the NSMutableData to hold the received data.
+        // receivedData is an instance variable declared elsewhere.
+        receivedData = [[NSMutableData data] retain];
+    } else {
+        // Inform the user that the connection failed.
+        NSLog(@"Connection to t3k.no/app/upload.php has failed");
+    }
+
     
 }
 
@@ -684,9 +726,11 @@ shouldChangeCharactersInRange:(NSRange)range
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
+
     // Append the new data to receivedData.
     // receivedData is an instance variable declared elsewhere.
     [receivedData appendData:data];
+
 }
 
 - (void)connection:(NSURLConnection *)connection
@@ -712,44 +756,59 @@ shouldChangeCharactersInRange:(NSRange)range
         NSLog(@"Succeeded! Received %d bytes of data",[receivedData length]);
     }
     
-    NSString *jsonString = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
-    // release the connection, and the data object
-    [connection release];
-    [receivedData release];
-    
-    NSArray *songsArray = [jsonString JSONValue];
-    NSMutableArray *temp = [[NSMutableArray alloc] init];
-    for(NSDictionary *songDictionary in songsArray){
-        [temp addObject:[[Song alloc] initWithDictionary:songDictionary]];
+    if (connection == uploadConnection) //uploaded song
+    {
+        NSString *jsonString = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
+        
+        if (debug) NSLog(@"--upload results: %@", jsonString);
+        // release the connection, and the data object
+        [connection release];
+        [receivedData release];
+        
+        rankingsTitle.text = jsonString;
+        
     }
-    songs = temp;
-    
-    static NSString *SongCellIdentifier = @"SongCellIdentifier";
-    static BOOL nibsRegistered = NO;
-    if(!nibsRegistered){
-        UINib *nib = [UINib nibWithNibName:@"SongCell" bundle:nil];
-        UINib *nib2 = [UINib nibWithNibName:@"ExpandedSongCell" bundle:nil];
-        [tableView registerNib:nib forCellReuseIdentifier:SongCellIdentifier];
-        [tableView registerNib:nib2 forCellReuseIdentifier:@"ExpandedSongCellIdentifier"];
-        nibsRegistered = YES;
+    else //loading table
+    {
+        NSString *jsonString = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
+        // release the connection, and the data object
+        [connection release];
+        [receivedData release];
+        
+        NSArray *songsArray = [jsonString JSONValue];
+        NSMutableArray *temp = [[NSMutableArray alloc] init];
+        for(NSDictionary *songDictionary in songsArray){
+            [temp addObject:[[Song alloc] initWithDictionary:songDictionary]];
+        }
+        songs = temp;
+        
+        static NSString *SongCellIdentifier = @"SongCellIdentifier";
+        static BOOL nibsRegistered = NO;
+        if(!nibsRegistered){
+            UINib *nib = [UINib nibWithNibName:@"SongCell" bundle:nil];
+            UINib *nib2 = [UINib nibWithNibName:@"ExpandedSongCell" bundle:nil];
+            [tableView registerNib:nib forCellReuseIdentifier:SongCellIdentifier];
+            [tableView registerNib:nib2 forCellReuseIdentifier:@"ExpandedSongCellIdentifier"];
+            nibsRegistered = YES;
+        }
+        
+        NSMutableArray *cellArray = [[NSMutableArray alloc] init];
+        for (Song *song in songs) {
+            SongCell *cell = (SongCell *)[tableView dequeueReusableCellWithIdentifier:SongCellIdentifier];
+            cell.scoreLabel.text = song->score;
+            cell.genreLabel.text = song->genre;
+            cell.titleLabel.text = song->title;
+            cell.artistLabel.text = song->artist;
+            [cellArray addObject:cell];
+        }
+        tableViewCells = cellArray;
+        
+        if(debug){
+            NSLog(@"songs.length:%u, song, %@",[songs count], songs);
+        }
+        
+        [tableView reloadData];
     }
-    
-    NSMutableArray *cellArray = [[NSMutableArray alloc] init];
-    for (Song *song in songs) {
-        SongCell *cell = (SongCell *)[tableView dequeueReusableCellWithIdentifier:SongCellIdentifier];
-        cell.scoreLabel.text = song->score;
-        cell.genreLabel.text = song->genre;
-        cell.titleLabel.text = song->title;
-        cell.artistLabel.text = song->artist;
-        [cellArray addObject:cell];
-    }
-    tableViewCells = cellArray;
-    
-    if(debug){
-        NSLog(@"songs.length:%u, song, %@",[songs count], songs);
-    }
-    
-    [tableView reloadData];
     
 }
 

@@ -16,6 +16,7 @@
     NSString *timeFilter;
     bool scrolledFromUploadView;
     NSMutableString *titlePlaceHolder;
+    NSURLConnection *uploadConnection;
 }
 
 //universal
@@ -31,6 +32,7 @@
 - (IBAction)homeButtonPressed:(id)sender;
 
 //final upload song view
+@property (retain, nonatomic) NSString *uploadytcode;
 @property (strong, nonatomic) IBOutlet UIPickerView *genrePicker;
 @property (strong, nonatomic) NSArray *genrePickerData;
 @property (retain, nonatomic) IBOutlet UIView *finalUploadSongView;
@@ -44,6 +46,7 @@
 @property (retain, nonatomic) IBOutlet UILabel *videoTitleLabel;
 @property (retain, nonatomic) IBOutlet UILabel *titleTextFieldLabel;
 @property (retain, nonatomic) IBOutlet UILabel *displayedTextLabel;
+@property (retain, nonatomic) IBOutlet UIPageControl *uploadCancelButton;
 
 //rankings View
 - (IBAction)loadTableView:(id)sender;
