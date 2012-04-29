@@ -34,6 +34,8 @@
 @synthesize artistTextField;
 @synthesize usernameTextField;
 @synthesize videoTitleLabel;
+@synthesize titleTextFieldLabel;
+@synthesize displayedTextLabel;
 @synthesize finalUploadSongView;
 @synthesize logoImageView;
 @synthesize scrollView;
@@ -163,6 +165,8 @@
     [self setTitleTextField:nil];
     [self setArtistTextField:nil];
     [self setUsernameTextField:nil];
+    [self setTitleTextFieldLabel:nil];
+    [self setDisplayedTextLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -228,6 +232,8 @@
     [titleTextField release];
     [artistTextField release];
     [usernameTextField release];
+    [titleTextFieldLabel release];
+    [displayedTextLabel release];
     [super dealloc];
     
 }
@@ -479,17 +485,61 @@
 #pragma mark -
 #pragma mark TextField Delegate Methods
 - (void) textFieldDidBeginEditing:(UITextField *)textField{
-    bool debug = YES;
+    bool debug = NO;
+    
+    //hiding the title textfield/label
+    titleTextField.hidden = YES;
+    titleTextFieldLabel.hidden = YES;
+    
+    //if the textField isn't the genreTextfield, 
+    //show the displayedTextLabel so the user can see what they are typing
+    if (textField != genreTextField)
+    {
+        displayedTextLabel.hidden = NO;
+        displayedTextLabel.text =  textField.placeholder;
+    }
+    
     if (textField == genreTextField){
         if (debug) NSLog(@"genreTextField begin editting!");
         genrePicker.hidden = NO;
     }
+    
 }
 
 - (BOOL) textFieldShouldReturn:(UITextField *)textField{
-    bool debug = YES;
+    bool debug = NO;
     if (debug) NSLog(@"return button pressed");
+    
+    //displaying the title textfield/label
+    titleTextField.hidden = NO;
+    titleTextFieldLabel.hidden = NO;
+    displayedTextLabel.hidden = YES;
+    
     [textField resignFirstResponder];
+    return YES;
+    
+}
+
+
+- (BOOL) textField:(UITextField *)textField 
+shouldChangeCharactersInRange:(NSRange)range 
+ replacementString:(NSString *)string{
+    bool debug = NO;
+    if (debug){
+        NSLog(@"textFieldChanging!");
+        //NSLog(@"--range: %@", range);
+        NSLog(@"--string: %@", string);
+    }
+    
+    NSMutableString *tempString = [[NSMutableString alloc] initWithString:textField.text];
+    if (range.location == NSNotFound){ //if its adding to the string
+        [tempString appendString:string];
+    }
+    else{
+        [tempString replaceCharactersInRange:range withString:string];
+    }
+    
+    displayedTextLabel.text = tempString;
     return YES;
     
 }
@@ -521,6 +571,10 @@
     genreTextField.text = [genrePickerData objectAtIndex:selectedIndex];
     [genreTextField endEditing:YES];
     genrePicker.hidden = YES;
+    
+    //displaying the title textfield/label
+    titleTextField.hidden = NO;
+    titleTextFieldLabel.hidden = NO;
 }
 
 /*================================**

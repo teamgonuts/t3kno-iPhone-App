@@ -41,7 +41,8 @@
 @property (retain, nonatomic) IBOutlet UITextField *artistTextField;
 @property (retain, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (retain, nonatomic) IBOutlet UILabel *videoTitleLabel;
-
+@property (retain, nonatomic) IBOutlet UILabel *titleTextFieldLabel;
+@property (retain, nonatomic) IBOutlet UILabel *displayedTextLabel;
 
 //rankings View
 - (IBAction)loadTableView:(id)sender;
