@@ -31,7 +31,7 @@
 - (IBAction)homeButtonPressed:(id)sender;///<Browser's home button
 
 //final upload song view
-@property (retain, nonatomic) NSString *uploadytcode;///<youtube video code of the song to be uploaded
+@property (strong, nonatomic) NSString *uploadytcode;///<youtube video code of the song to be uploaded
 @property (strong, nonatomic) IBOutlet UIPickerView *genrePicker;///<UIPickerView to select a genre for uploaded song
 @property (strong, nonatomic) NSArray *genrePickerData;///<Data for genrePicker (UIPickerView)
 @property (retain, nonatomic) IBOutlet UIView *finalUploadSongView;///<View where user enters details of song to be uploaded

@@ -446,7 +446,7 @@
     if (debug) NSLog(@"uploadButton Pressed!");
     NSString *currentURL = [youtubeWebView stringByEvaluatingJavaScriptFromString:@"window.location.href"];
     URLParser *parsey = [[URLParser alloc] initWithURLString:currentURL];
-    uploadytcode = [parsey valueForVariable:@"v"];
+    uploadytcode = [[parsey valueForVariable:@"v"] retain];
     if (debug) NSLog(@"ytcode: %@", uploadytcode);
     
     if (uploadytcode == nil)
@@ -764,8 +764,21 @@ shouldChangeCharactersInRange:(NSRange)range
         // release the connection, and the data object
         [connection release];
         [receivedData release];
+        [uploadytcode release];
         
         rankingsTitle.text = jsonString;
+        
+        finalUploadSongView.hidden = YES;
+        
+        //clearing text Fields
+        titleTextField.text = @"";
+        artistTextField.text = @"";
+        usernameTextField.text = @"";
+        genreTextField.text = @"";
+        
+        [self loadTableView:nil];
+
+        
         
     }
     else //loading table
