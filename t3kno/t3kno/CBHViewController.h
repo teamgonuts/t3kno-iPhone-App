@@ -53,7 +53,7 @@
 @property (retain, nonatomic) IBOutlet UIView *rankingsView; ///<middle view to display songs
 @property (retain, nonatomic) IBOutlet UILabel *rankingsTitle;///<label at the top of the page
 @property (retain, nonatomic) IBOutlet UITableView *tableView;///<song rankings UITableView
-@property (retain, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (retain, nonatomic) IBOutlet UIScrollView *scrollView;///<scroll view that holds all 3 main views
 @property (retain, nonatomic) NSMutableArray *songs; ///<array of Song objects
 @property (retain, nonatomic) NSMutableArray *tableViewCells;///<array of custon SongCell objects
 @property (strong, nonatomic) NSMutableData *receivedData;///<received data for NSURLConnections
