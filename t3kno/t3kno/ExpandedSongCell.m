@@ -42,6 +42,8 @@
     [scoreLabel release];
     [super dealloc];
 }
+
+///thumbs up button pressed (touch up inside)
 - (IBAction)upVote:(id)sender {
     bool debug = false;
     if (debug) NSLog(@"upVote clicked!");
@@ -49,6 +51,7 @@
     [self  voteOnSong:@"1"];
 }
 
+///thumbs down button pressed (touch up inside)
 - (IBAction)downVote:(id)sender {
     bool debug = false;
     if (debug) NSLog(@"downVote clicked!");
@@ -56,7 +59,8 @@
     [self voteOnSong:@"-1"];
 }
 
-
+/**Calls t3k.no's api to submit song's vote. Checks if user has voted on the song before using the iPhone's mac address as a unique identifier. If the user has voted before, it allows the user to change their vote, but not cast the same vote again.
+ */
 -(void) voteOnSong:(NSString *)voteValue
 {
     bool debug = false;

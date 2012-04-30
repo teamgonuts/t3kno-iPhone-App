@@ -107,13 +107,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00011"></a>00011 
 <a name="l00012"></a><a class="code" href="interface_expanded_song_cell.html">00012</a> <span class="keyword">@interface </span><a class="code" href="interface_expanded_song_cell.html">ExpandedSongCell</a> : UITableViewCell
 <a name="l00013"></a>00013 
-<a name="l00014"></a>00014 @property (retain, nonatomic) IBOutlet UIWebView *webView;
-<a name="l00015"></a>00015 @property (retain, nonatomic) IBOutlet UILabel *loadingLabel;
-<a name="l00016"></a>00016 @property (retain, nonatomic) IBOutlet UILabel *scoreLabel;
-<a name="l00017"></a>00017 @property (strong, nonatomic) NSMutableData *receivedData;
-<a name="l00018"></a>00018 @property (strong, nonatomic) <a class="code" href="interface_song.html">Song</a> *song;
+<a name="l00014"></a><a class="code" href="interface_expanded_song_cell.html#afbd73894706a75c9fbf68d7b6ff33f6c">00014</a> @property (retain, nonatomic) IBOutlet UIWebView *<a class="code" href="interface_expanded_song_cell.html#afbd73894706a75c9fbf68d7b6ff33f6c" title="webview for embedded youtube song">webView</a>; 
+<a name="l00015"></a><a class="code" href="interface_expanded_song_cell.html#a2c56bbf2ac05c839c088de619aac0cd5">00015</a> @property (retain, nonatomic) IBOutlet UILabel *<a class="code" href="interface_expanded_song_cell.html#a2c56bbf2ac05c839c088de619aac0cd5" title="loading... text displayed before embedded song is loaded">loadingLabel</a>; 
+<a name="l00016"></a><a class="code" href="interface_expanded_song_cell.html#aecc623a9c8837b2511980cb2dd331cf4">00016</a> @property (retain, nonatomic) IBOutlet UILabel *<a class="code" href="interface_expanded_song_cell.html#aecc623a9c8837b2511980cb2dd331cf4" title="label to display song&#39;s score">scoreLabel</a>;
+<a name="l00017"></a><a class="code" href="interface_expanded_song_cell.html#a376d66eecd90a802c8298102a4f3aa0e">00017</a> @property (strong, nonatomic) NSMutableData *<a class="code" href="interface_expanded_song_cell.html#a376d66eecd90a802c8298102a4f3aa0e" title="received data for NSURLConnection">receivedData</a>; 
+<a name="l00018"></a><a class="code" href="interface_expanded_song_cell.html#ae9b1ac180e8b5ae80de5cf8535d03c82">00018</a> @property (strong, nonatomic) <a class="code" href="interface_song.html">Song</a> *<a class="code" href="interface_expanded_song_cell.html#ae9b1ac180e8b5ae80de5cf8535d03c82" title="Song object associated with the cell.">song</a>; 
 <a name="l00019"></a>00019 
-<a name="l00020"></a>00020 - (IBAction)upVote:(<span class="keywordtype">id</span>)sender;
+<a name="l00020"></a>00020 - (IBAction)upVote:(<span class="keywordtype">id</span>)sender; 
 <a name="l00021"></a>00021 - (IBAction)downVote:(<span class="keywordtype">id</span>)sender;
 <a name="l00022"></a>00022 - (void)voteOnSong:(NSString *)voteValue;
 <a name="l00023"></a>00023 
@@ -123,7 +123,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 29 2012 20:24:27 for t3k.no iPhone App Documentation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 29 2012 20:27:56 for t3k.no iPhone App Documentation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>
