@@ -10,17 +10,21 @@
 
 @interface CBHViewController : UIViewController 
 <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UIScrollViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>{
-    bool pageControlBeingUsed;
-    int expandedRow;
+    //bool pageControlBeingUsed;
+    //int expandedRow;
     NSString *genreFilter;
     NSString *timeFilter;
-    bool scrolledFromUploadView;
-    NSMutableString *titlePlaceHolder;
+    //bool scrolledFromUploadView;
+    //NSMutableString *titlePlaceHolder;
     NSURLConnection *uploadConnection;
 }
 
 //universal
 @property (retain, nonatomic) IBOutlet UIImageView *logoImageView;
+@property bool pageControlBeingUsed;
+@property int expandedRow;
+@property bool scrolledFromUploadView;
+@property (retain, nonatomic) NSMutableString *titlePlaceHolder;
 
 //upload (Youtube) view
 @property (retain, nonatomic) IBOutlet UIWebView *youtubeWebView; ///<view to upload youtube songs

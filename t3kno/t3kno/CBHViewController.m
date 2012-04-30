@@ -26,6 +26,10 @@
 #define _tranceRow 6
 
 @implementation CBHViewController
+@synthesize titlePlaceHolder;
+@synthesize pageControlBeingUsed;
+@synthesize scrolledFromUploadView;
+@synthesize expandedRow;
 @synthesize uploadytcode;
 @synthesize genrePicker;
 @synthesize genrePickerData;
@@ -149,6 +153,7 @@
     [self setPageControl:nil];
     [self setFilterView:nil];
     [self setUploadytcode:nil];
+    [self setTitlePlaceHolder:nil];
     
     [self setFilterTableView:nil];
     [self setSearchButton:nil];
@@ -233,6 +238,7 @@
     [usernameTextField release];
     [titleTextFieldLabel release];
     [displayedTextLabel release];
+    [titlePlaceHolder release];
     [super dealloc];
     
 }
