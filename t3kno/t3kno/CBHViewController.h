@@ -20,13 +20,13 @@
 }
 
 //universal
-@property (retain, nonatomic) IBOutlet UIImageView *logoImageView;
-@property bool pageControlBeingUsed;
-@property int expandedRow;
-@property bool scrolledFromUploadView;
-@property (retain, nonatomic) NSMutableString *titlePlaceHolder;
-@property (retain, nonatomic) NSString *genreFilter;
-@property (retain, nonatomic) NSString *timeFilter;
+@property (retain, nonatomic) IBOutlet UIImageView *logoImageView; ///<header logo
+@property bool pageControlBeingUsed; ///<true if page is currently scrolling
+@property int expandedRow; ///<index of expanded row in rankings
+@property bool scrolledFromUploadView; ///<true if the last view scrolled from was the youtube upload view
+@property (retain, nonatomic) NSMutableString *titlePlaceHolder;///<holds the rankings title temporarily to give instructions
+@property (retain, nonatomic) NSString *genreFilter;///<current genre filter for rankings
+@property (retain, nonatomic) NSString *timeFilter;///<current time filter for rankings (i.e. 'fresh', 'day'...etc)
 
 //upload (Youtube) view
 @property (retain, nonatomic) IBOutlet UIWebView *youtubeWebView; ///<view to upload youtube songs
@@ -37,7 +37,7 @@
 - (IBAction)homeButtonPressed:(id)sender;///<Browser's home button
 
 //final upload song view
-@property (retain, nonatomic) NSURLConnection *uploadConnection;
+@property (retain, nonatomic) NSURLConnection *uploadConnection;///<NSURLConnection for uploading a song from YouTube
 @property (strong, nonatomic) NSString *uploadytcode;///<youtube video code of the song to be uploaded
 @property (strong, nonatomic) IBOutlet UIPickerView *genrePicker;///<UIPickerView to select a genre for uploaded song
 @property (strong, nonatomic) NSArray *genrePickerData;///<Data for genrePicker (UIPickerView)
