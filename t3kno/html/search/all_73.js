@@ -8,6 +8,5 @@ var searchData=
   ['searchbutton',['searchButton',['../interface_c_b_h_view_controller.html#a81ca49cd3af33077732daa63eb36155d',1,'CBHViewController']]],
   ['song',['Song',['../interface_song.html',1,'Song'],['../interface_expanded_song_cell.html#ae9b1ac180e8b5ae80de5cf8535d03c82',1,'ExpandedSongCell::song()']]],
   ['songcell',['SongCell',['../interface_song_cell.html',1,'']]],
-  ['songexpandedcell',['SongExpandedCell',['../interface_song_expanded_cell.html',1,'']]],
   ['songs',['songs',['../interface_c_b_h_view_controller.html#ad2fb5ef0e8398e48631989b5e73301b7',1,'CBHViewController']]]
 ];

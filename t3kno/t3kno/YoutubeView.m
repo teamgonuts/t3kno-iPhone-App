@@ -9,6 +9,9 @@
 #import "YoutubeView.h"
 
 @implementation YoutubeView
+
+/**Creates a mini html page the size of the UIWebView to embedd the youtube video. Embedded youtube video, on click, will launch the iPhones native YouTube player
+ */
 - (YoutubeView *)initWithYouTubeCode:(NSString *)ytcode
 {
     if (self = [super init]) 

@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface YoutubeView : UIWebView
-- (YoutubeView *)initWithYouTubeCode:(NSString *)ytcode;
+- (YoutubeView *)initWithYouTubeCode:(NSString *)ytcode; ///<embedds the youtube video with a video code 'ytcode' into the UIWebView
 
 @end

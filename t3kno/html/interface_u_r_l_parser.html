@@ -103,14 +103,37 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6e0ce77bf25aa5385addcae4a1017cc5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6e0ce77bf25aa5385addcae4a1017cc5"></a>
-(id)&#160;</td><td class="memItemRight" valign="bottom">- <b>initWithURLString:</b></td></tr>
-<tr class="memitem:a92bab5ca98064f17778700c746c48306"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a92bab5ca98064f17778700c746c48306"></a>
-(NSString *)&#160;</td><td class="memItemRight" valign="bottom">- <b>valueForVariable:</b></td></tr>
+(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_u_r_l_parser.html#a6e0ce77bf25aa5385addcae4a1017cc5">initWithURLString:</a></td></tr>
+<tr class="memdesc:a6e0ce77bf25aa5385addcae4a1017cc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">initialize class with url string <br/></td></tr>
+<tr class="memitem:a92bab5ca98064f17778700c746c48306"><td class="memItemLeft" align="right" valign="top">(NSString *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_u_r_l_parser.html#a92bab5ca98064f17778700c746c48306">valueForVariable:</a></td></tr>
+<tr class="memdesc:a92bab5ca98064f17778700c746c48306"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the value of the variable 'varName'  <a href="#a92bab5ca98064f17778700c746c48306"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="properties"></a>
 Properties</h2></td></tr>
 <tr class="memitem:aa09551532effe824ea18629d1d4b1a19"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa09551532effe824ea18629d1d4b1a19"></a>
-NSArray *&#160;</td><td class="memItemRight" valign="bottom"><b>variables</b></td></tr>
+NSArray *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_u_r_l_parser.html#aa09551532effe824ea18629d1d4b1a19">variables</a></td></tr>
+<tr class="memdesc:aa09551532effe824ea18629d1d4b1a19"><td class="mdescLeft">&#160;</td><td class="mdescRight">array of url variables <br/></td></tr>
 </table>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a92bab5ca98064f17778700c746c48306"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (NSString *) <a class="el" href="interface_u_r_l_parser.html#a92bab5ca98064f17778700c746c48306">valueForVariable:</a> </td>
+          <td></td>
+          <td class="paramtype">(NSString *)&#160;</td>
+          <td class="paramname"><em>varName</em></td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>returns the value of the variable 'varName' </p>
+<p>returns the value of the variable 'varName' from the URL. Ex. if the URL is <a href="http://t3k.no/app/upload.php?ytcode=yyz,">http://t3k.no/app/upload.php?ytcode=yyz,</a> valueForVarable("ytcode") will return the string 'yyz' </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>t3kno/t3kno/<a class="el" href="_u_r_l_parser_8h_source.html">URLParser.h</a></li>
 <li>t3kno/t3kno/URLParser.m</li>
@@ -119,7 +142,7 @@ NSArray *&#160;</td><td class="memItemRight" valign="bottom"><b>variables</b></t
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 29 2012 20:34:24 for t3k.no iPhone App Documentation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 29 2012 20:45:09 for t3k.no iPhone App Documentation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

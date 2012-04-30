@@ -29,6 +29,8 @@
     return self;
 }
 
+/**returns the value of the variable 'varName' from the URL. Ex. if the URL is http://t3k.no/app/upload.php?ytcode=yyz, valueForVarable(@"ytcode") will return the string 'yyz'
+*/
 - (NSString *)valueForVariable:(NSString *)varName {
     for (NSString *var in self.variables) {
         if ([var length] > [varName length]+1 && [[var substringWithRange:NSMakeRange(0, [varName length]+1)] isEqualToString:[varName stringByAppendingString:@"="]]) {

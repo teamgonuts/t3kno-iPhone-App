@@ -13,9 +13,9 @@
     NSArray *variables;
 }
 
-@property (nonatomic, retain) NSArray *variables;
+@property (nonatomic, retain) NSArray *variables; ///<array of url variables
 
-- (id)initWithURLString:(NSString *)url;
-- (NSString *)valueForVariable:(NSString *)varName;
+- (id)initWithURLString:(NSString *)url; ///<initialize class with url string
+- (NSString *)valueForVariable:(NSString *)varName;///<returns the value of the variable 'varName'
 
 @end
