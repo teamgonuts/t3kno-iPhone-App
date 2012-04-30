@@ -30,7 +30,7 @@
   
   <td style="padding-left: 0.5em;">
    <div id="projectname">t3k.no iPhone App Documentation
-   
+   &#160;<span id="projectnumber">1.0</span>
    </div>
    <div id="projectbrief">for http://t3k.no</div>
   </td>
@@ -73,6 +73,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="classes.html"><span>Data&#160;Structure&#160;Index</span></a></li>
+      <li><a href="functions.html"><span>Data&#160;Fields</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -80,7 +81,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Properties</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -101,93 +102,262 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac4b48111c33f274a6160f4b2ea39c6cf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac4b48111c33f274a6160f4b2ea39c6cf"></a>
-(IBAction)&#160;</td><td class="memItemRight" valign="bottom">- <b>browserBackButtonPressed:</b></td></tr>
-<tr class="memitem:a3725404e0a3711618b012805d877d698"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3725404e0a3711618b012805d877d698"></a>
-(IBAction)&#160;</td><td class="memItemRight" valign="bottom">- <b>browserForwardButtonPressed:</b></td></tr>
-<tr class="memitem:a7bfb39d15e6ff5f1ea9593e79999aa56"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7bfb39d15e6ff5f1ea9593e79999aa56"></a>
-(IBAction)&#160;</td><td class="memItemRight" valign="bottom">- <b>uploadButtonPressed:</b></td></tr>
-<tr class="memitem:ae0ed377f106975b88087f3a18cf307ae"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae0ed377f106975b88087f3a18cf307ae"></a>
-(IBAction)&#160;</td><td class="memItemRight" valign="bottom">- <b>refreshButtonPressed:</b></td></tr>
-<tr class="memitem:ae6fff149ad9ab682542ba17084cc4591"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae6fff149ad9ab682542ba17084cc4591"></a>
-(IBAction)&#160;</td><td class="memItemRight" valign="bottom">- <b>homeButtonPressed:</b></td></tr>
-<tr class="memitem:a7a0248ccf94716a4a8021089bef209a0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7a0248ccf94716a4a8021089bef209a0"></a>
-(IBAction)&#160;</td><td class="memItemRight" valign="bottom">- <b>finalUploadCancelButtonPressed:</b></td></tr>
-<tr class="memitem:a112c0996342c1157f8f97e35379505c9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a112c0996342c1157f8f97e35379505c9"></a>
-(IBAction)&#160;</td><td class="memItemRight" valign="bottom">- <b>finalUploadButtonPressed:</b></td></tr>
+<tr class="memitem:ac4b48111c33f274a6160f4b2ea39c6cf"><td class="memItemLeft" align="right" valign="top">(IBAction)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_c_b_h_view_controller.html#ac4b48111c33f274a6160f4b2ea39c6cf">browserBackButtonPressed:</a></td></tr>
+<tr class="memdesc:ac4b48111c33f274a6160f4b2ea39c6cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Browser's back button.  <a href="#ac4b48111c33f274a6160f4b2ea39c6cf"></a><br/></td></tr>
+<tr class="memitem:a3725404e0a3711618b012805d877d698"><td class="memItemLeft" align="right" valign="top">(IBAction)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_c_b_h_view_controller.html#a3725404e0a3711618b012805d877d698">browserForwardButtonPressed:</a></td></tr>
+<tr class="memdesc:a3725404e0a3711618b012805d877d698"><td class="mdescLeft">&#160;</td><td class="mdescRight">Browser's forward button.  <a href="#a3725404e0a3711618b012805d877d698"></a><br/></td></tr>
+<tr class="memitem:a7bfb39d15e6ff5f1ea9593e79999aa56"><td class="memItemLeft" align="right" valign="top">(IBAction)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_c_b_h_view_controller.html#a7bfb39d15e6ff5f1ea9593e79999aa56">uploadButtonPressed:</a></td></tr>
+<tr class="memdesc:a7bfb39d15e6ff5f1ea9593e79999aa56"><td class="mdescLeft">&#160;</td><td class="mdescRight">initial upload button in browser bar  <a href="#a7bfb39d15e6ff5f1ea9593e79999aa56"></a><br/></td></tr>
+<tr class="memitem:ae0ed377f106975b88087f3a18cf307ae"><td class="memItemLeft" align="right" valign="top">(IBAction)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_c_b_h_view_controller.html#ae0ed377f106975b88087f3a18cf307ae">refreshButtonPressed:</a></td></tr>
+<tr class="memdesc:ae0ed377f106975b88087f3a18cf307ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Browser's refresh button.  <a href="#ae0ed377f106975b88087f3a18cf307ae"></a><br/></td></tr>
+<tr class="memitem:ae6fff149ad9ab682542ba17084cc4591"><td class="memItemLeft" align="right" valign="top">(IBAction)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_c_b_h_view_controller.html#ae6fff149ad9ab682542ba17084cc4591">homeButtonPressed:</a></td></tr>
+<tr class="memdesc:ae6fff149ad9ab682542ba17084cc4591"><td class="mdescLeft">&#160;</td><td class="mdescRight">Browser's home button.  <a href="#ae6fff149ad9ab682542ba17084cc4591"></a><br/></td></tr>
+<tr class="memitem:a7a0248ccf94716a4a8021089bef209a0"><td class="memItemLeft" align="right" valign="top">(IBAction)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_c_b_h_view_controller.html#a7a0248ccf94716a4a8021089bef209a0">finalUploadCancelButtonPressed:</a></td></tr>
+<tr class="memdesc:a7a0248ccf94716a4a8021089bef209a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">button to cancel user's upload  <a href="#a7a0248ccf94716a4a8021089bef209a0"></a><br/></td></tr>
+<tr class="memitem:a112c0996342c1157f8f97e35379505c9"><td class="memItemLeft" align="right" valign="top">(IBAction)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_c_b_h_view_controller.html#a112c0996342c1157f8f97e35379505c9">finalUploadButtonPressed:</a></td></tr>
+<tr class="memdesc:a112c0996342c1157f8f97e35379505c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">button to submit song to database  <a href="#a112c0996342c1157f8f97e35379505c9"></a><br/></td></tr>
 <tr class="memitem:acc69c70bc3daf4b1f866daf1e5c4092a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acc69c70bc3daf4b1f866daf1e5c4092a"></a>
-(IBAction)&#160;</td><td class="memItemRight" valign="bottom">- <b>loadTableView:</b></td></tr>
+(IBAction)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_c_b_h_view_controller.html#acc69c70bc3daf4b1f866daf1e5c4092a">loadTableView:</a></td></tr>
+<tr class="memdesc:acc69c70bc3daf4b1f866daf1e5c4092a"><td class="mdescLeft">&#160;</td><td class="mdescRight">calls the t3k.no API and reloads all the songs in the rankings tableview <br/></td></tr>
 <tr class="memitem:adb9fb70bbecec4344a92a06c1d436a06"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adb9fb70bbecec4344a92a06c1d436a06"></a>
-(void)&#160;</td><td class="memItemRight" valign="bottom">- <b>closeExpandedSong</b></td></tr>
+(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_c_b_h_view_controller.html#adb9fb70bbecec4344a92a06c1d436a06">closeExpandedSong</a></td></tr>
+<tr class="memdesc:adb9fb70bbecec4344a92a06c1d436a06"><td class="mdescLeft">&#160;</td><td class="mdescRight">if there is a song in the rankings that is open, close it <br/></td></tr>
 <tr class="memitem:a15e99e8724f638386f2042f51c757909"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a15e99e8724f638386f2042f51c757909"></a>
-(void)&#160;</td><td class="memItemRight" valign="bottom">- <b>scrollToMiddleView</b></td></tr>
+(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_c_b_h_view_controller.html#a15e99e8724f638386f2042f51c757909">scrollToMiddleView</a></td></tr>
+<tr class="memdesc:a15e99e8724f638386f2042f51c757909"><td class="mdescLeft">&#160;</td><td class="mdescRight">scrolls to the middle of the scrollview to display the rankings <br/></td></tr>
 <tr class="memitem:aa423e4fbca3bb0d3aa430d6220ac548d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa423e4fbca3bb0d3aa430d6220ac548d"></a>
-(IBAction)&#160;</td><td class="memItemRight" valign="bottom">- <b>seachButtonIconPressed:</b></td></tr>
+(IBAction)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_c_b_h_view_controller.html#aa423e4fbca3bb0d3aa430d6220ac548d">seachButtonIconPressed:</a></td></tr>
+<tr class="memdesc:aa423e4fbca3bb0d3aa430d6220ac548d"><td class="mdescLeft">&#160;</td><td class="mdescRight">show/hides the search bar (searchs t3k.no's database <br/></td></tr>
 <tr class="memitem:abaeea19211dc5b286535c2b63582d1a5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abaeea19211dc5b286535c2b63582d1a5"></a>
-(void)&#160;</td><td class="memItemRight" valign="bottom">- <b>refreshFilters</b></td></tr>
+(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_c_b_h_view_controller.html#abaeea19211dc5b286535c2b63582d1a5">refreshFilters</a></td></tr>
+<tr class="memdesc:abaeea19211dc5b286535c2b63582d1a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets the new timefilter and genrefilter based on the filtertableview's selections <br/></td></tr>
 <tr class="memitem:a0d25f2dcd6002af4ee0a1a0f184c38cb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0d25f2dcd6002af4ee0a1a0f184c38cb"></a>
-(void)&#160;</td><td class="memItemRight" valign="bottom">- <b>refreshTitle</b></td></tr>
+(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_c_b_h_view_controller.html#a0d25f2dcd6002af4ee0a1a0f184c38cb">refreshTitle</a></td></tr>
+<tr class="memdesc:a0d25f2dcd6002af4ee0a1a0f184c38cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">refreshes the rankings title based off the filters <br/></td></tr>
 <tr><td colspan="2"><h2><a name="properties"></a>
 Properties</h2></td></tr>
-<tr class="memitem:a64e881cd5979df2a2e1395aca5577d64"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a64e881cd5979df2a2e1395aca5577d64"></a>
-IBOutlet UIView *&#160;</td><td class="memItemRight" valign="bottom"><b>searchView</b></td></tr>
 <tr class="memitem:a463820dea5eb85e6d2275a8ea9c69fbf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a463820dea5eb85e6d2275a8ea9c69fbf"></a>
-IBOutlet UIWebView *&#160;</td><td class="memItemRight" valign="bottom"><b>youtubeWebView</b></td></tr>
+IBOutlet UIWebView *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_c_b_h_view_controller.html#a463820dea5eb85e6d2275a8ea9c69fbf">youtubeWebView</a></td></tr>
+<tr class="memdesc:a463820dea5eb85e6d2275a8ea9c69fbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">view to upload youtube songs <br/></td></tr>
 <tr class="memitem:a957f415cf4ea49ddcb4b00d5c4c7881e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a957f415cf4ea49ddcb4b00d5c4c7881e"></a>
-NSString *&#160;</td><td class="memItemRight" valign="bottom"><b>uploadytcode</b></td></tr>
+NSString *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_c_b_h_view_controller.html#a957f415cf4ea49ddcb4b00d5c4c7881e">uploadytcode</a></td></tr>
+<tr class="memdesc:a957f415cf4ea49ddcb4b00d5c4c7881e"><td class="mdescLeft">&#160;</td><td class="mdescRight">youtube video code of the song to be uploaded <br/></td></tr>
 <tr class="memitem:ae5b2756df0c2a7615601923043519dea"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae5b2756df0c2a7615601923043519dea"></a>
-IBOutlet UIPickerView *&#160;</td><td class="memItemRight" valign="bottom"><b>genrePicker</b></td></tr>
+IBOutlet UIPickerView *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_c_b_h_view_controller.html#ae5b2756df0c2a7615601923043519dea">genrePicker</a></td></tr>
+<tr class="memdesc:ae5b2756df0c2a7615601923043519dea"><td class="mdescLeft">&#160;</td><td class="mdescRight">UIPickerView to select a genre for uploaded song. <br/></td></tr>
 <tr class="memitem:a42054403ea069b1f964e74a08fc429a9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a42054403ea069b1f964e74a08fc429a9"></a>
-NSArray *&#160;</td><td class="memItemRight" valign="bottom"><b>genrePickerData</b></td></tr>
+NSArray *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_c_b_h_view_controller.html#a42054403ea069b1f964e74a08fc429a9">genrePickerData</a></td></tr>
+<tr class="memdesc:a42054403ea069b1f964e74a08fc429a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data for genrePicker (UIPickerView) <br/></td></tr>
 <tr class="memitem:a0b3711ade53cab7f4dedffb3bfd1a4c3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b3711ade53cab7f4dedffb3bfd1a4c3"></a>
-IBOutlet UIView *&#160;</td><td class="memItemRight" valign="bottom"><b>finalUploadSongView</b></td></tr>
+IBOutlet UIView *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_c_b_h_view_controller.html#a0b3711ade53cab7f4dedffb3bfd1a4c3">finalUploadSongView</a></td></tr>
+<tr class="memdesc:a0b3711ade53cab7f4dedffb3bfd1a4c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">View where user enters details of song to be uploaded. <br/></td></tr>
 <tr class="memitem:ac45c42f77d2b9716de9121d17d03b2a3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac45c42f77d2b9716de9121d17d03b2a3"></a>
-IBOutlet UIWebView *&#160;</td><td class="memItemRight" valign="bottom"><b>thumbnailWebView</b></td></tr>
+IBOutlet UIWebView *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_c_b_h_view_controller.html#ac45c42f77d2b9716de9121d17d03b2a3">thumbnailWebView</a></td></tr>
+<tr class="memdesc:ac45c42f77d2b9716de9121d17d03b2a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">youtube song's thumbnail <br/></td></tr>
 <tr class="memitem:a3e84c0f2fe5a22a12e9798b7db14d558"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3e84c0f2fe5a22a12e9798b7db14d558"></a>
-IBOutlet UITextField *&#160;</td><td class="memItemRight" valign="bottom"><b>genreTextField</b></td></tr>
+IBOutlet UITextField *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_c_b_h_view_controller.html#a3e84c0f2fe5a22a12e9798b7db14d558">genreTextField</a></td></tr>
+<tr class="memdesc:a3e84c0f2fe5a22a12e9798b7db14d558"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uploaded song's genre. <br/></td></tr>
 <tr class="memitem:ad6496527c6783d1937a1fd87789b03e6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad6496527c6783d1937a1fd87789b03e6"></a>
-IBOutlet UITextField *&#160;</td><td class="memItemRight" valign="bottom"><b>titleTextField</b></td></tr>
+IBOutlet UITextField *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_c_b_h_view_controller.html#ad6496527c6783d1937a1fd87789b03e6">titleTextField</a></td></tr>
+<tr class="memdesc:ad6496527c6783d1937a1fd87789b03e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uploaded song's title. <br/></td></tr>
 <tr class="memitem:ad98203c999347b05e41153153f9a09da"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad98203c999347b05e41153153f9a09da"></a>
-IBOutlet UITextField *&#160;</td><td class="memItemRight" valign="bottom"><b>artistTextField</b></td></tr>
+IBOutlet UITextField *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_c_b_h_view_controller.html#ad98203c999347b05e41153153f9a09da">artistTextField</a></td></tr>
+<tr class="memdesc:ad98203c999347b05e41153153f9a09da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uploaded song's artist. <br/></td></tr>
 <tr class="memitem:a2ddc25fcaa0fba72e1c92fb0658d6597"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2ddc25fcaa0fba72e1c92fb0658d6597"></a>
-IBOutlet UITextField *&#160;</td><td class="memItemRight" valign="bottom"><b>usernameTextField</b></td></tr>
+IBOutlet UITextField *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_c_b_h_view_controller.html#a2ddc25fcaa0fba72e1c92fb0658d6597">usernameTextField</a></td></tr>
+<tr class="memdesc:a2ddc25fcaa0fba72e1c92fb0658d6597"><td class="mdescLeft">&#160;</td><td class="mdescRight">User that uploaded the song. <br/></td></tr>
 <tr class="memitem:a98fa751977cb6313fd198d293f519381"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a98fa751977cb6313fd198d293f519381"></a>
-IBOutlet UILabel *&#160;</td><td class="memItemRight" valign="bottom"><b>videoTitleLabel</b></td></tr>
+IBOutlet UILabel *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_c_b_h_view_controller.html#a98fa751977cb6313fd198d293f519381">videoTitleLabel</a></td></tr>
+<tr class="memdesc:a98fa751977cb6313fd198d293f519381"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uploaded video's youtube title. <br/></td></tr>
 <tr class="memitem:a5aff2e7292ec0d29ddba0e11398f8b7f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5aff2e7292ec0d29ddba0e11398f8b7f"></a>
-IBOutlet UILabel *&#160;</td><td class="memItemRight" valign="bottom"><b>titleTextFieldLabel</b></td></tr>
+IBOutlet UILabel *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_c_b_h_view_controller.html#a5aff2e7292ec0d29ddba0e11398f8b7f">titleTextFieldLabel</a></td></tr>
+<tr class="memdesc:a5aff2e7292ec0d29ddba0e11398f8b7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">title label for uploaded song's textfield <br/></td></tr>
 <tr class="memitem:ad00ab74f3d5835c6f1fa9502e1920dda"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad00ab74f3d5835c6f1fa9502e1920dda"></a>
-IBOutlet UILabel *&#160;</td><td class="memItemRight" valign="bottom"><b>displayedTextLabel</b></td></tr>
-<tr class="memitem:aa0fde742e3e4122f3deb4f9d0e578411"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa0fde742e3e4122f3deb4f9d0e578411"></a>
-IBOutlet UIPageControl *&#160;</td><td class="memItemRight" valign="bottom"><b>uploadCancelButton</b></td></tr>
+IBOutlet UILabel *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_c_b_h_view_controller.html#ad00ab74f3d5835c6f1fa9502e1920dda">displayedTextLabel</a></td></tr>
+<tr class="memdesc:ad00ab74f3d5835c6f1fa9502e1920dda"><td class="mdescLeft">&#160;</td><td class="mdescRight">label to help user see what he is typing <br/></td></tr>
 <tr class="memitem:a08be9a4f15f9d0633f57abb4f1c14640"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a08be9a4f15f9d0633f57abb4f1c14640"></a>
-IBOutlet UIView *&#160;</td><td class="memItemRight" valign="bottom"><b>rankingsView</b></td></tr>
+IBOutlet UIView *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_c_b_h_view_controller.html#a08be9a4f15f9d0633f57abb4f1c14640">rankingsView</a></td></tr>
+<tr class="memdesc:a08be9a4f15f9d0633f57abb4f1c14640"><td class="mdescLeft">&#160;</td><td class="mdescRight">middle view to display songs <br/></td></tr>
 <tr class="memitem:afca87292da93f17d6a6b600068787cb6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afca87292da93f17d6a6b600068787cb6"></a>
-IBOutlet UILabel *&#160;</td><td class="memItemRight" valign="bottom"><b>rankingsTitle</b></td></tr>
+IBOutlet UILabel *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_c_b_h_view_controller.html#afca87292da93f17d6a6b600068787cb6">rankingsTitle</a></td></tr>
+<tr class="memdesc:afca87292da93f17d6a6b600068787cb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">label at the top of the page <br/></td></tr>
 <tr class="memitem:a0eda8ceb83861639e0ee31b816a175c4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0eda8ceb83861639e0ee31b816a175c4"></a>
-IBOutlet UITableView *&#160;</td><td class="memItemRight" valign="bottom"><b>tableView</b></td></tr>
+IBOutlet UITableView *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_c_b_h_view_controller.html#a0eda8ceb83861639e0ee31b816a175c4">tableView</a></td></tr>
+<tr class="memdesc:a0eda8ceb83861639e0ee31b816a175c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">song rankings UITableView <br/></td></tr>
 <tr class="memitem:a74d6f6ed5cc6ccfdcffa8e1db3144010"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a74d6f6ed5cc6ccfdcffa8e1db3144010"></a>
 IBOutlet UIScrollView *&#160;</td><td class="memItemRight" valign="bottom"><b>scrollView</b></td></tr>
 <tr class="memitem:ad2fb5ef0e8398e48631989b5e73301b7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad2fb5ef0e8398e48631989b5e73301b7"></a>
-NSMutableArray *&#160;</td><td class="memItemRight" valign="bottom"><b>songs</b></td></tr>
+NSMutableArray *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_c_b_h_view_controller.html#ad2fb5ef0e8398e48631989b5e73301b7">songs</a></td></tr>
+<tr class="memdesc:ad2fb5ef0e8398e48631989b5e73301b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">array of <a class="el" href="interface_song.html">Song</a> objects <br/></td></tr>
 <tr class="memitem:a76b0218be99b70d947ee5e6950ef518b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a76b0218be99b70d947ee5e6950ef518b"></a>
-NSMutableArray *&#160;</td><td class="memItemRight" valign="bottom"><b>tableViewCells</b></td></tr>
+NSMutableArray *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_c_b_h_view_controller.html#a76b0218be99b70d947ee5e6950ef518b">tableViewCells</a></td></tr>
+<tr class="memdesc:a76b0218be99b70d947ee5e6950ef518b"><td class="mdescLeft">&#160;</td><td class="mdescRight">array of custon <a class="el" href="interface_song_cell.html">SongCell</a> objects <br/></td></tr>
 <tr class="memitem:a376d66eecd90a802c8298102a4f3aa0e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a376d66eecd90a802c8298102a4f3aa0e"></a>
-NSMutableData *&#160;</td><td class="memItemRight" valign="bottom"><b>receivedData</b></td></tr>
+NSMutableData *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_c_b_h_view_controller.html#a376d66eecd90a802c8298102a4f3aa0e">receivedData</a></td></tr>
+<tr class="memdesc:a376d66eecd90a802c8298102a4f3aa0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">received data for NSURLConnections <br/></td></tr>
 <tr class="memitem:a8d3dcdb1e50321762a922585d4150998"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8d3dcdb1e50321762a922585d4150998"></a>
-IBOutlet UISearchBar *&#160;</td><td class="memItemRight" valign="bottom"><b>searchBar</b></td></tr>
+IBOutlet UISearchBar *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_c_b_h_view_controller.html#a8d3dcdb1e50321762a922585d4150998">searchBar</a></td></tr>
+<tr class="memdesc:a8d3dcdb1e50321762a922585d4150998"><td class="mdescLeft">&#160;</td><td class="mdescRight">search bar to search t3k.no <br/></td></tr>
 <tr class="memitem:a81ca49cd3af33077732daa63eb36155d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a81ca49cd3af33077732daa63eb36155d"></a>
-IBOutlet UIButton *&#160;</td><td class="memItemRight" valign="bottom"><b>searchButton</b></td></tr>
+IBOutlet UIButton *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_c_b_h_view_controller.html#a81ca49cd3af33077732daa63eb36155d">searchButton</a></td></tr>
+<tr class="memdesc:a81ca49cd3af33077732daa63eb36155d"><td class="mdescLeft">&#160;</td><td class="mdescRight">magnifying glass button by logo <br/></td></tr>
 <tr class="memitem:ae1cc55bda553d1bedb1b55726035b20a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae1cc55bda553d1bedb1b55726035b20a"></a>
-IBOutlet UIView *&#160;</td><td class="memItemRight" valign="bottom"><b>filterView</b></td></tr>
+IBOutlet UIView *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_c_b_h_view_controller.html#ae1cc55bda553d1bedb1b55726035b20a">filterView</a></td></tr>
+<tr class="memdesc:ae1cc55bda553d1bedb1b55726035b20a"><td class="mdescLeft">&#160;</td><td class="mdescRight">right view that displays filters <br/></td></tr>
 <tr class="memitem:af31b6aa64efbefec22db9335fb4d093b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af31b6aa64efbefec22db9335fb4d093b"></a>
-IBOutlet UITableView *&#160;</td><td class="memItemRight" valign="bottom"><b>filterTableView</b></td></tr>
+IBOutlet UITableView *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_c_b_h_view_controller.html#af31b6aa64efbefec22db9335fb4d093b">filterTableView</a></td></tr>
+<tr class="memdesc:af31b6aa64efbefec22db9335fb4d093b"><td class="mdescLeft">&#160;</td><td class="mdescRight">UITableView with filters (time/genre) <br/></td></tr>
 <tr class="memitem:a63bd8d08d79e12fdbb5d8433a7ce8d39"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a63bd8d08d79e12fdbb5d8433a7ce8d39"></a>
-NSDictionary *&#160;</td><td class="memItemRight" valign="bottom"><b>filterValues</b></td></tr>
+NSDictionary *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_c_b_h_view_controller.html#a63bd8d08d79e12fdbb5d8433a7ce8d39">filterValues</a></td></tr>
+<tr class="memdesc:a63bd8d08d79e12fdbb5d8433a7ce8d39"><td class="mdescLeft">&#160;</td><td class="mdescRight">filterTableView's row values <br/></td></tr>
 <tr class="memitem:a4f3d75d1d8fad73011f6e351b372e3fc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4f3d75d1d8fad73011f6e351b372e3fc"></a>
-NSArray *&#160;</td><td class="memItemRight" valign="bottom"><b>filterKeys</b></td></tr>
+NSArray *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_c_b_h_view_controller.html#a4f3d75d1d8fad73011f6e351b372e3fc">filterKeys</a></td></tr>
+<tr class="memdesc:a4f3d75d1d8fad73011f6e351b372e3fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">filterTableView's section headers <br/></td></tr>
 <tr class="memitem:aeba8178ac2f9737a351499d3b5ad689d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeba8178ac2f9737a351499d3b5ad689d"></a>
-IBOutlet UIPageControl *&#160;</td><td class="memItemRight" valign="bottom"><b>pageControl</b></td></tr>
+IBOutlet UIPageControl *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_c_b_h_view_controller.html#aeba8178ac2f9737a351499d3b5ad689d">pageControl</a></td></tr>
+<tr class="memdesc:aeba8178ac2f9737a351499d3b5ad689d"><td class="mdescLeft">&#160;</td><td class="mdescRight">page control at bottom of page <br/></td></tr>
 </table>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="ac4b48111c33f274a6160f4b2ea39c6cf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (IBAction) <a class="el" href="interface_c_b_h_view_controller.html#ac4b48111c33f274a6160f4b2ea39c6cf">browserBackButtonPressed:</a> </td>
+          <td></td>
+          <td class="paramtype">(id)&#160;</td>
+          <td class="paramname"><em>sender</em></td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Browser's back button. </p>
+<p>goes backwards in the browser's history </p>
+
+</div>
+</div>
+<a class="anchor" id="a3725404e0a3711618b012805d877d698"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (IBAction) <a class="el" href="interface_c_b_h_view_controller.html#a3725404e0a3711618b012805d877d698">browserForwardButtonPressed:</a> </td>
+          <td></td>
+          <td class="paramtype">(id)&#160;</td>
+          <td class="paramname"><em>sender</em></td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Browser's forward button. </p>
+<p>goes forwards in the browser's history </p>
+
+</div>
+</div>
+<a class="anchor" id="a112c0996342c1157f8f97e35379505c9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (IBAction) <a class="el" href="interface_c_b_h_view_controller.html#a112c0996342c1157f8f97e35379505c9">finalUploadButtonPressed:</a> </td>
+          <td></td>
+          <td class="paramtype">(id)&#160;</td>
+          <td class="paramname"><em>sender</em></td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>button to submit song to database </p>
+<p>calls the t3k.no's API and uploads song to the database </p>
+
+</div>
+</div>
+<a class="anchor" id="a7a0248ccf94716a4a8021089bef209a0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (IBAction) <a class="el" href="interface_c_b_h_view_controller.html#a7a0248ccf94716a4a8021089bef209a0">finalUploadCancelButtonPressed:</a> </td>
+          <td></td>
+          <td class="paramtype">(id)&#160;</td>
+          <td class="paramname"><em>sender</em></td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>button to cancel user's upload </p>
+<p>cancel's the user's upload and shows the youtube UIWebView </p>
+
+</div>
+</div>
+<a class="anchor" id="ae6fff149ad9ab682542ba17084cc4591"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (IBAction) <a class="el" href="interface_c_b_h_view_controller.html#ae6fff149ad9ab682542ba17084cc4591">homeButtonPressed:</a> </td>
+          <td></td>
+          <td class="paramtype">(id)&#160;</td>
+          <td class="paramname"><em>sender</em></td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Browser's home button. </p>
+<p>navigates the youtube UIWebView to YouTube's mobile home page </p>
+
+</div>
+</div>
+<a class="anchor" id="ae0ed377f106975b88087f3a18cf307ae"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (IBAction) <a class="el" href="interface_c_b_h_view_controller.html#ae0ed377f106975b88087f3a18cf307ae">refreshButtonPressed:</a> </td>
+          <td></td>
+          <td class="paramtype">(id)&#160;</td>
+          <td class="paramname"><em>sender</em></td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Browser's refresh button. </p>
+<p>refreshes the youtube UIWebView </p>
+
+</div>
+</div>
+<a class="anchor" id="a7bfb39d15e6ff5f1ea9593e79999aa56"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (IBAction) <a class="el" href="interface_c_b_h_view_controller.html#a7bfb39d15e6ff5f1ea9593e79999aa56">uploadButtonPressed:</a> </td>
+          <td></td>
+          <td class="paramtype">(id)&#160;</td>
+          <td class="paramname"><em>sender</em></td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>initial upload button in browser bar </p>
+<p>checks to see if the users has navigated to a youtube song if the user has navigated to a youtube song, show the upload details view </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>t3kno/t3kno/<a class="el" href="_c_b_h_view_controller_8h_source.html">CBHViewController.h</a></li>
 <li>t3kno/t3kno/CBHViewController.m</li>
@@ -196,7 +366,7 @@ IBOutlet UIPageControl *&#160;</td><td class="memItemRight" valign="bottom"><b>p
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 29 2012 19:22:58 for t3k.no iPhone App Documentation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 29 2012 20:24:27 for t3k.no iPhone App Documentation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

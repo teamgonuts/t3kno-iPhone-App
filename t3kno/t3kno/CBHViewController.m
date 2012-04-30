@@ -37,11 +37,9 @@
 @synthesize videoTitleLabel;
 @synthesize titleTextFieldLabel;
 @synthesize displayedTextLabel;
-@synthesize uploadCancelButton;
 @synthesize finalUploadSongView;
 @synthesize logoImageView;
 @synthesize scrollView;
-@synthesize searchView;
 @synthesize youtubeWebView;
 @synthesize filterView;
 @synthesize filterTableView;
@@ -150,7 +148,6 @@
     [self setScrollView:nil];
     [self setPageControl:nil];
     [self setFilterView:nil];
-    [self setSearchView:nil];
     [self setUploadytcode:nil];
     
     [self setFilterTableView:nil];
@@ -170,7 +167,6 @@
     [self setUsernameTextField:nil];
     [self setTitleTextFieldLabel:nil];
     [self setDisplayedTextLabel:nil];
-    [self setUploadCancelButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -207,12 +203,8 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-    } else {
-        return YES;
-    }
+    //no other interfaces are supported
+    return NO;
 }
 
 - (void)dealloc {
@@ -221,7 +213,6 @@
     [scrollView release];
     [pageControl release];
     [filterView release];
-    [searchView release];
     [filterTableView release];
     [logoImageView release];
     [searchButton release];
@@ -239,7 +230,6 @@
     [usernameTextField release];
     [titleTextFieldLabel release];
     [displayedTextLabel release];
-    [uploadCancelButton release];
     [super dealloc];
     
 }
@@ -247,7 +237,7 @@
 
 #pragma mark -
 #pragma mark Rankings View
-//scrolls to the middle view
+///scrolls to the middle of the scrollview to display the rankings
 -(void)scrollToMiddleView{
     CGRect frame;
     frame.origin.x = scrollView.frame.size.width; //scroll to middle
@@ -256,7 +246,7 @@
     [self.scrollView scrollRectToVisible:frame animated:YES];
 }
 
-//if there is a song in the rankings that is open, close it
+///if there is a song in the rankings that is open, close it
 -(void)closeExpandedSong{
     bool debug = false;
     if(debug) NSLog(@"--about to delete row: %d", expandedRow);
@@ -280,7 +270,7 @@
     }
 }
 
-
+///calls the t3k.no API and reloads all the songs in the rankings tableview
 - (IBAction)loadTableView:(id)sender {
     bool debug = false;
     if (debug){
@@ -323,8 +313,7 @@
 #pragma mark -
 #pragma mark Filter Table View
 
-//method will set the new filters based on the filter tableview's selections
-//method will also refresh the title and reload the rankings tableview
+///sets the new timefilter and genrefilter based on the filtertableview's selections
 - (void) refreshFilters
 {
     bool debug = false;
@@ -381,6 +370,7 @@
     [self loadTableView:nil];
 }
 
+///refreshes the rankings title based off the filters
 - (void) refreshTitle{
     bool debug = false;
     if (debug){
@@ -421,14 +411,33 @@
 
 #pragma mark -
 #pragma mark Upload View Methods
+///goes backwards in the browser's history
 - (IBAction)browserBackButtonPressed:(id)sender {
     [youtubeWebView goBack];
 }
 
+///goes forwards in the browser's history
 - (IBAction)browserForwardButtonPressed:(id)sender {
     [youtubeWebView goForward];
 }
 
+///refreshes the youtube UIWebView
+- (IBAction)refreshButtonPressed:(id)sender {
+    [youtubeWebView reload];
+}
+
+///navigates the youtube UIWebView to YouTube's mobile home page
+- (IBAction)homeButtonPressed:(id)sender {
+    NSURL *urlToRequest = [NSURL URLWithString:@"http://m.youtube.com"];
+    
+    // Create the request.
+    NSURLRequest *urlRequest=[NSURLRequest requestWithURL:urlToRequest
+                                              cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                          timeoutInterval:60.0];
+    [youtubeWebView loadRequest:urlRequest];
+}
+
+///checks to see if the users has navigated to a youtube song if the user has navigated to a youtube song, show the upload details view
 - (IBAction)uploadButtonPressed:(id)sender {
     bool debug = YES;
     if (debug) NSLog(@"uploadButton Pressed!");
@@ -470,20 +479,7 @@
     
 }
 
-- (IBAction)refreshButtonPressed:(id)sender {
-    [youtubeWebView reload];
-}
-
-- (IBAction)homeButtonPressed:(id)sender {
-    NSURL *urlToRequest = [NSURL URLWithString:@"http://m.youtube.com"];
-    
-    // Create the request.
-    NSURLRequest *urlRequest=[NSURLRequest requestWithURL:urlToRequest
-                                              cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                          timeoutInterval:60.0];
-    [youtubeWebView loadRequest:urlRequest];
-}
-
+///cancel's the user's upload and shows the youtube UIWebView
 - (IBAction)finalUploadCancelButtonPressed:(id)sender {
     finalUploadSongView.hidden = YES;
     
@@ -494,6 +490,7 @@
     genreTextField.text = @"";
 }
 
+///calls the t3k.no's API and uploads song to the database
 - (IBAction)finalUploadButtonPressed:(id)sender {
     //making sure the user entered valid details
     if (titleTextField.text.length <= 0){
@@ -824,7 +821,7 @@ shouldChangeCharactersInRange:(NSRange)range
 #pragma -
 #pragma mark Search Bar Delegate Methods
 
-
+///show/hides the search bar (searchs t3k.no's database
 - (IBAction)seachButtonIconPressed:(id)sender {
     bool debug = false;
     if (debug) NSLog(@"SearchButtonPressed");
