@@ -9,17 +9,7 @@
 #import "Song.h"
 
 @implementation Song
-- (Song *) initWithTitle:(NSString *)title_i 
-               andArtist:(id)artist_i
-                andGenre:(id)genre_i 
-                andScore:(id)score_i
-                 andUser:(id)user_i{
-    title = title_i;
-    artist = artist_i;
-    genre = genre_i;
-    score = score_i;
-    return (self);
-}
+
 
 - (Song *) initWithDictionary:(NSDictionary *)songDictionary{
     title = [self cleanString:[songDictionary objectForKey:@"title"]];

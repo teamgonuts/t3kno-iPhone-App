@@ -11,14 +11,14 @@
 
 @interface SongCell : UITableViewCell{
     @public
-    bool expanded;
+    bool expanded; ///<if the song has an expanded cell attached to it
 }
-@property (retain, nonatomic) IBOutlet UILabel *titleLabel;
+@property (retain, nonatomic) IBOutlet UILabel *titleLabel; ///<UILabel for song's title
 
-@property (retain, nonatomic) IBOutlet UILabel *artistLabel;
+@property (retain, nonatomic) IBOutlet UILabel *artistLabel;///<UILabel for song's artist
 
-@property (retain, nonatomic) IBOutlet UIImageView *bgImage;
-@property (retain, nonatomic) IBOutlet UILabel *genreLabel;
-@property (retain, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (retain, nonatomic) IBOutlet UIImageView *bgImage;///<custon bg image for SongCell
+@property (retain, nonatomic) IBOutlet UILabel *genreLabel;///<UILabel for song's genre
+@property (retain, nonatomic) IBOutlet UILabel *scoreLabel;///<UILabel for song's score
 
 @end

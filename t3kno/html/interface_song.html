@@ -81,7 +81,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Properties</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Properties</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -102,26 +102,32 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a98add8780c79764b02261ce2ed6ae133"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a98add8780c79764b02261ce2ed6ae133"></a>
-(<a class="el" href="interface_song.html">Song</a> *)&#160;</td><td class="memItemRight" valign="bottom">- <b>initWithTitle:andArtist:andGenre:andScore:andUser:</b></td></tr>
 <tr class="memitem:a2189d269474a6d6e0c50402d4956b776"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2189d269474a6d6e0c50402d4956b776"></a>
-(<a class="el" href="interface_song.html">Song</a> *)&#160;</td><td class="memItemRight" valign="bottom">- <b>initWithDictionary:</b></td></tr>
+(<a class="el" href="interface_song.html">Song</a> *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_song.html#a2189d269474a6d6e0c50402d4956b776">initWithDictionary:</a></td></tr>
+<tr class="memdesc:a2189d269474a6d6e0c50402d4956b776"><td class="mdescLeft">&#160;</td><td class="mdescRight">initializes the song object with an NSMutableDictionary <br/></td></tr>
 <tr class="memitem:ad0fff5566893db83037ec2c93987c198"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad0fff5566893db83037ec2c93987c198"></a>
-(NSString *)&#160;</td><td class="memItemRight" valign="bottom">- <b>cleanString:</b></td></tr>
+(NSString *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_song.html#ad0fff5566893db83037ec2c93987c198">cleanString:</a></td></tr>
+<tr class="memdesc:ad0fff5566893db83037ec2c93987c198"><td class="mdescLeft">&#160;</td><td class="mdescRight">cleans the string of any weird characters before displaying <br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
 <tr class="memitem:a637f23ec316ab21f34752347e0b9b2b3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a637f23ec316ab21f34752347e0b9b2b3"></a>
-NSString *&#160;</td><td class="memItemRight" valign="bottom"><b>ytcode</b></td></tr>
+NSString *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_song.html#a637f23ec316ab21f34752347e0b9b2b3">ytcode</a></td></tr>
+<tr class="memdesc:a637f23ec316ab21f34752347e0b9b2b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">song's unique video code <br/></td></tr>
 <tr class="memitem:ad39b2fbc36bb32f1287f61db3d3477a1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad39b2fbc36bb32f1287f61db3d3477a1"></a>
-NSString *&#160;</td><td class="memItemRight" valign="bottom"><b>title</b></td></tr>
+NSString *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_song.html#ad39b2fbc36bb32f1287f61db3d3477a1">title</a></td></tr>
+<tr class="memdesc:ad39b2fbc36bb32f1287f61db3d3477a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">song's title <br/></td></tr>
 <tr class="memitem:a5216e2b124d6c4f7212c6453c5d4275c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5216e2b124d6c4f7212c6453c5d4275c"></a>
-NSString *&#160;</td><td class="memItemRight" valign="bottom"><b>artist</b></td></tr>
+NSString *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_song.html#a5216e2b124d6c4f7212c6453c5d4275c">artist</a></td></tr>
+<tr class="memdesc:a5216e2b124d6c4f7212c6453c5d4275c"><td class="mdescLeft">&#160;</td><td class="mdescRight">song's artist <br/></td></tr>
 <tr class="memitem:a7c1b0908f1c1baf659631685277af454"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7c1b0908f1c1baf659631685277af454"></a>
-NSString *&#160;</td><td class="memItemRight" valign="bottom"><b>genre</b></td></tr>
+NSString *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_song.html#a7c1b0908f1c1baf659631685277af454">genre</a></td></tr>
+<tr class="memdesc:a7c1b0908f1c1baf659631685277af454"><td class="mdescLeft">&#160;</td><td class="mdescRight">song's genre <br/></td></tr>
 <tr class="memitem:a5f98c15a134637438ef145ef3a6e8a62"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5f98c15a134637438ef145ef3a6e8a62"></a>
-NSString *&#160;</td><td class="memItemRight" valign="bottom"><b>score</b></td></tr>
+NSString *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_song.html#a5f98c15a134637438ef145ef3a6e8a62">score</a></td></tr>
+<tr class="memdesc:a5f98c15a134637438ef145ef3a6e8a62"><td class="mdescLeft">&#160;</td><td class="mdescRight">song's score <br/></td></tr>
 <tr class="memitem:a7976ff65e4b8771bfb5f1b8b3a4b791e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7976ff65e4b8771bfb5f1b8b3a4b791e"></a>
-NSString *&#160;</td><td class="memItemRight" valign="bottom"><b>user</b></td></tr>
+NSString *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_song.html#a7976ff65e4b8771bfb5f1b8b3a4b791e">user</a></td></tr>
+<tr class="memdesc:a7976ff65e4b8771bfb5f1b8b3a4b791e"><td class="mdescLeft">&#160;</td><td class="mdescRight">user that uploaded the song <br/></td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>t3kno/t3kno/<a class="el" href="_song_8h_source.html">Song.h</a></li>
@@ -131,7 +137,7 @@ NSString *&#160;</td><td class="memItemRight" valign="bottom"><b>user</b></td></
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 29 2012 20:27:56 for t3k.no iPhone App Documentation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 29 2012 20:34:24 for t3k.no iPhone App Documentation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

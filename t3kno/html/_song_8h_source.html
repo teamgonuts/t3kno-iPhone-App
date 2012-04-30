@@ -80,7 +80,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Properties</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Properties</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -106,30 +106,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00010"></a>00010 
 <a name="l00011"></a><a class="code" href="interface_song.html">00011</a> <span class="keyword">@interface </span><a class="code" href="interface_song.html">Song</a> : NSObject{
 <a name="l00012"></a>00012     <span class="keyword">@public</span>
-<a name="l00013"></a>00013     NSString *ytcode;
-<a name="l00014"></a>00014     NSString *title;
-<a name="l00015"></a>00015     NSString *artist;
-<a name="l00016"></a>00016     NSString *genre;
-<a name="l00017"></a>00017     NSString *score;
-<a name="l00018"></a>00018     NSString *user;
+<a name="l00013"></a><a class="code" href="interface_song.html#a637f23ec316ab21f34752347e0b9b2b3">00013</a>     NSString *<a class="code" href="interface_song.html#a637f23ec316ab21f34752347e0b9b2b3" title="song&#39;s unique video code">ytcode</a>; 
+<a name="l00014"></a><a class="code" href="interface_song.html#ad39b2fbc36bb32f1287f61db3d3477a1">00014</a>     NSString *<a class="code" href="interface_song.html#ad39b2fbc36bb32f1287f61db3d3477a1" title="song&#39;s title">title</a>;
+<a name="l00015"></a><a class="code" href="interface_song.html#a5216e2b124d6c4f7212c6453c5d4275c">00015</a>     NSString *<a class="code" href="interface_song.html#a5216e2b124d6c4f7212c6453c5d4275c" title="song&#39;s artist">artist</a>;
+<a name="l00016"></a><a class="code" href="interface_song.html#a7c1b0908f1c1baf659631685277af454">00016</a>     NSString *<a class="code" href="interface_song.html#a7c1b0908f1c1baf659631685277af454" title="song&#39;s genre">genre</a>;
+<a name="l00017"></a><a class="code" href="interface_song.html#a5f98c15a134637438ef145ef3a6e8a62">00017</a>     NSString *<a class="code" href="interface_song.html#a5f98c15a134637438ef145ef3a6e8a62" title="song&#39;s score">score</a>;
+<a name="l00018"></a><a class="code" href="interface_song.html#a7976ff65e4b8771bfb5f1b8b3a4b791e">00018</a>     NSString *<a class="code" href="interface_song.html#a7976ff65e4b8771bfb5f1b8b3a4b791e" title="user that uploaded the song">user</a>;
 <a name="l00019"></a>00019 }
 <a name="l00020"></a>00020 
-<a name="l00021"></a>00021 - (<a class="code" href="interface_song.html">Song</a> *) initWithTitle: (NSString *) title_i
-<a name="l00022"></a>00022                andArtist: artist_i
-<a name="l00023"></a>00023                 andGenre: genre_i
-<a name="l00024"></a>00024                 andScore: score_i
-<a name="l00025"></a>00025                  andUser: user_i;
-<a name="l00026"></a>00026 
-<a name="l00027"></a>00027 - (<a class="code" href="interface_song.html">Song</a> *) initWithDictionary: (NSDictionary *) songDictionary;
-<a name="l00028"></a>00028 
-<a name="l00029"></a>00029 - (NSString *) cleanString: (NSString *)dirtyString;
-<a name="l00030"></a>00030 
-<a name="l00031"></a>00031 <span class="keyword">@end</span>
+<a name="l00021"></a>00021 
+<a name="l00022"></a>00022 - (<a class="code" href="interface_song.html">Song</a> *) initWithDictionary: (NSDictionary *) songDictionary;
+<a name="l00023"></a>00023 
+<a name="l00024"></a>00024 - (NSString *) cleanString: (NSString *)dirtyString; 
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026 <span class="keyword">@end</span>
 </pre></div></div><!-- contents -->
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 29 2012 20:27:56 for t3k.no iPhone App Documentation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 29 2012 20:34:24 for t3k.no iPhone App Documentation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

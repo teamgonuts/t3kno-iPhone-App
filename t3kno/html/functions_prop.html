@@ -80,12 +80,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="functions.html"><span>All</span></a></li>
       <li><a href="functions_func.html"><span>Functions</span></a></li>
+      <li><a href="functions_vars.html"><span>Variables</span></a></li>
       <li class="current"><a href="functions_prop.html"><span>Properties</span></a></li>
     </ul>
   </div>
   <div id="navrow4" class="tabs3">
     <ul class="tablist">
       <li><a href="#index_a"><span>a</span></a></li>
+      <li><a href="#index_b"><span>b</span></a></li>
       <li><a href="#index_d"><span>d</span></a></li>
       <li><a href="#index_f"><span>f</span></a></li>
       <li><a href="#index_g"><span>g</span></a></li>
@@ -106,7 +108,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Properties</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Properties</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -119,8 +121,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 &#160;
 
 <h3><a class="anchor" id="index_a"></a>- a -</h3><ul>
+<li>artistLabel
+: <a class="el" href="interface_song_cell.html#a5f4d80b3acc9a649d879e52f843e6fef">SongCell</a>
+</li>
 <li>artistTextField
 : <a class="el" href="interface_c_b_h_view_controller.html#ad98203c999347b05e41153153f9a09da">CBHViewController</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_b"></a>- b -</h3><ul>
+<li>bgImage
+: <a class="el" href="interface_song_cell.html#aba70af84a450137df72c13c45b117f0c">SongCell</a>
 </li>
 </ul>
 
@@ -152,6 +164,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <h3><a class="anchor" id="index_g"></a>- g -</h3><ul>
+<li>genreLabel
+: <a class="el" href="interface_song_cell.html#a7cc4fe49be0d4422608c3d8c9e956594">SongCell</a>
+</li>
 <li>genrePicker
 : <a class="el" href="interface_c_b_h_view_controller.html#ae5b2756df0c2a7615601923043519dea">CBHViewController</a>
 </li>
@@ -195,6 +210,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
 <li>scoreLabel
 : <a class="el" href="interface_expanded_song_cell.html#aecc623a9c8837b2511980cb2dd331cf4">ExpandedSongCell</a>
+, <a class="el" href="interface_song_cell.html#aecc623a9c8837b2511980cb2dd331cf4">SongCell</a>
 </li>
 <li>searchBar
 : <a class="el" href="interface_c_b_h_view_controller.html#a8d3dcdb1e50321762a922585d4150998">CBHViewController</a>
@@ -220,6 +236,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>thumbnailWebView
 : <a class="el" href="interface_c_b_h_view_controller.html#ac45c42f77d2b9716de9121d17d03b2a3">CBHViewController</a>
+</li>
+<li>titleLabel
+: <a class="el" href="interface_song_cell.html#a8e0a134662f4cb7ccaefa05eb89a8564">SongCell</a>
 </li>
 <li>titleTextField
 : <a class="el" href="interface_c_b_h_view_controller.html#ad6496527c6783d1937a1fd87789b03e6">CBHViewController</a>
@@ -263,7 +282,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 29 2012 20:27:56 for t3k.no iPhone App Documentation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 29 2012 20:34:24 for t3k.no iPhone App Documentation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

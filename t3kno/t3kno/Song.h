@@ -10,22 +10,17 @@
 
 @interface Song : NSObject{
     @public
-    NSString *ytcode;
-    NSString *title;
-    NSString *artist;
-    NSString *genre;
-    NSString *score;
-    NSString *user;
+    NSString *ytcode; ///<song's unique video code
+    NSString *title;///<song's title
+    NSString *artist;///<song's artist
+    NSString *genre;///<song's genre
+    NSString *score;///<song's score
+    NSString *user;///<user that uploaded the song
 }
 
-- (Song *) initWithTitle: (NSString *) title_i
-               andArtist: artist_i
-                andGenre: genre_i
-                andScore: score_i
-                 andUser: user_i;
 
-- (Song *) initWithDictionary: (NSDictionary *) songDictionary;
+- (Song *) initWithDictionary: (NSDictionary *) songDictionary;///<initializes the song object with an NSMutableDictionary
 
-- (NSString *) cleanString: (NSString *)dirtyString;
+- (NSString *) cleanString: (NSString *)dirtyString; ///<cleans the string of any weird characters before displaying
 
 @end
