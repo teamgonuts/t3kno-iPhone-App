@@ -442,7 +442,7 @@
 
 ///checks to see if the users has navigated to a youtube song if the user has navigated to a youtube song, show the upload details view
 - (IBAction)uploadButtonPressed:(id)sender {
-    bool debug = YES;
+    bool debug = NO;
     if (debug) NSLog(@"uploadButton Pressed!");
     NSString *currentURL = [youtubeWebView stringByEvaluatingJavaScriptFromString:@"window.location.href"];
     URLParser *parsey = [[URLParser alloc] initWithURLString:currentURL];
