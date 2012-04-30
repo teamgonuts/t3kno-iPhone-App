@@ -26,6 +26,9 @@
 #define _tranceRow 6
 
 @implementation CBHViewController
+@synthesize genreFilter;
+@synthesize timeFilter;
+@synthesize uploadConnection;
 @synthesize titlePlaceHolder;
 @synthesize pageControlBeingUsed;
 @synthesize scrolledFromUploadView;
@@ -154,7 +157,10 @@
     [self setFilterView:nil];
     [self setUploadytcode:nil];
     [self setTitlePlaceHolder:nil];
+    [self setGenreFilter:nil];
+    [self setTimeFilter:nil];
     
+    [self setUploadConnection:nil];
     [self setFilterTableView:nil];
     [self setSearchButton:nil];
     [self setLogoImageView:nil];
@@ -239,6 +245,10 @@
     [titleTextFieldLabel release];
     [displayedTextLabel release];
     [titlePlaceHolder release];
+    [uploadConnection release];
+    [timeFilter release];
+    [genreFilter release];
+    
     [super dealloc];
     
 }

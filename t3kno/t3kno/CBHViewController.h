@@ -12,11 +12,11 @@
 <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UIScrollViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>{
     //bool pageControlBeingUsed;
     //int expandedRow;
-    NSString *genreFilter;
-    NSString *timeFilter;
+    //NSString *genreFilter;
+    //NSString *timeFilter;
     //bool scrolledFromUploadView;
     //NSMutableString *titlePlaceHolder;
-    NSURLConnection *uploadConnection;
+    //NSURLConnection *uploadConnection;
 }
 
 //universal
@@ -25,6 +25,8 @@
 @property int expandedRow;
 @property bool scrolledFromUploadView;
 @property (retain, nonatomic) NSMutableString *titlePlaceHolder;
+@property (retain, nonatomic) NSString *genreFilter;
+@property (retain, nonatomic) NSString *timeFilter;
 
 //upload (Youtube) view
 @property (retain, nonatomic) IBOutlet UIWebView *youtubeWebView; ///<view to upload youtube songs
@@ -35,6 +37,7 @@
 - (IBAction)homeButtonPressed:(id)sender;///<Browser's home button
 
 //final upload song view
+@property (retain, nonatomic) NSURLConnection *uploadConnection;
 @property (strong, nonatomic) NSString *uploadytcode;///<youtube video code of the song to be uploaded
 @property (strong, nonatomic) IBOutlet UIPickerView *genrePicker;///<UIPickerView to select a genre for uploaded song
 @property (strong, nonatomic) NSArray *genrePickerData;///<Data for genrePicker (UIPickerView)
