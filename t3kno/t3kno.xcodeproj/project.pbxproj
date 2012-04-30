@@ -68,7 +68,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BD4F0E9F1530D75E00573F67 /* t3kno.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = t3kno.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD4F0E9F1530D75E00573F67 /* t3k.no.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = t3k.no.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD4F0EA31530D75E00573F67 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BD4F0EA51530D75E00573F67 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BD4F0EA71530D75E00573F67 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -187,7 +187,7 @@
 		BD4F0EA01530D75E00573F67 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BD4F0E9F1530D75E00573F67 /* t3kno.app */,
+				BD4F0E9F1530D75E00573F67 /* t3k.no.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -343,7 +343,7 @@
 			);
 			name = t3kno;
 			productName = t3kno;
-			productReference = BD4F0E9F1530D75E00573F67 /* t3kno.app */;
+			productReference = BD4F0E9F1530D75E00573F67 /* t3k.no.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -522,7 +522,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "t3kno/t3kno-Prefix.pch";
 				INFOPLIST_FILE = "t3kno/t3kno-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = t3k.no;
 				PROVISIONING_PROFILE = "9EF4D596-CB8A-4644-99C7-7A766E5F492A";
 				WRAPPER_EXTENSION = app;
 			};
@@ -535,7 +535,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "t3kno/t3kno-Prefix.pch";
 				INFOPLIST_FILE = "t3kno/t3kno-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = t3k.no;
 				PROVISIONING_PROFILE = "9EF4D596-CB8A-4644-99C7-7A766E5F492A";
 				WRAPPER_EXTENSION = app;
 			};

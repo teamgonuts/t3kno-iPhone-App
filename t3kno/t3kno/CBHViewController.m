@@ -262,6 +262,7 @@
     if (debug) NSLog(@"about to change bgImage for cell with title: %@", cell.titleLabel.text);
     cell.bgImage.image = [UIImage imageNamed:@"songcell_bg5.png"];
     cell.scoreLabel.hidden = NO;
+    cell->expanded = NO;
     
     //remove the expandedRow
     if (expandedRow != -1){ //if there is a row open
@@ -445,6 +446,7 @@
     bool debug = NO;
     if (debug) NSLog(@"uploadButton Pressed!");
     NSString *currentURL = [youtubeWebView stringByEvaluatingJavaScriptFromString:@"window.location.href"];
+    NSLog(@"currentURL: %@", currentURL);
     URLParser *parsey = [[URLParser alloc] initWithURLString:currentURL];
     uploadytcode = [[parsey valueForVariable:@"v"] retain];
     if (debug) NSLog(@"ytcode: %@", uploadytcode);
@@ -998,6 +1000,7 @@ shouldChangeCharactersInRange:(NSRange)range
     
 }
 
+
 - (UITableViewCell *)tableView:(UITableView *)songTableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     bool debug = false;
@@ -1023,6 +1026,7 @@ shouldChangeCharactersInRange:(NSRange)range
             //embedding youtube video with flash
             //cleaner embed but launches in landscape mode
             NSString *playerHTML = [[NSString alloc] initWithFormat:@"<html><head> <meta name = \"viewport\" content = \"initial-scale = 1.0, user-scalable = no, width = 88\"/></head><body style=\"background:#F00;margin-top:0px;margin-left:0px\"><div><object width=\"88\" height=\"60\"><param name=\"movie\" value=\"http://www.youtube.com/v/%@\"></param><param name=\"wmode\" value=\"transparent\"></param><embed src=\"http://www.youtube.com/v/%@\"type=\"application/x-shockwave-flash\" wmode=\"transparent\" width=\"88\" height=\"60\"></embed></object></div></body></html>", ytcode, ytcode];
+            
             
             //embed using iFrame
             //breaks in 3G for some videos
