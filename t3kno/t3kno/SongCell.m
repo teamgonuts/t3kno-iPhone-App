@@ -14,6 +14,7 @@
 @synthesize bgImage;
 @synthesize genreLabel;
 @synthesize scoreLabel;
+@synthesize expanded;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

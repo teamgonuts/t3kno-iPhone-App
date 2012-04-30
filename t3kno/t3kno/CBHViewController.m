@@ -262,7 +262,7 @@
     if (debug) NSLog(@"about to change bgImage for cell with title: %@", cell.titleLabel.text);
     cell.bgImage.image = [UIImage imageNamed:@"songcell_bg5.png"];
     cell.scoreLabel.hidden = NO;
-    cell->expanded = NO;
+    cell.expanded = NO;
     
     //remove the expandedRow
     if (expandedRow != -1){ //if there is a row open
@@ -989,11 +989,11 @@ shouldChangeCharactersInRange:(NSRange)range
         
         //quick fix to error: if the song is displaying it's expanded but actually not
         //change the images bg and set it to not expanded
-        if(tempSongCell->expanded == YES && indexPath.row != (expandedRow - 1))
+        if(tempSongCell.expanded == YES && indexPath.row != (expandedRow - 1))
         {
             if (debug) NSLog(@"--changing bgimage!");
             ((SongCell *)cell).bgImage.image  = [UIImage imageNamed:@"songcell_bg5.png"];
-            ((SongCell *)cell)->expanded = NO;
+            ((SongCell *)cell).expanded = NO;
         }
         
     }
@@ -1164,7 +1164,7 @@ didSelectRowAtIndexPath: (NSIndexPath *)indexPath
             return;
         
         SongCell *cell = (SongCell *)[songTableView cellForRowAtIndexPath:indexPath];
-        if (cell->expanded == NO)
+        if (cell.expanded == NO)
         {
             if (debug) NSLog(@"row clicked: %d" , [indexPath row]);
             
@@ -1184,7 +1184,7 @@ didSelectRowAtIndexPath: (NSIndexPath *)indexPath
             
             //change cell image
             cell.bgImage.image = [UIImage imageNamed:@"songcell_bg4_click.png"];
-            cell->expanded = YES;
+            cell.expanded = YES;
             cell.scoreLabel.hidden = YES;
             
             //add new cell below
@@ -1197,7 +1197,7 @@ didSelectRowAtIndexPath: (NSIndexPath *)indexPath
         }
         else 
         { //cell is already open, so close it
-            cell->expanded = NO;
+            cell.expanded = NO;
             if(debug) NSLog(@"--about to delete row: %d", expandedRow);
             [self closeExpandedSong];
         }
