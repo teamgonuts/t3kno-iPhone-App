@@ -794,6 +794,8 @@ shouldChangeCharactersInRange:(NSRange)range
         usernameTextField.text = @"";
         genreTextField.text = @"";
         
+        
+        
         [self loadTableView:nil];
 
         
@@ -1223,6 +1225,10 @@ didSelectRowAtIndexPath: (NSIndexPath *)indexPath
     // =============================   
     else if (songTableView == filterTableView)
     {
+        
+        //if there is an expanded cell, close it
+        [self closeExpandedSong];
+        
         bool debug2 = false;
         NSArray *selectedRows = [filterTableView indexPathsForSelectedRows];
         
